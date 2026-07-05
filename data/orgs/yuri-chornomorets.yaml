@@ -1,0 +1,9 @@
+id: yuri-chornomorets
+name: "Yuri Chornomorets"
+type: ua-volunteer
+status: active
+handles: { x: Y_Chornomorets }
+links:
+  website: https://chornomorets.notepin.co
+description: "Supply of ammunition, optical sights and similar equipment."
+last_verified: 2025-08-23

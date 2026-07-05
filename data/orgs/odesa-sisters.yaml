@@ -1,0 +1,12 @@
+id: odesa-sisters
+name: "Odesa Sisters"
+type: ua-volunteer
+status: active
+handles: { x: OdesaSisters }
+links:
+  other:
+    - { label: "Antonina", url: "https://x.com/antoninaodessa" }
+    - { label: "Tatyana", url: "https://x.com/tatyanaodesssa" }
+description: "Make and supply uniforms for the AFU."
+payment_note: "See Antonina's pinned post for fundraising details."
+last_verified: 2025-08-23

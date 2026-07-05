@@ -1,0 +1,72 @@
+baseURL = "https://ukraineaidnexus.org/"   # change to your domain or https://<user>.github.io/<repo>/
+title = "Ukraine NGOs & Volunteers"
+enableRobotsTXT = true
+disableKinds = ["taxonomy", "term"]
+defaultContentLanguage = "en"
+defaultContentLanguageInSubdir = false
+
+[params]
+  tagline = "A curated list of Ukrainian organisations and volunteers supporting Ukraine's defence and its people."
+  contact_x = "mrdouglashall"           # X handle, without @
+  contact_x_id = "1345747076387364873"  # your NUMERIC X user ID; if set, the X link opens a DM compose window instead of your profile
+  contact_telegram = "mrdouglashall"    # Telegram username, without @ (renders t.me link); leave "" to hide
+  contact_signal = ""                   # full signal.me link, e.g. https://signal.me/#eu/XXXX; leave "" to hide
+
+[languages]
+  [languages.en]
+    locale = "en-GB"
+    label = "English"
+    weight = 1
+    [languages.en.params]
+      flag = "🇬🇧"
+  [languages.ua]
+    title = "НУО та волонтери України"
+    locale = "uk-UA"
+    label = "Українська"
+    weight = 2
+    [languages.ua.params]
+      flag = "🇺🇦"
+      tagline = "Кураторський список українських організацій та волонтерів, що підтримують оборону України та її людей."
+  [languages.fr]
+    title = "ONG et bénévoles d'Ukraine"
+    locale = "fr-FR"
+    label = "Français"
+    weight = 3
+    [languages.fr.params]
+      flag = "🇫🇷"
+      tagline = "Une liste organisée d'organisations et de bénévoles ukrainiens soutenant la défense de l'Ukraine et sa population."
+  [languages.pl]
+    title = "Organizacje i wolontariusze Ukrainy"
+    locale = "pl-PL"
+    label = "Polski"
+    weight = 4
+    [languages.pl.params]
+      flag = "🇵🇱"
+      tagline = "Kuratorowana lista ukraińskich organizacji i wolontariuszy wspierających obronę Ukrainy i jej mieszkańców."
+  [languages.de]
+    title = "NGOs & Freiwillige für die Ukraine"
+    locale = "de-DE"
+    label = "Deutsch"
+    weight = 5
+    [languages.de.params]
+      flag = "🇩🇪"
+      tagline = "Eine kuratierte Liste ukrainischer Organisationen und Freiwilliger, die die Verteidigung der Ukraine und ihre Menschen unterstützen."
+  [languages.nl]
+    title = "Ngo's & vrijwilligers voor Oekraïne"
+    locale = "nl-NL"
+    label = "Nederlands"
+    weight = 6
+    [languages.nl.params]
+      flag = "🇳🇱"
+      tagline = "Een samengestelde lijst van Oekraïense organisaties en vrijwilligers die de verdediging van Oekraïne en haar mensen steunen."
+  [languages.ru]
+    title = "НКО и волонтёры Украины"
+    locale = "ru-RU"
+    label = "Русский"
+    weight = 7
+    [languages.ru.params]
+      flag = ""
+      tagline = "Кураторский список украинских организаций и волонтёров, поддерживающих оборону Украины и её людей."
+
+[markup.goldmark.renderer]
+  unsafe = true

@@ -1,0 +1,26 @@
+{{ define "main" }}
+<section class="intro">{{ .Content }}</section>
+
+<section class="directory">
+  <h2><span class="rule"></span>{{ i18n "follow_heading" }}</h2>
+  {{ $items := slice }}
+  {{ range $f, $a := hugo.Data.follow }}{{ if not $a.draft }}{{ $items = $items | append $a }}{{ end }}{{ end }}
+  <div class="cards">
+    {{ range sort $items "name" }}
+    <article class="card org" id="follow-{{ .id }}">
+      <header>
+        <h3>{{ .name }}</h3>
+        {{ with .category }}<div class="badges"><span class="badge reg">{{ . }}</span></div>{{ end }}
+      </header>
+      <p class="desc">{{ .why }}</p>
+      <ul class="links">
+        {{ with .handles }}{{ with .x }}<li><a href="https://x.com/{{ . }}">{{ partial "icon.html" "x" }}@{{ . }}</a></li>{{ end }}
+        {{ with .bluesky }}<li><a href="https://bsky.app/profile/{{ . }}">{{ partial "icon.html" "butterfly" }}Bluesky</a></li>{{ end }}{{ partial "social-links.html" . }}{{ end }}
+        {{ with .links }}{{ with .website }}<li><a href="{{ . }}">{{ partial "icon.html" "globe" }}{{ i18n "link_website" }}</a></li>{{ end }}{{ end }}
+      </ul>
+      {{ with .last_verified }}<p class="verified-stamp">{{ i18n "last_checked" }}: {{ . }}</p>{{ end }}
+    </article>
+    {{ end }}
+  </div>
+</section>
+{{ end }}

@@ -1,0 +1,31 @@
+# =============================================================
+# WHO TO FOLLOW — copy into data/follow/ as <id>.yaml
+# =============================================================
+
+id: example                    # [REQUIRED] lowercase, hyphens only
+draft: false                   # set to true to hide entry
+name: "Name"                   # [REQUIRED]
+why: "One or two sentences on why they're worth following."   # [REQUIRED]
+
+category: "Journalist"         # badge text, e.g. Journalist | OSINT / analysis |
+                               # Fact-checking | Official
+
+links:
+  website: https://...         # same place as org entries
+
+# Same handle options as orgs; bare handle unless stated, full URLs accepted.
+handles:
+  x: handle_without_at
+  bluesky: name.bsky.social
+  facebook: pagename
+  telegram: channelname
+  whatsapp: "380XXXXXXXXX"
+  instagram: handle
+  tiktok: handle
+  signal: "https://signal.me/#p/..."
+  youtube: ChannelHandle
+  mastodon: "https://mastodon.social/@user"
+  substack: newslettername
+  medium: writername
+
+last_verified: 2026-07-04

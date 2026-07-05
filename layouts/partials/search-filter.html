@@ -1,0 +1,30 @@
+<div class="search-filter">
+  <input type="search" id="card-search"
+         placeholder="{{ i18n "search_placeholder" }}"
+         aria-label="{{ i18n "search_placeholder" }}">
+  <p id="card-search-empty" hidden>{{ i18n "search_no_results" }}</p>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var input = document.getElementById('card-search');
+  if (!input) return;
+  var empty = document.getElementById('card-search-empty');
+  function norm(s) {
+    return s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+  }
+  var cards = Array.prototype.slice.call(
+    document.querySelectorAll('.card, article[id^="f-"]')
+  );
+  var texts = cards.map(function (c) { return norm(c.textContent); });
+  input.addEventListener('input', function () {
+    var q = norm(input.value.trim());
+    var shown = 0;
+    cards.forEach(function (c, i) {
+      var hit = !q || texts[i].indexOf(q) !== -1;
+      c.hidden = !hit;
+      if (hit) shown++;
+    });
+    empty.hidden = shown !== 0;
+  });
+});
+</script>

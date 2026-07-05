@@ -1,0 +1,38 @@
+{{ define "main" }}
+<section class="intro">{{ .Content }}</section>
+{{ partial "verify-banner.html" . }}
+{{ partial "search-filter.html" . }}
+
+{{ $now := now }}
+{{ $all := slice }}
+{{ range $file, $f := hugo.Data.fundraisers }}
+  {{ if not $f.draft }}{{ $all = $all | append (merge $f (dict "_file" $file)) }}{{ end }}
+{{ end }}
+{{ $live := slice }}
+{{ $past := slice }}
+{{ range $all }}
+  {{ $expired := false }}
+  {{ with .expires }}{{ $expired = $now.After (time .) }}{{ end }}
+  {{ if and (eq .status "active") (not $expired) }}{{ $live = $live | append . }}{{ else }}{{ $past = $past | append . }}{{ end }}
+{{ end }}
+
+<section id="live" class="fundraisers">
+  <h2><span class="rule"></span>{{ i18n "live_now" }}</h2>
+  {{ if $live }}
+  <div class="cards">
+    {{ range sort $live "announced" "desc" }}{{ partial "fundraiser-card.html" (dict "f" . "ctx" $) }}{{ end }}
+  </div>
+  {{ else }}
+  <p class="empty">{{ i18n "none_live" }}</p>
+  {{ end }}
+
+  {{ if $past }}
+  <details class="past">
+    <summary>{{ i18n "past_summary" }} ({{ len $past }})</summary>
+    <div class="cards">
+      {{ range sort $past "announced" "desc" }}{{ partial "fundraiser-card.html" (dict "f" . "ctx" $) }}{{ end }}
+    </div>
+  </details>
+  {{ end }}
+</section>
+{{ end }}

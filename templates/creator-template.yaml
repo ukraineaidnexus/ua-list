@@ -1,0 +1,36 @@
+# =============================================================
+# CREATOR — copy into data/creators/ as <id>.yaml
+# House rule: real storefront OR a personal vouch from an actual buyer.
+# No-storefront entries must say so in notes (no buyer protection).
+# =============================================================
+
+id: example-creator            # [REQUIRED] lowercase, hyphens only
+draft: false                   # set to true to hide entry
+name: "Creator Name"           # [REQUIRED]
+makes: "What they make, one sentence."   # [REQUIRED]
+
+# Same handle options as orgs; bare handle unless stated, full URLs accepted.
+handles:
+  x: handle_without_at
+  bluesky: name.bsky.social
+  facebook: pagename
+  telegram: channelname
+  whatsapp: "380XXXXXXXXX"
+  instagram: handle
+  tiktok: handle
+  signal: "https://signal.me/#p/..."
+  youtube: ChannelHandle
+  mastodon: "https://mastodon.social/@user"
+  substack: newslettername
+  medium: writername
+
+shop:                          # storefront links, highlighted with link icon
+  - { label: "Etsy shop", url: "https://etsy.com/shop/..." }
+
+other:                         # any other links, generic icon
+  - { label: "Portfolio", url: "https://..." }
+
+notes: "Extra context, e.g. 'Orders via DM — no buyer protection.' Markdown allowed."
+vouched_by: "[@handle](https://x.com/handle) — has bought from them. Markdown allowed."
+
+last_verified: 2026-07-04

@@ -1,0 +1,14 @@
+{{ with .discord }}<li><a href="{{ . }}">{{ partial "icon.html" "discord" }}Discord</a></li>{{ end }}
+{{ with .facebook }}<li><a href="{{ if hasPrefix . "http" }}{{ . }}{{ else }}https://facebook.com/{{ . }}{{ end }}">{{ partial "icon.html" "facebook" }}Facebook</a></li>{{ end }}
+{{ with .instagram }}<li><a href="{{ if hasPrefix . "http" }}{{ . }}{{ else }}https://instagram.com/{{ . }}{{ end }}">{{ partial "icon.html" "instagram" }}Instagram</a></li>{{ end }}
+{{ with .linkedin }}<li><a href="{{ . }}">{{ partial "icon.html" "linkedin" }}LinkedIn</a></li>{{ end }}
+{{ with .mastodon }}<li><a href="{{ . }}">{{ partial "icon.html" "mastodon" }}Mastodon</a></li>{{ end }}
+{{ with .medium }}<li><a href="{{ if hasPrefix . "http" }}{{ . }}{{ else }}https://medium.com/@{{ . }}{{ end }}">{{ partial "icon.html" "medium" }}Medium</a></li>{{ end }}
+{{ with .reddit }}<li><a href="{{ if hasPrefix . "http" }}{{ . }}{{ else }}https://reddit.com/user/{{ . }}{{ end }}">{{ partial "icon.html" "reddit" }}Reddit</a></li>{{ end }}
+{{ with .signal }}<li><a href="{{ . }}">{{ partial "icon.html" "signal" }}Signal</a></li>{{ end }}
+{{ with .substack }}<li><a href="{{ if hasPrefix . "http" }}{{ . }}{{ else }}https://{{ . }}.substack.com{{ end }}">{{ partial "icon.html" "substack" }}Substack</a></li>{{ end }}
+{{ with .telegram }}<li><a href="{{ if hasPrefix . "http" }}{{ . }}{{ else }}https://t.me/{{ . }}{{ end }}">{{ partial "icon.html" "telegram" }}Telegram</a></li>{{ end }}
+{{ with .threads }}<li><a href="{{ if hasPrefix . "http" }}{{ . }}{{ else }}https://www.threads.com/@{{ . }}{{ end }}">{{ partial "icon.html" "threads" }}Threads</a></li>{{ end }}
+{{ with .tiktok }}<li><a href="{{ if hasPrefix . "http" }}{{ . }}{{ else }}https://tiktok.com/@{{ . }}{{ end }}">{{ partial "icon.html" "tiktok" }}TikTok</a></li>{{ end }}
+{{ with .whatsapp }}<li><a href="https://wa.me/{{ . }}">{{ partial "icon.html" "whatsapp" }}WhatsApp</a></li>{{ end }}
+{{ with .youtube }}<li><a href="{{ if hasPrefix . "http" }}{{ . }}{{ else }}https://youtube.com/@{{ . }}{{ end }}">{{ partial "icon.html" "youtube" }}YouTube</a></li>{{ end }}

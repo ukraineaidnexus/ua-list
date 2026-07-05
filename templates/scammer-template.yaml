@@ -1,0 +1,26 @@
+# =============================================================
+# SCAMMER — copy into data/scammers/ as <id>.yaml
+#
+# HOUSE RULES (defamation exposure is yours, the publisher):
+#  - PUBLIC, linkable documentation only
+#  - Describe documented behaviour, not legal conclusions
+#  - Attribute allegations to their source ("documented by X")
+# =============================================================
+
+id: example                    # [REQUIRED] lowercase, hyphens only
+draft: false                   # set to true to hide entry
+name: "Account name(s)"        # [REQUIRED]
+
+handles:                       # [REQUIRED] same dict shape as orgs
+  x: [handle1, handle2]        # one handle or a list — scammers often run several accounts
+  telegram: channelname        # other platforms also supported, same options as orgs
+                               # (all links get rel="nofollow")
+
+summary: "What they do, factually and attributed. E.g. 'Posting fabricated battle reports with AI imagery, documented by @analyst.'"   # [REQUIRED]
+
+evidence:                      # [REQUIRED] at least one public source
+  - { label: "Exposure thread by @someone", url: "https://x.com/.../status/..." }
+  - { label: "Archived post", url: "https://archive.ph/..." }
+
+added: 2026-07-04              # [REQUIRED] cards sort newest-first by this
+last_verified: 2026-07-04

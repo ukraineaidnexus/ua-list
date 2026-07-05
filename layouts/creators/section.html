@@ -1,0 +1,28 @@
+{{ define "main" }}
+<section class="intro">
+  {{ .Content }}
+</section>
+
+<section class="directory">
+  <h2><span class="rule"></span>{{ i18n "creators" }}</h2>
+  {{ $creators := slice }}
+  {{ range $f, $c := hugo.Data.creators }}{{ if not $c.draft }}{{ $creators = $creators | append $c }}{{ end }}{{ end }}
+  <div class="cards">
+    {{ range sort $creators "name" }}
+    <article class="card org" id="creator-{{ .id }}">
+      <header><h3>{{ .name }}</h3></header>
+      <p class="desc">{{ .makes }}</p>
+      {{ with .notes }}<p class="notes">{{ . | markdownify }}</p>{{ end }}
+      {{ with .vouched_by }}<p class="notes">{{ i18n "vouched_by" }} {{ . | markdownify }}</p>{{ end }}
+      <ul class="links">
+        {{ with .handles }}{{ with .x }}<li><a href="https://x.com/{{ . }}">{{ partial "icon.html" "x" }}@{{ . }}</a></li>{{ end }}
+        {{ with .bluesky }}<li><a href="https://bsky.app/profile/{{ . }}">Bluesky</a></li>{{ end }}{{ end }}
+        {{ range .shop }}<li><a href="{{ .url }}" class="strong">{{ partial "icon.html" "link" }}{{ .label }}</a></li>{{ end }}
+        {{ range .other }}<li><a href="{{ .url }}">{{ .label }}</a></li>{{ end }}
+      </ul>
+      {{ with .last_verified }}<p class="verified-stamp">{{ i18n "last_checked" }}: {{ . }}</p>{{ end }}
+    </article>
+    {{ end }}
+  </div>
+</section>
+{{ end }}

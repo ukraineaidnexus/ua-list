@@ -1,0 +1,14 @@
+id: alex-bond
+draft: false
+name: "Alex Bond"
+type: ua-volunteer
+status: active
+description: "Prolific volunteer and supporter of the AFU."
+handles:
+  x: AlexBondODUA
+  instagram: alexbondodua
+links:
+  other:
+   - { label: "Donate here", url: "https://alexbondodua.notepin.co/alex-bond" }
+paypal: ["umc4429917@gmail.com"]
+last_verified: 2026-07-04

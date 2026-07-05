@@ -1,0 +1,10 @@
+id: polina-shumakova
+name: "Polina Shumakova"
+type: ua-volunteer
+status: active
+handles: { x: SumakovaPolina }
+links:
+  donate: https://buymeacoffee.com/polinastar
+description: "Volunteer in Kharkiv, aged 23, helping those in need."
+paypal: ["polina.star98@gmail.com", "sumakovaalena23@gmail.com"]
+last_verified: 2025-08-23

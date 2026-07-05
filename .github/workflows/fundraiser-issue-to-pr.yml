@@ -1,0 +1,82 @@
+name: Fundraiser issue to PR
+
+# Runs when YOU add the "approved" label to a fundraiser-submission issue.
+# It parses the issue form, writes data/fundraisers/<date>-<org>-issue<N>.yaml,
+# and opens a PR. You merge the PR, the site rebuilds. Nothing is published
+# without two explicit actions from you (label + merge).
+
+on:
+  issues:
+    types: [labeled]
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
+jobs:
+  convert:
+    if: github.event.label.name == 'approved' && contains(github.event.issue.labels.*.name, 'fundraiser-submission')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Parse issue form and write YAML
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const body = context.payload.issue.body || '';
+            // Issue forms render as "### <Label>\n\n<value>\n\n"
+            const get = (label) => {
+              const re = new RegExp('### ' + label.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '\\s*\\n\\s*\\n([\\s\\S]*?)(?=\\n### |$)');
+              const m = body.match(re);
+              const v = m ? m[1].trim() : '';
+              return v === '_No response_' ? '' : v;
+            };
+
+            const org = get('Org ID').toLowerCase().replace(/[^a-z0-9-]/g, '');
+            const announced = get('Date announced \\(YYYY-MM-DD\\)') || get('Date announced');
+            if (!org) { core.setFailed('No valid org id in issue'); return; }
+            if (!/^\d{4}-\d{2}-\d{2}$/.test(announced)) { core.setFailed('Bad announced date'); return; }
+
+            // Auto-expiry 60 days after announcement
+            const exp = new Date(announced); exp.setDate(exp.getDate() + 60);
+            const expires = exp.toISOString().slice(0, 10);
+
+            const amount = parseInt(get('Goal amount \\(number only\\)') || get('Goal amount'), 10);
+            const q = (s) => JSON.stringify(s); // JSON strings are valid YAML scalars
+
+            let yaml = '';
+            yaml += `# From issue #${context.payload.issue.number} by @${context.payload.issue.user.login}\n`;
+            yaml += `org: ${org}\n`;
+            yaml += `title: ${q(get('Fundraiser title'))}\n`;
+            yaml += `beneficiary: ${q(get("Who it's for"))}\n`;
+            yaml += `goal:\n  amount: ${isNaN(amount) ? 0 : amount}\n  currency: ${q(get('Currency'))}\n`;
+            yaml += `announced: ${announced}\n`;
+            yaml += `expires: ${expires}\n`;
+            yaml += `status: active\n`;
+            yaml += `links:\n`;
+            yaml += `  x: ${q(get('Link to the fundraiser post on X'))}\n`;
+            const bsky = get('Link to the Bluesky post \\(optional\\)');
+            if (bsky) yaml += `  bluesky: ${q(bsky)}\n`;
+            const donate = get('Direct donation link \\(optional\\)');
+            if (donate) yaml += `  donate: ${q(donate)}\n`;
+            yaml += `report: null\n`;
+
+            const fs = require('fs');
+            const path = `data/fundraisers/${announced}-${org}-issue${context.payload.issue.number}.yaml`;
+            fs.mkdirSync('data/fundraisers', { recursive: true });
+            fs.writeFileSync(path, yaml);
+            core.exportVariable('FR_PATH', path);
+            core.exportVariable('ISSUE_NUM', String(context.payload.issue.number));
+
+      - name: Open PR
+        uses: peter-evans/create-pull-request@v6
+        with:
+          branch: fundraiser/issue-${{ env.ISSUE_NUM }}
+          commit-message: "Add fundraiser from issue #${{ env.ISSUE_NUM }}"
+          title: "Add fundraiser from issue #${{ env.ISSUE_NUM }}"
+          body: |
+            Auto-generated from issue #${{ env.ISSUE_NUM }}.
+            Review the YAML, then merge to publish. Closes #${{ env.ISSUE_NUM }}.
+          labels: fundraiser-submission

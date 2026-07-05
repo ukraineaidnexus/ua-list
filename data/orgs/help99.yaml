@@ -1,0 +1,26 @@
+id: help99
+name: "NAFO 69th Sniffing Brigade"
+type: foreign-ngo
+status: active
+description: "Estonian-Ukrainian initiative supplying pickup trucks and evacuation vehicles to Ukrainian units, plus drone fundraisers with partners like Wild Hornets. Publishes per-convoy delivery reports."
+location: "Estonia"
+notes: "Runs as Help99, founded by the LIFT99 Kyiv Hub community. Two legal entities: Freedom Convoy MTÜ (Estonia, reg. 80619647) and БО БФ ХЕЛП99 УКРАЇНА (Ukraine, code 45221003). US donors can give via 501(c)(3) partner Patriots for Ukraine, see their donate page."
+handles:
+  x: 69thSB
+  bluesky: 69thsb.bsky.social
+  discord: "https://discord.com/invite/NHcH8EGN8"
+  facebook: 69thSniffingBrigade
+  instagram: 69thsniffingbrigade
+  linkedin: "https://www.linkedin.com/company/help99"
+  reddit: Nafo69sb
+  tiktok: 69thsb
+  youtube: 69thSniffingBrigade
+links:
+  website: https://www.help99.co
+  donate: https://www.help99.co/donate
+  transparency: https://www.help99.co/convoys
+  registration: https://ariregister.rik.ee/eng/company/80619647
+  other:
+    - { label: "Ukrainian entity (Opendatabot)", url: "https://opendatabot.ua/c/45221003" }
+    - { label: "NGO documents", url: "https://drive.google.com/drive/folders/1LLZ9eNQ9WQ7mlo2nSilBvt6HOEDR2uxB" }
+last_verified: 2026-07-05

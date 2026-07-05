@@ -1,0 +1,42 @@
+name: Suggest a Ukrainian creator
+description: Suggest a Ukrainian who makes and sells things (jewelry, art, crafts, patches).
+title: "[Creator] "
+labels: ["creator-submission"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Listings require a proper storefront (Etsy or similar) with buyer
+        protection. DM-order-only accounts will not be listed.
+  - type: input
+    id: name
+    attributes:
+      label: Name
+    validations:
+      required: true
+  - type: input
+    id: handle_x
+    attributes:
+      label: X handle (without @)
+    validations:
+      required: true
+  - type: input
+    id: shop
+    attributes:
+      label: Shop link
+      placeholder: https://etsy.com/shop/...
+    validations:
+      required: true
+  - type: textarea
+    id: makes
+    attributes:
+      label: What do they make?
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Verification evidence
+      description: Shop review history, who has bought from them and vouches, how long they've been active.
+    validations:
+      required: true

@@ -1,0 +1,24 @@
+name: Report a scammer
+description: Report an account running fraudulent Ukraine fundraising or fabricated content.
+title: "[Scammer] "
+labels: ["scammer-report"]
+body:
+  - type: input
+    id: handles
+    attributes:
+      label: X handle(s), without @
+    validations:
+      required: true
+  - type: textarea
+    id: behaviour
+    attributes:
+      label: What are they doing?
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Public evidence (links required)
+      description: Exposure threads, archived posts, reverse-image-search results. Entries are only listed with linkable documentation.
+    validations:
+      required: true

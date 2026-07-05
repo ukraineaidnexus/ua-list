@@ -1,0 +1,16 @@
+id: surrey-stands-with-ukraine
+name: "Surrey Stands With Ukraine"
+type: foreign-ngo
+status: active
+description: "UK community charity collecting, funding and delivering humanitarian aid from Surrey to partner hubs in Ukraine since March 2022: medical supplies, generators, vehicles. States that 100% of donations go to aid, with no fees or wages taken."
+location: "Surrey, UK"
+notes: "Operates under registered charity partner Harrop HR Missions Ltd (Charity No. 1117155), so the register record shows that name, not SSWU. Per their bio, endorsed by Ukraine's Ministry of Health."
+handles:
+  x: SurreyStands
+links:
+  website: https://surreystandswithukraine.org.uk
+  donate: https://www.paypal.com/donate/?hosted_button_id=LFAPX4DHM5JBG
+  registration: https://register-of-charities.charitycommission.gov.uk/charity-search/-/charity-details/1117155
+  donate_other:
+    - { label: "Crowdfunder (Gift Aid)", url: "https://www.crowdfunder.co.uk/p/surrey-stands-with-ukraine-1117155", icon: card }
+last_verified: 2026-07-05

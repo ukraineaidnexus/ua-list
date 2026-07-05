@@ -1,0 +1,28 @@
+{{ define "main" }}
+<section class="intro">{{ .Content }}</section>
+{{ partial "verify-banner.html" . }}
+{{ partial "search-filter.html" . }}
+
+
+{{ $orgs := slice }}
+{{ range $file, $o := hugo.Data.orgs }}{{ if not $o.draft }}{{ $orgs = $orgs | append (merge $o (dict "_file" $file)) }}{{ end }}{{ end }}
+{{ $live := partial "live-fundraisers.html" . }}
+
+<section id="ua-volunteers" class="directory">
+  <h2><span class="rule"></span>{{ i18n "ua_volunteers" }}</h2>
+  <p class="section-note">{{ i18n "ua_volunteers_note" }}</p>
+  <div class="cards">
+    {{ range sort (where $orgs "type" "ua-volunteer") "name" }}{{ partial "org-card.html" (dict "o" . "live" $live) }}{{ end }}
+  </div>
+</section>
+
+{{ $foreignVols := where $orgs "type" "foreign-volunteer" }}
+{{ if $foreignVols }}
+<section id="foreign-volunteers" class="directory">
+  <h2><span class="rule"></span>{{ i18n "foreign_volunteers" }}</h2>
+  <div class="cards">
+    {{ range sort $foreignVols "name" }}{{ partial "org-card.html" (dict "o" . "live" $live) }}{{ end }}
+  </div>
+</section>
+{{ end }}
+{{ end }}

@@ -1,0 +1,2 @@
+{{ with .x }}<li><a href="{{ if hasPrefix . "http" }}{{ . }}{{ else }}https://x.com/{{ . }}{{ end }}">{{ partial "icon.html" "x" }}{{ if hasPrefix . "http" }}X{{ else }}@{{ . }}{{ end }}</a></li>{{ end }}
+{{ with .bluesky }}<li><a href="{{ if hasPrefix . "http" }}{{ . }}{{ else }}https://bsky.app/profile/{{ . }}{{ end }}">{{ partial "icon.html" "butterfly" }}Bluesky</a></li>{{ end }}

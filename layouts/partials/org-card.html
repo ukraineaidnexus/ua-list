@@ -1,0 +1,49 @@
+{{ $o := .o }}
+{{ $live := .live }}
+{{ $liveCount := 0 }}
+{{ range $live }}{{ if eq .org $o.id }}{{ $liveCount = add $liveCount 1 }}{{ end }}{{ end }}
+<article class="card org {{ if eq $o.status "inactive" }}inactive{{ end }}" id="org-{{ $o.id }}">
+  <header>
+    <h3>{{ $o.name }}{{ with $o.name_ua }} <span class="uk">/ {{ . }}</span>{{ end }}</h3>
+    <div class="badges">
+      {{ if gt $liveCount 0 }}<a class="badge live-badge" href="{{ "fundraisers/" | relLangURL }}#f-{{ $o.id }}">{{ i18n "live_fundraiser" $liveCount }}{{ if gt $liveCount 1 }} ×{{ $liveCount }}{{ end }}</a>{{ end }}
+      {{ if $o.links.registration }}<span class="badge reg">{{ if eq $o.type "foreign-ngo" }}{{ i18n "badge_charity" }}{{ else }}{{ i18n "badge_ngo" }}{{ end }}</span>{{ end }}
+      {{ if eq $o.status "inactive" }}<span class="badge stale">{{ i18n "badge_inactive" }}</span>{{ end }}
+    </div>
+  </header>
+  {{ with $o.location }}<p class="location">{{ partial "icon.html" "location" }}{{ . }}</p>{{ end }}
+  <p class="desc">{{ $o.description }}</p>
+  {{ with $o.warning }}<p class="warning">⚠️ {{ . | markdownify }}</p>{{ end }}
+  {{ with $o.notes }}<p class="notes">{{ . | markdownify }}</p>{{ end }}
+  {{ with $o.verified_by }}<p class="vouched">{{ partial "icon.html" "check" }}{{ i18n "vouched_by" }} {{ . | markdownify }}</p>{{ end }}
+<ul class="links">
+    {{ with $o.handles }}{{ partial "primary-handles.html" . }}{{ end }}
+    {{ with $o.links }}
+      {{ with .website }}<li><a href="{{ . }}">{{ partial "icon.html" "globe" }}{{ i18n "link_website" }}</a></li>{{ end }}
+      {{ with .linktree }}<li><a href="{{ . }}">{{ partial "icon.html" "tree" }}Linktree</a></li>{{ end }}
+      {{ with .transparency }}<li><a href="{{ . }}" class="strong">{{ partial "icon.html" "doc" }}{{ i18n "link_transparency" }}</a></li>{{ end }}
+      {{ with .registration }}<li><a href="{{ . }}">{{ partial "icon.html" "shield" }}{{ if eq $o.type "foreign-ngo" }}{{ i18n "link_charity_register" }}{{ else }}{{ i18n "link_registry" }}{{ end }}</a></li>{{ end }}
+      {{ range .other }}<li><a href="{{ .url }}">{{ partial "icon.html" "link" }}{{ .label }}</a></li>{{ end }}
+    {{ end }}
+    {{ with $o.email }}<li><a href="mailto:{{ . }}">{{ partial "icon.html" "email" }}{{ . }}</a></li>{{ end }}
+  </ul>
+  {{ with $o.handles }}<ul class="links handles">{{ partial "social-links.html" . }}</ul>{{ end }}
+  {{ if or $o.links.donate $o.links.buymeacoffee $o.links.monobank $o.links.privat $o.links.donate_other $o.paypalme $o.paypal }}
+  <div class="donate">
+    <p class="donate-heading">{{ i18n "link_donate" }}</p>
+    <ul class="links donate-links">
+      {{ with $o.links.donate }}<li><a href="{{ . }}" class="strong">{{ partial "icon.html" "heart" }}{{ i18n "link_donate" }}</a></li>{{ end }}
+      {{ with $o.links.buymeacoffee }}<li><a href="{{ . }}" class="strong">{{ partial "icon.html" "bmac" }}Buy Me a Coffee</a></li>{{ end }}
+      {{ with $o.links.monobank }}<li><a href="{{ . }}" class="strong" title="{{ i18n "ua_bank_tooltip" }}">{{ partial "icon.html" "jar" }}Monobank</a></li>{{ end }}
+      {{ with $o.links.privat }}<li><a href="{{ . }}" class="strong" title="{{ i18n "ua_bank_tooltip" }}">{{ partial "icon.html" "card" }}PrivatBank</a></li>{{ end }}
+      {{ range $o.links.donate_other }}<li><a href="{{ .url }}" class="strong"{{ if .ua }} title="{{ i18n "ua_bank_tooltip" }}"{{ end }}>{{ partial "icon.html" (.icon | default "heart") }}{{ .label }}</a></li>{{ end }}
+      {{ with $o.paypalme }}<li><a href="https://paypal.me/{{ . }}" class="strong">{{ partial "icon.html" "paypal" }}PayPal.Me</a></li>{{ end }}
+      {{ range $o.paypal }}<li><button type="button" class="copy-paypal" data-copy="{{ . }}" data-copied="{{ i18n "copied" }}" title="{{ i18n "copy_email" }}">{{ partial "icon.html" "paypal" }}<span class="copy-text">{{ . }}</span></button></li>{{ end }}
+    </ul>
+    <p class="donate-warning">{{ i18n "donate_no_military" }}</p>
+    {{ with $o.payment_note }}<p class="payment">{{ . | markdownify }}</p>{{ end }}
+  </div>
+  {{ end }}
+  {{ if and (eq $liveCount 0) $o.handles.x (ne $o.status "inactive") }}<p class="check-x">{{ i18n "check_x_fundraisers" }}</p>{{ end }}
+  {{ with $o.last_verified }}<p class="verified-stamp">{{ i18n "last_checked" }}: {{ . }}</p>{{ end }}
+</article>

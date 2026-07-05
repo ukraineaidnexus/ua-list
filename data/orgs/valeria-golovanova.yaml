@@ -1,0 +1,11 @@
+id: valeria-golovanova
+name: "Valeria Golovanova (SvoRa)"
+type: ua-volunteer
+status: active
+handles: { x: SvoRa199 }
+links:
+  linktree: https://linktr.ee/svora
+  other:
+    - { label: "Second account", url: "https://x.com/svo_ra" }
+description: "Takes care of children, helps and rescues animals in Kharkiv, building an animal shelter."
+last_verified: 2025-08-23

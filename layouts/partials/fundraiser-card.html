@@ -1,0 +1,53 @@
+{{ $f := .f }}
+{{ $org := index hugo.Data.orgs $f.org }}
+
+<article class="card fundraiser status-{{ $f.status }}" id="f-{{ $f.org }}">
+  <header>
+    <h3>{{ $f.title }}</h3>
+    {{ with $org }}{{ $page := "volunteers/" }}{{ if in .type "ngo" }}{{ $page = "ngos/" }}{{ end }}<p class="by">{{ i18n "by" }} <a href="{{ $page | relLangURL }}#org-{{ .id }}">{{ .name }}</a></p>{{ end }}
+  </header>
+
+  {{ with $f.beneficiary }}<p class="desc"><strong>{{ i18n "for" }}:</strong> {{ . }}</p>{{ end }}
+
+  {{ with $f.description }}<p class="desc">{{ . | markdownify }}</p>{{ end }}
+
+  <div class="meta">
+    {{ with $f.goal }}<span class="goal">{{ i18n "goal" }}: {{ .amount | lang.FormatNumber 0 }} {{ .currency }}</span>{{ end }}
+    {{ with $f.raised }}
+      {{ with $f.goal }}<span class="raised">{{ i18n "raised" }}: {{ $f.raised | lang.FormatNumber 0 }} ({{ div (mul $f.raised 100) .amount }}%)</span>
+      {{ else }}<span class="raised">{{ i18n "raised" }}: {{ $f.raised | lang.FormatNumber 0 }}</span>{{ end }}
+    {{ end }}
+    {{ if ne $f.status "active" }}<span class="badge stale">{{ i18n $f.status }}</span>{{ end }}
+  </div>
+
+{{ with $f.goal }}{{ with $f.raised }}
+    <div class="bar"><div class="fill" style="width: {{ math.Min 100 (div (mul $f.raised 100) $f.goal.amount) }}%"></div></div>
+  {{ end }}{{ end }}
+
+  <div class="dates">
+    {{ with $f.announced }}<span class="date">{{ i18n "posted" }} {{ time.Format "2 Jan 2006" (time .) }}</span>{{ end }}
+    {{ with $f.last_updated }}<span class="date">{{ i18n "last_updated" }} {{ time.Format "2 Jan 2006" (time .) }}</span>{{ end }}
+  </div>
+
+{{ $donateUrl := "" }}{{ with $f.links }}{{ with .donate }}{{ $donateUrl = . }}{{ end }}{{ end }}
+  <ul class="links">
+    {{ with $f.links }}
+      {{ with .x }}<li><a href="{{ . }}">{{ partial "icon.html" "x" }}{{ i18n "post_on_x" }}</a></li>{{ end }}
+      {{ with .bluesky }}<li><a href="{{ . }}">{{ partial "icon.html" "butterfly" }}{{ i18n "post_on_bsky" }}</a></li>{{ end }}
+      {{ with .web }}<li><a href="{{ . }}">{{ partial "icon.html" "globe" }}{{ i18n "details" }}</a></li>{{ end }}
+    {{ end }}
+    {{ with $f.report }}<li><a href="{{ . }}" class="strong">{{ partial "icon.html" "doc" }}{{ i18n "completion_report" }}</a></li>{{ end }}
+  </ul>
+  {{ if or $donateUrl $f.links.donate_other $f.paypalme $f.paypal }}
+  <div class="donate">
+    <p class="donate-heading">{{ i18n "link_donate" }}</p>
+    <ul class="links donate-links">
+      {{ with $donateUrl }}<li><a href="{{ . }}" class="strong">{{ partial "icon.html" "heart" }}{{ i18n "link_donate" }}</a></li>{{ end }}
+      {{ range $f.links.donate_other }}<li><a href="{{ .url }}" class="strong"{{ if .ua }} title="{{ i18n "ua_bank_tooltip" }}"{{ end }}>{{ partial "icon.html" (.icon | default "heart") }}{{ .label }}</a></li>{{ end }}
+      {{ with $f.paypalme }}<li><a href="https://paypal.me/{{ . }}" class="strong">{{ partial "icon.html" "paypal" }}PayPal.Me</a></li>{{ end }}
+      {{ range $f.paypal }}<li><button type="button" class="copy-paypal" data-copy="{{ . }}" data-copied="{{ i18n "copied" }}" title="{{ i18n "copy_email" }}">{{ partial "icon.html" "paypal" }}<span class="copy-text">{{ . }}</span></button></li>{{ end }}
+    </ul>
+    <p class="donate-warning">{{ i18n "donate_no_military" }}</p>
+  </div>
+  {{ end }}
+</article>

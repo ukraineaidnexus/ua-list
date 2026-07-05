@@ -1,0 +1,19 @@
+org: trinzu
+title: "Help Snow's assault unit (3rd Assault Brigade)"
+beneficiary: "Snow's assault platoon (\"Snow Storm\"), 3rd Assault Brigade"
+description: >
+  Mission-planning and coordination equipment for an assault platoon back on
+  the line: 3 Acer Nitro Lite laptops, 3 Xiaomi 50" TVs for briefing screens,
+  1 EcoFlow Delta 2 Max power station and 1 Starlink Gen 3. Total 291,400 UAH.
+goal: { amount: 6000, currency: EUR }
+raised: 1811
+announced: 2026-06-25
+status: active
+links:
+  x: https://x.com/trinzu/status/2073747714701947054
+donate_other:
+  - { label: "Wise", url: "https://wise.com/pay/me/triinup30", icon: card }
+  - { label: "Revolut", url: "https://revolut.me/triinuuqwd", icon: card }
+paypalme: TriinuP
+report: null
+last_updated: 2026-07-05

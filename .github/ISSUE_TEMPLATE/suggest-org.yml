@@ -1,0 +1,57 @@
+name: Suggest an organisation or volunteer
+description: Suggest a new Ukrainian org or individual fundraiser for the list.
+title: "[Org] "
+labels: ["org-submission"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Suggestions with no track record
+        of published fundraiser reports are unlikely to be accepted.
+  - type: input
+    id: name
+    attributes:
+      label: Name
+      placeholder: Dzyga's Paw Charity Fund
+    validations:
+      required: true
+  - type: dropdown
+    id: type
+    attributes:
+      label: Type
+      options: [Ukrainian registered NGO, Ukrainian individual volunteer, Foreign-based organisation, Foreign individual volunteer]
+    validations:
+      required: true
+  - type: input
+    id: handle_x
+    attributes:
+      label: X handle (without @)
+    validations:
+      required: true
+  - type: input
+    id: website
+    attributes:
+      label: Website (optional)
+  - type: input
+    id: registration
+    attributes:
+      label: Registration link (required for orgs)
+      placeholder: Opendatabot for UA NGOs; Charity Commission / IRS / national register for foreign orgs
+  - type: input
+    id: transparency
+    attributes:
+      label: Link to reports / transparency page (optional but strongly preferred)
+  - type: textarea
+    id: description
+    attributes:
+      label: What do they do?
+      placeholder: One or two sentences.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Verification evidence
+      description: Previous fundraiser reports, established volunteers who vouch for them, how long they've been active. Be specific.
+    validations:
+      required: true

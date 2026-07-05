@@ -1,0 +1,19 @@
+id: lviv-volunteer-kitchen
+name: "Lviv Volunteer Kitchen"
+name_ua: "Львівська волонтерська кухня"
+type: ua-ngo
+status: active
+handles:
+  x: LVKitchen2014
+  telegram: https://t.me/+j1lUBa7DAHphMzYy
+  instagram: https://www.instagram.com/lvivskavolonterska
+  facebook: https://www.facebook.com/groups/186026208839929/
+links:
+  linktree: https://linktr.ee/lvkitchen2014
+  registration: https://opendatabot.ua/c/42022750
+  privat: https://next.privat24.ua/send/0h5hl
+  other:
+    - { label: "Alternate linktree", url: "https://linktr.ee/lvivskavolonterska" }
+description: "Supply of MRE (ready-to-eat meals) to the AFU. Cooking for the front since 2014; registered as a ГО in 2018. Facebook group is far more active than X account"
+verified_by: "[@mrdouglashall](https://x.com/mrdouglashall). I have volunteered on site multiple times and met the founders."
+last_verified: 2026-07-05

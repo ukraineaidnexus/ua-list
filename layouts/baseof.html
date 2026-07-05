@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="{{ site.Language.Locale }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }} · {{ site.Title }}{{ end }}</title>
+  <meta name="description" content="{{ site.Params.tagline }}">
+  <meta property="og:title" content="{{ site.Title }}">
+  <meta property="og:description" content="{{ site.Params.tagline }}">
+  {{ $hero := resources.Get "img/hero.jpg" }}
+  <meta property="og:image" content="{{ $hero.Permalink }}">
+  {{ range .AllTranslations }}<link rel="alternate" hreflang="{{ .Language.Locale }}" href="{{ .Permalink }}">
+  {{ end -}}
+  <link rel="preload" as="image" href="{{ $hero.RelPermalink }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
+  <script>try{var t=localStorage.getItem("theme-pref");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+  {{ $css := resources.Get "css/main.css" | minify | fingerprint }}
+  <link rel="stylesheet" href="{{ $css.RelPermalink }}">
+</head>
+<body>
+  <header class="hero" style="background-image: linear-gradient(to bottom, rgba(7,14,28,.25) 0%, rgba(7,14,28,.55) 55%, var(--bg) 100%), url('{{ $hero.RelPermalink }}')">
+    <nav class="theme-switch" aria-label="Theme">
+      <button type="button" data-set-theme="light" title="{{ i18n "theme_light" }}" aria-label="{{ i18n "theme_light" }}">{{ partial "icon.html" "sun" }}</button>
+      <button type="button" data-set-theme="dark" title="{{ i18n "theme_dark" }}" aria-label="{{ i18n "theme_dark" }}">{{ partial "icon.html" "moon" }}</button>
+      <button type="button" data-set-theme="system" title="{{ i18n "theme_system" }}" aria-label="{{ i18n "theme_system" }}">{{ partial "icon.html" "contrast" }}</button>
+    </nav>
+    <nav class="lang-switch" aria-label="Language">
+      {{ $cur := .Language.Lang }}
+      {{ range .AllTranslations }}
+        {{ if eq .Language.Lang $cur }}
+          <span class="current">{{ with .Site.Params.flag }}{{ . }} {{ end }}{{ upper .Language.Lang }}</span>
+        {{ else }}
+          <a href="{{ .RelPermalink }}" hreflang="{{ .Language.Locale }}" title="{{ .Language.Label }}" data-lang="{{ .Language.Lang }}">{{ with .Site.Params.flag }}{{ . }} {{ end }}{{ upper .Language.Lang }}</a>
+        {{ end }}
+      {{ end }}
+    </nav>
+    <div class="hero-inner">
+      <h1>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }}{{ end }}</h1>
+      <p class="tagline">{{ site.Params.tagline }}</p>
+      <nav class="jump">
+        <a href="{{ "/" | relLangURL }}#verify">{{ i18n "nav_verify" }}</a>
+        <a href="{{ "fundraisers/" | relLangURL }}">{{ i18n "nav_fundraisers" }}</a>
+        <a href="{{ "ngos/" | relLangURL }}">{{ i18n "nav_ngos" }}</a>
+        <a href="{{ "volunteers/" | relLangURL }}">{{ i18n "nav_volunteers" }}</a>
+        <a href="{{ "creators/" | relLangURL }}">{{ i18n "nav_creators" }}</a>
+        <a href="{{ "follow/" | relLangURL }}">{{ partial "icon.html" "x" }}{{ i18n "nav_follow" }}</a>
+        <a href="{{ "scammers/" | relLangURL }}" class="jump-scam">{{ i18n "nav_scammers" }}</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    {{ block "main" . }}{{ end }}
+  </main>
+
+  <footer>
+    <p>{{ printf (i18n "footer_disclaimer") (printf "%s#verify" ("/" | relLangURL)) | safeHTML }}
+    {{ i18n "footer_contact" }}
+    {{ if site.Params.contact_x_id }}<a href="https://x.com/messages/compose?recipient_id={{ site.Params.contact_x_id }}">{{ partial "icon.html" "x" }} @{{ site.Params.contact_x }}</a>{{ else }}<a href="https://x.com/{{ site.Params.contact_x }}">{{ partial "icon.html" "x" }} @{{ site.Params.contact_x }}</a>{{ end }}{{ with site.Params.contact_telegram }} · <a href="https://t.me/{{ . }}">{{ partial "icon.html" "telegram" }} Telegram</a>{{ end }}{{ with site.Params.contact_signal }} · <a href="{{ . }}">{{ partial "icon.html" "signal" }} Signal</a>{{ end }}.</p>
+    <p class="disclaimer">{{ i18n "footer_no_donations" }}</p>
+    <p class="build-date">{{ i18n "footer_built" }} {{ now.Format "2 January 2006" }}</p>
+  </footer>
+  <script>
+  (function () {
+    var KEY = "lang-pref";
+    var cur = "{{ .Language.Lang }}";
+    var alt = {};
+    {{ range .AllTranslations }}alt["{{ .Language.Lang }}"] = "{{ .RelPermalink }}";
+    {{ end }}
+    function store(v) { try { localStorage.setItem(KEY, v); } catch (e) {} }
+    function pref() { try { return localStorage.getItem(KEY); } catch (e) { return null; } }
+
+    // Explicit switcher click always wins and is remembered
+    document.querySelectorAll(".lang-switch a[data-lang]").forEach(function (a) {
+      a.addEventListener("click", function () { store(a.dataset.lang); });
+    });
+
+    var p = pref();
+
+    // Stored preference: auto-forward, but only away from the default (EN) pages.
+    // Visiting a /fr/ or /de/ URL directly is treated as intentional and never redirected.
+    if (cur === "en" && p && p !== "en" && alt[p]) {
+      location.replace(alt[p]);
+      return;
+    }
+
+    // First visit, no preference: suggest the browser's language on EN pages
+    if (cur === "en" && !p) {
+      var msgs = {
+        ua: ["Цей сайт доступний українською.", "Переглянути українською"],
+        fr: ["Ce site est disponible en français.", "Voir en français"],
+        pl: ["Ta strona jest dostępna po polsku.", "Zobacz po polsku"],
+        de: ["Diese Seite ist auch auf Deutsch verfügbar.", "Auf Deutsch ansehen"],
+        nl: ["Deze site is ook beschikbaar in het Nederlands.", "In het Nederlands bekijken"],
+        ru: ["Этот сайт доступен на русском.", "Смотреть на русском"]
+      };
+      var nav = ((navigator.languages && navigator.languages[0]) || navigator.language || "").toLowerCase();
+      var m = nav.indexOf("uk") === 0 ? "ua" : nav.slice(0, 2);
+      if (msgs[m] && alt[m]) {
+        var bar = document.createElement("div");
+        bar.className = "lang-banner";
+        bar.innerHTML = '<span>' + msgs[m][0] + '</span>' +
+          '<a href="' + alt[m] + '">' + msgs[m][1] + '</a>' +
+          '<button aria-label="Dismiss">&times;</button>';
+        bar.querySelector("a").addEventListener("click", function () { store(m); });
+        bar.querySelector("button").addEventListener("click", function () { store("en"); bar.remove(); });
+        document.body.prepend(bar);
+      }
+    }
+  })();
+  </script>
+  <script>
+  (function () {
+    var KEY = "theme-pref";
+    function apply(v) {
+      if (v === "light" || v === "dark") document.documentElement.setAttribute("data-theme", v);
+      else document.documentElement.removeAttribute("data-theme");
+      document.querySelectorAll(".theme-switch button").forEach(function (b) {
+        b.classList.toggle("active", b.dataset.setTheme === (v || "system"));
+      });
+    }
+    var stored = null;
+    try { stored = localStorage.getItem(KEY); } catch (e) {}
+    apply(stored);
+    document.querySelectorAll(".theme-switch button").forEach(function (b) {
+      b.addEventListener("click", function () {
+        var v = b.dataset.setTheme;
+        try { if (v === "system") localStorage.removeItem(KEY); else localStorage.setItem(KEY, v); } catch (e) {}
+        apply(v === "system" ? null : v);
+      });
+    });
+  })();
+  </script>
+  <script>
+  document.addEventListener("click", function (e) {
+    var btn = e.target.closest(".copy-paypal");
+    if (!btn || !navigator.clipboard) return;
+    navigator.clipboard.writeText(btn.dataset.copy).then(function () {
+      var t = btn.querySelector(".copy-text");
+      if (!t || btn.dataset.busy) return;
+      btn.dataset.busy = "1";
+      var orig = t.textContent;
+      t.textContent = btn.dataset.copied;
+      setTimeout(function () { t.textContent = orig; delete btn.dataset.busy; }, 1600);
+    });
+  });
+  </script>
+</body>
+</html>

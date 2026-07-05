@@ -1,0 +1,24 @@
+id: angels-of-the-front
+name: "Angels of the Front"
+name_ua: "БФ «Янголи Фронту»"
+type: ua-ngo
+status: active
+description: "Ukrainian charitable foundation supplying the army (drones, night vision, tablets, IFAKs, camouflage nets, vehicles) and civilians (food packages, baby food, hygiene products)."
+location: "Kyiv region, Ukraine"
+notes: "Bank card and SWIFT/IBAN details for direct transfers are listed on their website."
+handles:
+  instagram: angels_of_the_front_cf
+  facebook: "https://www.facebook.com/profile.php?id=100091388113283"
+  x: AngelsFrontUA
+  tiktok: angelsfront.ua
+  telegram: angelsfront
+email: angelsoffront@gmail.com
+links:
+  website: https://angelsofthefront.org
+  registration: https://opendatabot.ua/c/45025245
+  linktree: https://linktr.ee/angelsfront.ua
+  monobank: https://send.monobank.ua/jar/962M3TVvpD
+  donate: https://secure.wayforpay.com/donate/angelsfront
+  donate_other:
+    - { label: "Support civilians (WayForPay)", url: "https://secure.wayforpay.com/donate/supportAOF", icon: card }
+last_verified: 2026-07-04

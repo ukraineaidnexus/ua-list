@@ -1,0 +1,10 @@
+{{ $now := now }}
+{{ $live := slice }}
+{{ range $file, $f := hugo.Data.fundraisers }}
+  {{ if not $f.draft }}
+    {{ $expired := false }}
+    {{ with $f.expires }}{{ $expired = $now.After (time .) }}{{ end }}
+    {{ if and (eq $f.status "active") (not $expired) }}{{ $live = $live | append $f }}{{ end }}
+  {{ end }}
+{{ end }}
+{{ return $live }}

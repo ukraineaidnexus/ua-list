@@ -1,0 +1,7 @@
+id: zsu-angel
+name: "ZSUAngel"
+type: ua-volunteer
+status: active
+handles: { x: angel_zsu }
+description: "Ukrainian volunteer"
+last_verified: 2025-08-23

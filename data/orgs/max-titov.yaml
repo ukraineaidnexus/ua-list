@@ -1,0 +1,10 @@
+id: max-titov
+name: "Max Titov"
+type: ua-volunteer
+status: active
+handles: { x: maksym_titov }
+links:
+  linktree: https://linktr.ee/maksymtitov
+  website: https://tachky.in.ua/en
+description: "Provides battle-hardened vehicles to the AFU. Part of Villainous Foundation \"Khlopok\"."
+last_verified: 2025-08-23

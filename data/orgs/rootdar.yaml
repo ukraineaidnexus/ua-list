@@ -1,0 +1,14 @@
+id: rootdar
+name: "Rootdar volunteer team"
+type: ua-volunteer
+status: active
+description: "Kyiv-based volunteer team fundraising for Ukrainian units, ENG/UA. Has actively assisted the 225th Separate Assault Regiment's Alliance Division assault battalion for the past 7 months. Reports posted under #RootDaports."
+location: "Kyiv, Ukraine"
+verified_by: "[@mrdouglashall](https://x.com/mrdouglashall), team account managed by Windy ([@Sayravem](https://x.com/Sayravem))"
+handles:
+  x: Rootdar
+links:
+  transparency: "https://x.com/search?q=%23RootDaports"
+  monobank: https://send.monobank.ua/jar/9Sgi7yedbL
+paypal: ["RootingDar@gmail.com"]
+last_verified: 2026-07-05

@@ -1,0 +1,15 @@
+id: brave-u
+name: "BRAVE U Fund"
+name_ua: "БРЕЙВ Ю ФОНД"
+type: ua-ngo
+status: active
+description: "Taking care of soldiers' health and comfort, so they can beat the enemy harder."
+location: "Kyiv, Ukraine"
+handles:
+  x: BraveUFund
+links:
+  website: https://www.braveu.fund/en
+  registration: https://opendatabot.ua/c/44763958
+  monobank: https://base.monobank.ua/A3uf4Ka1WE23Vg
+paypal: ["liz@braveu.fund"]
+last_verified: 2026-07-05

@@ -1,0 +1,32 @@
+{{ define "main" }}
+
+<section class="intro">
+  {{ .Content }}
+</section>
+
+{{ $live := partial "live-fundraisers.html" . }}
+<section class="browse">
+  <h2><span class="rule"></span>{{ i18n "browse" }}</h2>
+  <div class="cards nav-cards">
+    <a class="card nav-card" href="{{ "fundraisers/" | relLangURL }}">
+      <h3>{{ i18n "nav_fundraisers" }}</h3>
+      <p class="desc">{{ if $live }}{{ len $live }} {{ i18n "live_count" }}{{ else }}{{ i18n "browse_fundraisers" }}{{ end }}</p>
+    </a>
+    <a class="card nav-card" href="{{ "ngos/" | relLangURL }}">
+      <h3>{{ i18n "nav_ngos" }}</h3>
+      <p class="desc">{{ i18n "browse_ngos" }}</p>
+    </a>
+    <a class="card nav-card" href="{{ "volunteers/" | relLangURL }}">
+      <h3>{{ i18n "nav_volunteers" }}</h3>
+      <p class="desc">{{ i18n "browse_volunteers" }}</p>
+    </a>
+    <a class="card nav-card" href="{{ "creators/" | relLangURL }}">
+      <h3>{{ i18n "nav_creators" }}</h3>
+      <p class="desc">{{ i18n "browse_creators" }}</p>
+    </a>
+  </div>
+</section>
+
+{{ partial "verify-guide.html" . }}
+
+{{ end }}

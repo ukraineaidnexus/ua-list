@@ -1,0 +1,77 @@
+name: Submit a fundraiser
+description: Suggest a live fundraiser from an org or volunteer already on the list.
+title: "[Fundraiser] "
+labels: ["fundraiser-submission"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Submissions are reviewed before anything appears on the site.
+        Only fundraisers from orgs/volunteers **already listed** are accepted here.
+        To suggest a new org, use the "Suggest an organisation" form instead.
+  - type: input
+    id: org
+    attributes:
+      label: Org ID
+      description: The org's ID from the site (e.g. dzygas-paw). Find it in the card's URL anchor, e.g. #org-dzygas-paw.
+      placeholder: dzygas-paw
+    validations:
+      required: true
+  - type: input
+    id: title
+    attributes:
+      label: Fundraiser title
+      placeholder: Mavic 3T thermal drones for 92nd Brigade
+    validations:
+      required: true
+  - type: input
+    id: beneficiary
+    attributes:
+      label: Who it's for
+      placeholder: 92nd Assault Brigade, Kupiansk direction
+    validations:
+      required: true
+  - type: input
+    id: goal_amount
+    attributes:
+      label: Goal amount (number only)
+      placeholder: "12000"
+    validations:
+      required: true
+  - type: dropdown
+    id: goal_currency
+    attributes:
+      label: Currency
+      options: [USD, EUR, GBP, UAH]
+    validations:
+      required: true
+  - type: input
+    id: announced
+    attributes:
+      label: Date announced (YYYY-MM-DD)
+      placeholder: "2026-07-04"
+    validations:
+      required: true
+  - type: input
+    id: link_x
+    attributes:
+      label: Link to the fundraiser post on X
+      placeholder: https://x.com/.../status/...
+    validations:
+      required: true
+  - type: input
+    id: link_bluesky
+    attributes:
+      label: Link to the Bluesky post (optional)
+  - type: input
+    id: link_donate
+    attributes:
+      label: Direct donation link (optional)
+      description: Monobank jar, PayPal.me, etc.
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Why should this be trusted?
+      description: Links to previous completion reports, who vouches for them, etc. This is for the reviewer, not published.
+    validations:
+      required: true

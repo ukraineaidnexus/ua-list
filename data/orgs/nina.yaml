@@ -1,0 +1,18 @@
+id: nina
+name: "Nina"
+type: ua-volunteer
+status: active
+description: "Kharkiv-based volunteer supporting Ukrainian defenders; also sells patches."
+location: "Kharkiv, Ukraine"
+verified_by: "[@mrdouglashall](https://x.com/mrdouglashall)"
+payment_note: "SWIFT (EUR): Beneficiary DOBRUNOVA NINA, IBAN UA153052990000026206912210321, JSC CB PRIVATBANK, Kyiv, SWIFT PBANUA2X. Intermediary: J.P.MORGAN AG Frankfurt, SWIFT CHASDEFX."
+handles:
+  x: ninaselyna
+  bluesky: ninaselina.bsky.social
+  instagram: appelle_moi_nina
+links:
+  linktree: https://choko.link/standWithUkraine
+  monobank: https://send.monobank.ua/jar/9iWLi1EqYA
+  privat: https://next.privat24.ua/send/bd0kv
+paypalme: ninadobrunova
+last_verified: 2026-07-05

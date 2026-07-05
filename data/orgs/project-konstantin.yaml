@@ -1,0 +1,15 @@
+id: project-konstantin
+name: "Project Konstantin"
+name_ua: "Проект Костянтин"
+type: ua-ngo
+status: active
+description: "Supply of medical and technical equipment to the AFU. Formerly ran a casevac team (219 wounded soldiers and civilians evacuated); founder Peter Fouché KIA July 2024, org continues under Halyna Zhuk-Piienar."
+handles: { x: KonstantinTeam }
+links:
+  linktree: https://linktr.ee/projectkonstantin
+  website: https://projectkonstantin.org
+  registration: https://opendatabot.ua/c/45270417
+  donate: https://donorbox.org/general-donations-490
+  buymeacoffee: https://www.buymeacoffee.com/projectkonstantinteam
+paypalme: anaj94
+last_verified: 2026-07-05

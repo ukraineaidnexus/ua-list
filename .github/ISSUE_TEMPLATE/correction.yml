@@ -1,0 +1,18 @@
+name: Report a correction
+description: Dead link, org no longer active, wrong info, suspected grifter.
+title: "[Correction] "
+labels: ["correction"]
+body:
+  - type: input
+    id: org
+    attributes:
+      label: Which entry?
+      placeholder: Org name or ID
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What's wrong, and what's your evidence?
+    validations:
+      required: true

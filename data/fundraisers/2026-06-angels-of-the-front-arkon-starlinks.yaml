@@ -1,0 +1,17 @@
+draft: false                    # delete this line to publish
+org: angels-of-the-front
+title: "20 Starlink terminals for the ARKON unit"
+beneficiary: "ARKON Unmanned Ground Systems unit, 80th Air Assault Brigade"
+description: >
+  Fundraising for 20 Starlink kits for the ARKON unmanned ground systems
+  unit of the 80th Brigade. Starlink lets operators control ground robots
+  from safer positions and keeps communications stable. Bank card and IBAN
+  details for direct transfer are on the [org's website](https://angelsofthefront.org).
+goal: { amount: 380000, currency: UAH }
+announced: 2026-06-12          # UNCONFIRMED, see note below
+expires: 2026-08-12            # placeholder, adjust or remove
+status: completed
+links:
+  x: https://x.com/AngelsFrontUA/status/2072998299364123033
+  donate: https://send.monobank.ua/jar/5NPoZth9r4
+  web: https://angelsofthefront.org

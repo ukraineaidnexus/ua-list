@@ -1,0 +1,62 @@
+# =============================================================
+# ORG / VOLUNTEER ENTRY — copy into data/orgs/ as <id>.yaml
+# Required fields marked [REQUIRED]; everything else optional.
+# Optional fields simply don't render when omitted.
+# =============================================================
+
+id: example-org                # [REQUIRED] lowercase, hyphens only; used in anchors (#org-<id>) and to link fundraisers
+name: "Organisation Name"      # [REQUIRED]
+name_ua: "Українська назва"    # Ukrainian name, shown after the English one
+
+type: ua-ngo                   # [REQUIRED] ua-ngo | ua-volunteer | foreign-ngo | foreign-volunteer
+                               #   ua-ngo            -> Ukrainian registered nonprofits section
+                               #   ua-volunteer      -> Ukrainian volunteers section
+                               #   foreign-ngo       -> Foreign-based organisations section
+                               #   foreign-volunteer -> Foreign volunteers section
+
+status: active                 # [REQUIRED] active | inactive
+                               # inactive greys the card and adds a "No longer fundraising" badge
+
+description: "One or two sentences on what they do."   # [REQUIRED]
+location: "Kyiv, Ukraine"      # optional; coarse only (city/country), self-published info only
+warning: "..."                 # RED box with warning icon (negative feedback)
+notes: "Extra context under the description. Markdown allowed."
+verified_by: "[@handle](https://x.com/handle) — who vouches for them. Markdown allowed."
+payment_note: "Free-text payment info that doesn't fit the structured fields. Markdown allowed."
+
+# Social/media handles. Bare handle unless stated; full URLs also accepted anywhere.
+handles:
+  x: handle_without_at
+  bluesky: name.bsky.social
+  facebook: pagename
+  telegram: channelname
+  whatsapp: "380XXXXXXXXX"                   # phone, international format, no +
+  instagram: handle
+  tiktok: handle                             # without @
+  signal: "https://signal.me/#p/..."         # full URL only
+  youtube: ChannelHandle                     # -> youtube.com/@ChannelHandle
+  mastodon: "https://mastodon.social/@user"  # full URL only (federated, no single pattern)
+  substack: newslettername                   # -> newslettername.substack.com
+  medium: writername                         # -> medium.com/@writername
+
+links:
+  website: https://example.org
+  linktree: https://linktr.ee/example        # tree icon
+  donate: https://example.org/donate         # highlighted; prefer PayPal.Me here if they have one
+  transparency: https://example.org/reports  # highlighted "Reports & transparency"
+  registration: https://opendatabot.ua/c/XXXXXXXX
+                                             # ua-ngo:      Opendatabot record
+                                             # foreign-ngo: Charity Commission / IRS / national register
+                                             # presence adds the "Registered NGO/charity" badge
+  monobank: https://send.monobank.ua/jar/XXXX   # jar icon + outside-Ukraine tooltip
+  privat: https://privat24.ua/send/XXXX         # card icon + outside-Ukraine tooltip
+  other:                                     # anything else, generic link icon
+    - { label: "Second linktree", url: "https://linktr.ee/..." }
+
+paypalme: handle               # PayPal.Me handle (no periods needed in the KEY;
+                               # renders paypal.me/<handle>). Preferred over emails.
+paypal: ["email@example.com"]  # list of PayPal emails; each renders as a
+                               # click-to-copy chip (copies address to clipboard,
+                               # shows "Copied!"). No payment link is generated.
+
+last_verified: 2026-07-04      # shown as "Entry last checked"; bump whenever you re-verify
