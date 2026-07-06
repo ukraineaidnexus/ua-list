@@ -2,6 +2,7 @@ id: max-titov
 name: "Max Titov"
 type: ua-volunteer
 status: active
+tags: [military]
 handles: { x: maksym_titov }
 links:
   linktree: https://linktr.ee/maksymtitov

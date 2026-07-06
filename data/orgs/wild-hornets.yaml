@@ -3,6 +3,7 @@ name: "Wild Hornets"
 name_ua: "Дикі шершні"
 type: ua-ngo
 status: active
+tags: [military]
 description: "Ukrainian miltech charity producing FPV combat drones for the Armed Forces: kamikaze and bomber drones, the Queen Hornet platform, and the STING interceptor used against Shahed-type drones."
 location: "Ukraine"
 handles:

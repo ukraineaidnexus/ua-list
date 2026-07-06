@@ -9,6 +9,7 @@ goal: { amount: 6000, currency: EUR }
 raised: 1811
 announced: 2026-06-25
 status: active
+tags: [military]
 links:
   x: https://x.com/trinzu/status/2073747714701947054
 donate_other:

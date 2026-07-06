@@ -3,6 +3,7 @@ name: "Back and Alive"
 name_ua: "Повернись живим"
 type: ua-ngo
 status: active
+tags: [military]
 description: "Ukraine's largest NGO providing assistance to the AFU. Raised over $1B since 2014."
 location: "Ukraine"
 email: office@savelife.in.ua

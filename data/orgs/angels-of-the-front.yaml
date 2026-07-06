@@ -3,6 +3,7 @@ name: "Angels of the Front"
 name_ua: "БФ «Янголи Фронту»"
 type: ua-ngo
 status: active
+tags: [military, humanitarian]
 description: "Ukrainian charitable foundation supplying the army (drones, night vision, tablets, IFAKs, camouflage nets, vehicles) and civilians (food packages, baby food, hygiene products)."
 location: "Kyiv region, Ukraine"
 notes: "Bank card and SWIFT/IBAN details for direct transfers are listed on their website."

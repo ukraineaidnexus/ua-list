@@ -2,6 +2,7 @@ id: nina
 name: "Nina"
 type: ua-volunteer
 status: active
+tags: [military]
 description: "Kharkiv-based volunteer supporting Ukrainian defenders; also sells patches."
 location: "Kharkiv, Ukraine"
 verified_by: "[@mrdouglashall](https://x.com/mrdouglashall)"

@@ -1,0 +1,59 @@
+{{/* Clickable tag pills that filter cards on the page.
+     Usage: partial "tag-filter.html" (dict "tags" $tags)
+     where $tags is a slice of dicts: (dict "key" "military" "label" "Military").
+     Cards opt in via data-tags="key1 key2" on the article element.
+     Multi-select, OR logic: a card shows if it matches ANY active tag.
+     Uses class .tag-hidden (search-filter uses [hidden]) so the two never
+     fight over the same attribute. */}}
+<div class="tag-filter" role="group" aria-label="{{ i18n "filter_label" }}">
+  <span class="filter-label">{{ i18n "filter_label" }}</span>
+  {{ range .tags }}
+  <button type="button" class="tag-pill" data-tag="{{ .key }}" aria-pressed="false">{{ .label }}</button>
+  {{ end }}
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var wrap = document.querySelector('.tag-filter');
+  if (!wrap) return;
+  var pills = Array.prototype.slice.call(wrap.querySelectorAll('.tag-pill'));
+  var cards = Array.prototype.slice.call(document.querySelectorAll('.card'));
+
+  function apply() {
+    var active = pills.filter(function (p) {
+      return p.classList.contains('active');
+    }).map(function (p) { return p.getAttribute('data-tag'); });
+    cards.forEach(function (c) {
+      var tags = (c.getAttribute('data-tags') || '').split(/\s+/).filter(Boolean);
+      var show = !active.length || tags.some(function (t) {
+        return active.indexOf(t) !== -1;
+      });
+      c.classList.toggle('tag-hidden', !show);
+    });
+  }
+
+  pills.forEach(function (p) {
+    p.addEventListener('click', function () {
+      var on = p.classList.toggle('active');
+      p.setAttribute('aria-pressed', on ? 'true' : 'false');
+      apply();
+    });
+  });
+
+  function clearTags() {
+    pills.forEach(function (p) {
+      p.classList.remove('active');
+      p.setAttribute('aria-pressed', 'false');
+    });
+    apply();
+  }
+
+  // Anchor links (live-fundraiser badges, shared cards) must still land.
+  function revealTarget() {
+    if (!location.hash) return;
+    var t = document.getElementById(location.hash.slice(1));
+    if (t && t.classList.contains('tag-hidden')) { clearTags(); t.scrollIntoView(); }
+  }
+  window.addEventListener('hashchange', revealTarget);
+  revealTarget();
+});
+</script>

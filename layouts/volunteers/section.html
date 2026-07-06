@@ -3,6 +3,8 @@
 {{ partial "verify-banner.html" . }}
 {{ partial "search-filter.html" . }}
 {{ partial "sort-controls.html" (dict "mode" "orgs") }}
+{{ $causeTags := slice (dict "key" "military" "label" (i18n "tag_military")) (dict "key" "humanitarian" "label" (i18n "tag_humanitarian")) (dict "key" "medical" "label" (i18n "tag_medical")) (dict "key" "animals" "label" (i18n "tag_animals")) }}
+{{ partial "tag-filter.html" (dict "tags" $causeTags) }}
 
 
 {{ $orgs := slice }}

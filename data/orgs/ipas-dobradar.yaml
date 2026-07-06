@@ -3,6 +3,7 @@ name: "IPAS (International Public Assistance Service)"
 name_ua: "БО МСГД «Добрадар»"
 type: ua-ngo
 status: active
+tags: [humanitarian]
 description: "Kharkiv-based charitable organization (legal name Dobradar) providing social and humanitarian assistance, including free community programmes for children and families."
 location: "Kharkiv, Ukraine"
 notes: "X account dormant since ~mid-2025, but the legal entity remains registered and in good standing (EDRPOU 44934255, registered Dec 2022). PayPal email is corroborated by third-party coverage tied to the same registration code."

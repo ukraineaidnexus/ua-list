@@ -11,6 +11,7 @@ goal: { amount: 380000, currency: UAH }
 announced: 2026-06-12          # UNCONFIRMED, see note below
 expires: 2026-08-12            # placeholder, adjust or remove
 status: completed
+tags: [military]
 links:
   x: https://x.com/AngelsFrontUA/status/2072998299364123033
   donate: https://send.monobank.ua/jar/5NPoZth9r4

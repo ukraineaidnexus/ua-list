@@ -1,13 +1,19 @@
 {{ define "main" }}
 <section class="intro">{{ .Content }}</section>
 
+{{ $items := slice }}
+{{ range $f, $a := hugo.Data.follow }}{{ if not $a.draft }}{{ $items = $items | append $a }}{{ end }}{{ end }}
+{{ $cats := slice }}
+{{ range $items }}{{ with .category }}{{ range $c := cond (reflect.IsSlice .) . (slice .) }}{{ $cats = $cats | append $c }}{{ end }}{{ end }}{{ end }}
+{{ $tags := slice }}
+{{ range sort (uniq $cats) }}{{ $tags = $tags | append (dict "key" (anchorize .) "label" .) }}{{ end }}
+{{ partial "tag-filter.html" (dict "tags" $tags) }}
+
 <section class="directory">
   <h2><span class="rule"></span>{{ i18n "follow_heading" }}</h2>
-  {{ $items := slice }}
-  {{ range $f, $a := hugo.Data.follow }}{{ if not $a.draft }}{{ $items = $items | append $a }}{{ end }}{{ end }}
   <div class="cards">
     {{ range sort $items "name" }}
-    <article class="card org" id="follow-{{ .id }}">
+    <article class="card org" id="follow-{{ .id }}" data-tags="{{ with .category }}{{ $s := cond (reflect.IsSlice .) . (slice .) }}{{ range $i, $c := $s }}{{ if $i }} {{ end }}{{ anchorize $c }}{{ end }}{{ end }}">
       <header>
         <h3>{{ .name }}</h3>
         {{ with .category }}<div class="badges">{{ range $c := cond (reflect.IsSlice .) . (slice .) }}<span class="badge reg">{{ $c }}</span>{{ end }}</div>{{ end }}

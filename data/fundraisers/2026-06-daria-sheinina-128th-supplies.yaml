@@ -7,6 +7,7 @@ description: >
 goal: { amount: 48888, currency: UAH }
 announced: 2026-06-12
 status: active
+tags: [military]
 links:
   monobank: https://send.monobank.ua/jar/5fGWfmqa9y
   privat: https://privat24.ua/send/iz0n3

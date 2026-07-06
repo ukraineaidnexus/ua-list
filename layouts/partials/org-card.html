@@ -2,13 +2,14 @@
 {{ $live := .live }}
 {{ $liveCount := 0 }}
 {{ range $live }}{{ if eq .org $o.id }}{{ $liveCount = add $liveCount 1 }}{{ end }}{{ end }}
-<article class="card org {{ if eq $o.status "inactive" }}inactive{{ end }}" id="org-{{ $o.id }}" data-name="{{ $o.name }}" data-verified="{{ $o.last_verified }}">
+<article class="card org {{ if eq $o.status "inactive" }}inactive{{ end }}" id="org-{{ $o.id }}" data-name="{{ $o.name }}" data-verified="{{ $o.last_verified }}" data-tags="{{ with $o.tags }}{{ delimit . " " }}{{ end }}">
   <header>
     <h3>{{ $o.name }}{{ with $o.name_ua }} <span class="uk">/ {{ . }}</span>{{ end }}</h3>
     <div class="badges">
       {{ if gt $liveCount 0 }}<a class="badge live-badge" href="{{ "fundraisers/" | relLangURL }}#f-{{ $o.id }}">{{ i18n "live_fundraiser" $liveCount }}{{ if gt $liveCount 1 }} ×{{ $liveCount }}{{ end }}</a>{{ end }}
       {{ if $o.links.registration }}<span class="badge reg">{{ if eq $o.type "foreign-ngo" }}{{ i18n "badge_charity" }}{{ else }}{{ i18n "badge_ngo" }}{{ end }}</span>{{ end }}
       {{ if eq $o.status "inactive" }}<span class="badge stale">{{ i18n "badge_inactive" }}</span>{{ end }}
+      {{ range $o.tags }}<span class="badge tag">{{ i18n (printf "tag_%s" .) }}</span>{{ end }}
     </div>
   </header>
   <p class="share-row">{{ $sharePage := "volunteers/" }}{{ if in $o.type "ngo" }}{{ $sharePage = "ngos/" }}{{ end }}<button type="button" class="badge share-card" data-copy="{{ $sharePage | absLangURL }}?only=1#org-{{ $o.id }}" data-copied="{{ i18n "copied" }}" title="{{ i18n "share_hint" }}">{{ partial "icon.html" "share" }}<span class="copy-text">{{ i18n "share_label" }}</span></button></p>

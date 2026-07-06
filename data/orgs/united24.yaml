@@ -2,6 +2,7 @@ id: united24
 name: "United24"
 type: ua-ngo
 status: active
+tags: [military, humanitarian, medical]
 description: "Official fundraising platform of Ukraine. Initiative of the President of Ukraine; weekly fund-distribution reports across defense, demining, medical aid, rebuilding, and education."
 location: "Ukraine"
 handles:

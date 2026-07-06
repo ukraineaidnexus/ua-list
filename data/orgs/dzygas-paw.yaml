@@ -3,6 +3,7 @@ name: "Dzyga's Paw"
 name_ua: "БФ «Лапка Дзиґи»"
 type: ua-ngo
 status: active
+tags: [military]
 description: "Lviv-based charity fund supplying the Ukrainian Defense Forces with high-tech equipment: drones, Starlinks, encrypted comms, night vision, EW protection. Over $6M raised since 2022 from donors in 70+ countries. Runs a near-real-time public transparency system tracking every donation and expense."
 location: "Lviv, Ukraine"
 notes: "Founded by Dmytro (Dimko) Zhluktenko and Iryna Popovych in 2022, named after their dog Dzyga. One of the best transparency setups of any UA org: live income/expense dashboard on the website."

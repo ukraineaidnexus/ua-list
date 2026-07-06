@@ -3,6 +3,7 @@ draft: false
 name: "Alex Bond"
 type: ua-volunteer
 status: active
+tags: [military]
 description: "Prolific volunteer and supporter of the AFU."
 handles:
   x: AlexBondODUA

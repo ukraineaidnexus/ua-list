@@ -2,6 +2,7 @@ id: odesa-sisters
 name: "Odesa Sisters"
 type: ua-volunteer
 status: active
+tags: [military]
 handles: { x: OdesaSisters }
 links:
   other:

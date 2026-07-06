@@ -606,3 +606,44 @@ button.share-card:focus-visible { outline: 2px solid var(--yellow); outline-offs
 
 /* Share button on its own row below the card header */
 .share-row { margin: .45rem 0 0; }
+
+/* Tag filter pills (session 6) */
+.tag-filter {
+  margin: 0 0 1.25rem;
+  font-size: .85rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .45rem;
+}
+.tag-filter .filter-label { margin-right: .25rem; color: rgba(232, 236, 244, 0.65); }
+.tag-pill {
+  padding: .4rem .95rem;
+  font-size: .85rem;
+  font-family: inherit;
+  color: #e8ecf4;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 2rem;
+  cursor: pointer;
+  transition: border-color .15s ease, background-color .15s ease;
+}
+.tag-pill:hover { border-color: var(--yellow); }
+.tag-pill:focus-visible { outline: 2px solid var(--yellow); outline-offset: 1px; }
+.tag-pill.active {
+  background: rgba(255, 213, 0, 0.15);
+  border-color: var(--yellow);
+  color: var(--yellow);
+}
+.tag-hidden { display: none !important; }
+.badge.tag { background: rgba(255, 255, 255, 0.08); color: var(--muted); }
+html[data-theme="light"] .tag-pill { color: #17233c; background: rgba(0,0,0,.04); border-color: rgba(0,0,0,.22); }
+html[data-theme="light"] .tag-filter .filter-label { color: rgba(23,35,60,.65); }
+html[data-theme="light"] .tag-pill:hover, html[data-theme="light"] .tag-pill:focus-visible { border-color: var(--yellow); outline-color: var(--yellow); }
+html[data-theme="light"] .tag-pill.active { background: rgba(179,142,0,.12); border-color: var(--yellow); color: var(--yellow); }
+@media (prefers-color-scheme: light) {
+  html:not([data-theme]) .tag-pill { color: #17233c; background: rgba(0,0,0,.04); border-color: rgba(0,0,0,.22); }
+  html:not([data-theme]) .tag-filter .filter-label { color: rgba(23,35,60,.65); }
+  html:not([data-theme]) .tag-pill:hover, html:not([data-theme]) .tag-pill:focus-visible { border-color: var(--yellow); outline-color: var(--yellow); }
+  html:not([data-theme]) .tag-pill.active { background: rgba(179,142,0,.12); border-color: var(--yellow); color: var(--yellow); }
+}

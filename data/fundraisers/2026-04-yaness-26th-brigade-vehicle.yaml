@@ -10,6 +10,7 @@ goal: { amount: 7500, currency: USD }
 raised: 5558
 announced: 2026-04-25
 status: active
+tags: [military]
 last_updated: 2026-07-06
 links:
   monobank: https://send.monobank.ua/jar/8zLohKXc1F

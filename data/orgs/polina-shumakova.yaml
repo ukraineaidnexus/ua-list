@@ -2,6 +2,7 @@ id: polina-shumakova
 name: "Polina Shumakova"
 type: ua-volunteer
 status: active
+tags: [humanitarian]
 handles: { x: SumakovaPolina }
 links:
   donate: https://buymeacoffee.com/polinastar

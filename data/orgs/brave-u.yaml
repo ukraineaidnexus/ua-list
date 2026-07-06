@@ -3,6 +3,7 @@ name: "BRAVE U Fund"
 name_ua: "БРЕЙВ Ю ФОНД"
 type: ua-ngo
 status: active
+tags: [military, medical]
 description: "Taking care of soldiers' health and comfort, so they can beat the enemy harder."
 location: "Kyiv, Ukraine"
 handles:

@@ -23,6 +23,7 @@ expires: 2026-09-04            # auto-moves to "past" after this date (daily reb
                                # even if you forget to edit the file
 
 status: active                 # [REQUIRED] active | completed | expired
+tags: [military]              # cause tags: military | humanitarian | medical | animals (one or more)
                                # completed/expired collapse into "Completed & past"
 
 links:                         # all optional

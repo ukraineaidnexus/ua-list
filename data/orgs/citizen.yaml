@@ -3,6 +3,7 @@ name: "Citizen Charity Foundation"
 name_ua: "БФ «Громадянин»"
 type: ua-ngo
 status: active
+tags: [medical]
 description: "Comprehensive support for severely wounded Ukrainian servicemen and their families since 2022: modern prosthetics ('Cyborgs' programme), treatment, physical and psychological rehabilitation, and education. Foundation active since 2012, originally supporting orphanages. Rehab partners include Fortis MC (Kharkiv), Zakhidnyi Rehabilitation and Sports Centre, and the Halychyna Centre."
 email: info@ctzn24.com
 location: "Kharkiv, Ukraine"

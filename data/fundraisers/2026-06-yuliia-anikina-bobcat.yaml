@@ -10,6 +10,7 @@ goal: { amount: 15000, currency: UAH }
 raised: 7140
 announced: 2026-06-25
 status: active
+tags: [military]
 last_updated: 2026-07-06
 links:
   x: https://x.com/Koncentrovane/status/2070165273823350823

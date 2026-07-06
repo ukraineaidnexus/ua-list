@@ -3,6 +3,7 @@ name: "Way to Ukraine"
 name_ua: "БФ «ВЕЙ ТУ ЮКРЕЙН»"
 type: ua-ngo
 status: active
+tags: [military]
 description: "Supply of vehicles to the AFU."
 notes: "NAFO contacts: [@WhatADdoing](https://x.com/WhatADdoing), [@77thUnit7](https://x.com/77thUnit7)."
 handles:

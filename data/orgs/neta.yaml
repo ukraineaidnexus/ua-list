@@ -3,6 +3,7 @@ name: "NETA"
 name_ua: "НЕТА"
 type: ua-volunteer
 status: active
+tags: [military]
 description: "Volunteer from Zaporizhzhia supporting Ukrainian units. Reports posted under the #звіт_НЕТА hashtag."
 location: "Zaporizhzhia, Ukraine"
 notes: "X account quiet since late April 2026; check for recent activity before donating."
