@@ -537,7 +537,7 @@ article[id^="f-"]:target {
   display: inline-flex;
   align-items: center;
   vertical-align: middle;
-  margin: .5rem 0 1.25rem;
+  margin: 1.25rem 0;
   font-size: .85rem;
 }
 
