@@ -1,7 +1,7 @@
 {{ $f := .f }}
 {{ $org := index hugo.Data.orgs $f.org }}
 
-<article class="card fundraiser status-{{ $f.status }}" id="f-{{ $f.org }}">
+<article class="card fundraiser status-{{ $f.status }}" id="f-{{ $f.org }}" data-name="{{ $f.title }}" data-posted="{{ $f.announced }}" data-updated="{{ $f.last_updated | default $f.announced }}"{{ if $f.goal }} data-left="{{ sub 100 (div (mul ($f.raised | default 0) 100) $f.goal.amount) }}"{{ end }}>
   <header>
     <h3>{{ $f.title }}</h3>
     {{ with $org }}{{ $page := "volunteers/" }}{{ if in .type "ngo" }}{{ $page = "ngos/" }}{{ end }}<p class="by">{{ i18n "by" }} <a href="{{ $page | relLangURL }}#org-{{ .id }}">{{ .name }}</a></p>{{ end }}

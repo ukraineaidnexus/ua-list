@@ -1,0 +1,64 @@
+{{ $mode := .mode }}
+<div class="sort-controls">
+  <label for="card-sort">{{ i18n "sort_label" }}</label>
+  <select id="card-sort">
+    {{ if eq $mode "orgs" }}
+    <option value="random" selected>{{ i18n "sort_random" }}</option>
+    <option value="az">{{ i18n "sort_name_az" }}</option>
+    <option value="za">{{ i18n "sort_name_za" }}</option>
+    <option value="checked">{{ i18n "sort_last_checked" }}</option>
+    {{ else }}
+    <option value="oldest" selected>{{ i18n "sort_posted_old" }}</option>
+    <option value="newest">{{ i18n "sort_posted_new" }}</option>
+    <option value="updated">{{ i18n "sort_updated" }}</option>
+    <option value="closest">{{ i18n "sort_closest" }}</option>
+    <option value="furthest">{{ i18n "sort_furthest" }}</option>
+    <option value="az">{{ i18n "sort_name_az" }}</option>
+    <option value="random">{{ i18n "sort_random" }}</option>
+    {{ end }}
+  </select>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var sel = document.getElementById('card-sort');
+  if (!sel) return;
+  var containers = Array.prototype.slice.call(document.querySelectorAll('.cards'));
+  function key(c, attr) { return c.getAttribute(attr) || ''; }
+  function byName(a, b) { return key(a, 'data-name').localeCompare(key(b, 'data-name')); }
+  function applySort(mode) {
+    containers.forEach(function (box) {
+      var cards = Array.prototype.slice.call(box.children);
+      var active = cards.filter(function (c) { return !c.classList.contains('inactive'); });
+      var inactive = cards.filter(function (c) { return c.classList.contains('inactive'); });
+      if (mode === 'random') {
+        for (var i = active.length - 1; i > 0; i--) {
+          var j = Math.floor(Math.random() * (i + 1));
+          var t = active[i]; active[i] = active[j]; active[j] = t;
+        }
+      } else if (mode === 'az') { active.sort(byName); }
+      else if (mode === 'za') { active.sort(function (a, b) { return byName(b, a); }); }
+      else if (mode === 'checked') { active.sort(function (a, b) { return key(b, 'data-verified').localeCompare(key(a, 'data-verified')); }); }
+      else if (mode === 'oldest') { active.sort(function (a, b) { return key(a, 'data-posted').localeCompare(key(b, 'data-posted')); }); }
+      else if (mode === 'newest') { active.sort(function (a, b) { return key(b, 'data-posted').localeCompare(key(a, 'data-posted')); }); }
+      else if (mode === 'updated') { active.sort(function (a, b) { return key(b, 'data-updated').localeCompare(key(a, 'data-updated')); }); }
+      else if (mode === 'closest' || mode === 'furthest') {
+        active.sort(function (a, b) {
+          var av = a.hasAttribute('data-left') ? parseFloat(a.getAttribute('data-left')) : Infinity;
+          var bv = b.hasAttribute('data-left') ? parseFloat(b.getAttribute('data-left')) : Infinity;
+          if (av === Infinity && bv === Infinity) return 0;
+          if (av === Infinity) return 1;
+          if (bv === Infinity) return -1;
+          return mode === 'closest' ? av - bv : bv - av;
+        });
+      }
+      active.concat(inactive).forEach(function (c) { box.appendChild(c); });
+    });
+    if (location.hash) {
+      var target = document.getElementById(location.hash.slice(1));
+      if (target) { target.scrollIntoView(); }
+    }
+  }
+  sel.addEventListener('change', function () { applySort(sel.value); });
+  applySort(sel.value);
+});
+</script>

@@ -519,3 +519,18 @@ article[id^="f-"]:target {
   opacity: .6;
   margin-left: .35rem;
 }
+
+.sort-controls {
+  margin: .5rem 0 1rem;
+  font-size: .85rem;
+}
+.sort-controls label { margin-right: .4rem; opacity: .75; }
+.sort-controls select {
+  padding: .25rem .5rem;
+  border-radius: 6px;
+  border: 1px solid currentColor;
+  background: inherit;
+  color: inherit;
+  font: inherit;
+  font-size: .85rem;
+}

@@ -2,6 +2,7 @@
 <section class="intro">{{ .Content }}</section>
 {{ partial "verify-banner.html" . }}
 {{ partial "search-filter.html" . }}
+{{ partial "sort-controls.html" (dict "mode" "orgs") }}
 
 
 {{ $orgs := slice }}

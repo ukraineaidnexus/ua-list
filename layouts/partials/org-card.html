@@ -2,7 +2,7 @@
 {{ $live := .live }}
 {{ $liveCount := 0 }}
 {{ range $live }}{{ if eq .org $o.id }}{{ $liveCount = add $liveCount 1 }}{{ end }}{{ end }}
-<article class="card org {{ if eq $o.status "inactive" }}inactive{{ end }}" id="org-{{ $o.id }}">
+<article class="card org {{ if eq $o.status "inactive" }}inactive{{ end }}" id="org-{{ $o.id }}" data-name="{{ $o.name }}" data-verified="{{ $o.last_verified }}">
   <header>
     <h3>{{ $o.name }}{{ with $o.name_ua }} <span class="uk">/ {{ . }}</span>{{ end }}</h3>
     <div class="badges">
