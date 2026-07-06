@@ -1,6 +1,6 @@
-id: jimmy-rushton
+id: jimmysecuk.yaml
 name: "Jimmy Rushton"
-handles: { x: JimmySecUK }
-category: "OSINT / analysis"
-why: "Security and foreign policy analyst covering the war in Ukraine. Regularly documents and exposes disinformation accounts and fake battle-report grifters."
-last_verified: 2026-07-04
+handles: { x: JimmySecUK, x_id: "4645237240" }
+category: ["OSINT / analysis", "Journalist"]
+why: "Kyiv based security and foreign policy analyst covering the war in Ukraine."
+last_verified: 2026-07-06

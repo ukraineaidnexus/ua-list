@@ -1,0 +1,9 @@
+id: kyiv-independent
+name: "The Kyiv Independent"
+why: "Ukraine's leading independent English-language newsroom."
+category: ["News outlet"]
+links:
+  website: https://kyivindependent.com
+handles:
+  x: KyivIndependent
+last_verified: 2026-07-06
