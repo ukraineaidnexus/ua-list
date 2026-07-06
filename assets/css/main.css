@@ -577,3 +577,29 @@ main > section:first-child { margin-top: 1.5rem; }
   }
   .hero { padding-top: 6.5rem; }
 }
+
+/* Share button on cards (session 6) */
+button.share-card {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--muted);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  cursor: pointer;
+  font-family: inherit;
+  display: inline-flex;
+  align-items: center;
+  gap: .3rem;
+}
+button.share-card .icon { width: .85em; height: .85em; }
+button.share-card:hover { color: var(--yellow); border-color: var(--yellow); }
+button.share-card:focus-visible { outline: 2px solid var(--yellow); outline-offset: 1px; }
+
+/* "Showing one entry" bar for ?only=1 shared links */
+.only-note {
+  margin: 1.25rem 0 0;
+  padding: .6rem .9rem;
+  font-size: .9rem;
+  border: 1px solid rgba(255, 213, 0, 0.35);
+  border-radius: 6px;
+  background: rgba(255, 213, 0, 0.08);
+}
+.only-note a { color: var(--yellow); font-weight: 700; }

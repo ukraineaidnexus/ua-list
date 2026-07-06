@@ -19,7 +19,7 @@
   {{ $css := resources.Get "css/main.css" | minify | fingerprint }}
   <link rel="stylesheet" href="{{ $css.RelPermalink }}">
 </head>
-<body>
+<body data-showing-one="{{ i18n "showing_one" }}" data-show-all="{{ i18n "show_all" }}">
   <header class="hero" style="background-image: linear-gradient(to bottom, rgba(7,14,28,.25) 0%, rgba(7,14,28,.55) 55%, var(--bg) 100%), url('{{ $hero.RelPermalink }}')">
     <nav class="theme-switch" aria-label="Theme">
       <button type="button" data-set-theme="light" title="{{ i18n "theme_light" }}" aria-label="{{ i18n "theme_light" }}">{{ partial "icon.html" "sun" }}</button>
@@ -135,7 +135,7 @@
   </script>
   <script>
   document.addEventListener("click", function (e) {
-    var btn = e.target.closest(".copy-paypal");
+    var btn = e.target.closest(".copy-paypal, .share-card");
     if (!btn || !navigator.clipboard) return;
     navigator.clipboard.writeText(btn.dataset.copy).then(function () {
       var t = btn.querySelector(".copy-text");
@@ -146,6 +146,36 @@
       setTimeout(function () { t.textContent = orig; delete btn.dataset.busy; }, 1600);
     });
   });
+  </script>
+  <script>
+  (function () {
+    if (location.search.indexOf("only=1") === -1 || !location.hash) return;
+    var id = location.hash.slice(1);
+    var match = document.querySelectorAll(".cards article");
+    var found = false;
+    match.forEach(function (a) { if (a.id === id) found = true; });
+    if (!found) return;
+    match.forEach(function (a) { if (a.id !== id) a.hidden = true; });
+    document.querySelectorAll("main section").forEach(function (s) {
+      var cards = s.querySelectorAll(".cards article");
+      if (cards.length && !s.querySelector(".cards article:not([hidden])")) s.hidden = true;
+    });
+    var bar = document.createElement("p");
+    bar.className = "only-note";
+    bar.appendChild(document.createTextNode(document.body.dataset.showingOne + " "));
+    var link = document.createElement("a");
+    link.href = location.pathname + location.hash;
+    link.textContent = document.body.dataset.showAll;
+    link.addEventListener("click", function (e) {
+      e.preventDefault();
+      document.querySelectorAll("main section[hidden], .cards article[hidden]").forEach(function (el) { el.hidden = false; });
+      history.replaceState(null, "", location.pathname + location.hash);
+      bar.remove();
+    });
+    bar.appendChild(link);
+    var main = document.querySelector("main");
+    if (main) main.insertBefore(bar, main.firstChild);
+  })();
   </script>
 </body>
 </html>

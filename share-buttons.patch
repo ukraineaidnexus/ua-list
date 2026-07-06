@@ -1,0 +1,236 @@
+diff --git a/assets/css/main.css b/assets/css/main.css
+index 5458b2d..282f32c 100644
+--- a/assets/css/main.css
++++ b/assets/css/main.css
+@@ -577,3 +577,29 @@ main > section:first-child { margin-top: 1.5rem; }
+   }
+   .hero { padding-top: 6.5rem; }
+ }
++
++/* Share button on cards (session 6) */
++button.share-card {
++  background: rgba(255, 255, 255, 0.08);
++  color: var(--muted);
++  border: 1px solid rgba(255, 255, 255, 0.15);
++  cursor: pointer;
++  font-family: inherit;
++  display: inline-flex;
++  align-items: center;
++  gap: .3rem;
++}
++button.share-card .icon { width: .85em; height: .85em; }
++button.share-card:hover { color: var(--yellow); border-color: var(--yellow); }
++button.share-card:focus-visible { outline: 2px solid var(--yellow); outline-offset: 1px; }
++
++/* "Showing one entry" bar for ?only=1 shared links */
++.only-note {
++  margin: 1.25rem 0 0;
++  padding: .6rem .9rem;
++  font-size: .9rem;
++  border: 1px solid rgba(255, 213, 0, 0.35);
++  border-radius: 6px;
++  background: rgba(255, 213, 0, 0.08);
++}
++.only-note a { color: var(--yellow); font-weight: 700; }
+diff --git a/i18n/de.toml b/i18n/de.toml
+index 3b73850..a8258d4 100644
+--- a/i18n/de.toml
++++ b/i18n/de.toml
+@@ -81,6 +81,10 @@ sort_posted_new = "Neueste zuerst"
+ sort_updated = "Zuletzt aktualisiert"
+ sort_closest = "Am nächsten am Ziel"
+ sort_furthest = "Am weitesten vom Ziel"
++share_label = "Teilen"
++share_hint = "Direktlink zu dieser Karte kopieren"
++showing_one = "Es wird ein einzelner Eintrag angezeigt."
++show_all = "Alle anzeigen"
+ [live_fundraiser]
+ one = "Laufende Spendenaktion"
+ other = "Laufende Spendenaktionen"
+diff --git a/i18n/en.toml b/i18n/en.toml
+index 1d2121b..5797407 100644
+--- a/i18n/en.toml
++++ b/i18n/en.toml
+@@ -81,6 +81,10 @@ sort_posted_new = "Newest first"
+ sort_updated = "Recently updated"
+ sort_closest = "Closest to goal"
+ sort_furthest = "Furthest from goal"
++share_label = "Share"
++share_hint = "Copy a direct link to this card"
++showing_one = "Showing a single entry."
++show_all = "Show all"
+ [live_fundraiser]
+ one = "Live fundraiser"
+ other = "Live fundraisers"
+diff --git a/i18n/fr.toml b/i18n/fr.toml
+index dc2aa8e..149bf13 100644
+--- a/i18n/fr.toml
++++ b/i18n/fr.toml
+@@ -82,6 +82,10 @@ sort_posted_new = "Les plus récentes d'abord"
+ sort_updated = "Mises à jour récemment"
+ sort_closest = "Proches de l'objectif"
+ sort_furthest = "Loin de l'objectif"
++share_label = "Partager"
++share_hint = "Copier un lien direct vers cette fiche"
++showing_one = "Une seule entrée est affichée."
++show_all = "Tout afficher"
+ [live_fundraiser]
+ one = "Collecte en cours"
+ other = "Collectes en cours"
+diff --git a/i18n/nl.toml b/i18n/nl.toml
+index d72a0c0..ae6dd1e 100644
+--- a/i18n/nl.toml
++++ b/i18n/nl.toml
+@@ -78,6 +78,10 @@ sort_posted_new = "Nieuwste eerst"
+ sort_updated = "Onlangs bijgewerkt"
+ sort_closest = "Dichtst bij het doel"
+ sort_furthest = "Verst van het doel"
++share_label = "Delen"
++share_hint = "Directe link naar deze kaart kopiëren"
++showing_one = "Er wordt één vermelding getoond."
++show_all = "Alles tonen"
+ [live_fundraiser]
+ one = "Actieve inzamelactie"
+ other = "Actieve inzamelacties"
+diff --git a/i18n/pl.toml b/i18n/pl.toml
+index 91e259d..9d9e99b 100644
+--- a/i18n/pl.toml
++++ b/i18n/pl.toml
+@@ -81,6 +81,10 @@ sort_posted_new = "Najnowsze najpierw"
+ sort_updated = "Ostatnio aktualizowane"
+ sort_closest = "Najbliżej celu"
+ sort_furthest = "Najdalej od celu"
++share_label = "Udostępnij"
++share_hint = "Skopiuj bezpośredni link do tej karty"
++showing_one = "Wyświetlany jest jeden wpis."
++show_all = "Pokaż wszystkie"
+ [live_fundraiser]
+ one = "Trwająca zbiórka"
+ few = "Trwające zbiórki"
+diff --git a/i18n/ru.toml b/i18n/ru.toml
+index 17a1463..28eaf67 100644
+--- a/i18n/ru.toml
++++ b/i18n/ru.toml
+@@ -81,6 +81,10 @@ sort_posted_new = "Сначала новые"
+ sort_updated = "Недавно обновлённые"
+ sort_closest = "Ближе всего к цели"
+ sort_furthest = "Дальше всего от цели"
++share_label = "Поделиться"
++share_hint = "Скопировать прямую ссылку на эту карточку"
++showing_one = "Показана одна запись."
++show_all = "Показать все"
+ [live_fundraiser]
+ one = "Активный сбор"
+ few = "Активные сборы"
+diff --git a/i18n/ua.toml b/i18n/ua.toml
+index 3f177fd..7ac790c 100644
+--- a/i18n/ua.toml
++++ b/i18n/ua.toml
+@@ -81,6 +81,10 @@ sort_posted_new = "Найновіші спочатку"
+ sort_updated = "Нещодавно оновлені"
+ sort_closest = "Найближчі до цілі"
+ sort_furthest = "Найдалі від цілі"
++share_label = "Поділитися"
++share_hint = "Скопіювати пряме посилання на цю картку"
++showing_one = "Показано один запис."
++show_all = "Показати всі"
+ [live_fundraiser]
+ one = "Активний збір"
+ few = "Активні збори"
+diff --git a/layouts/baseof.html b/layouts/baseof.html
+index 205a76a..d3a9277 100644
+--- a/layouts/baseof.html
++++ b/layouts/baseof.html
+@@ -19,7 +19,7 @@
+   {{ $css := resources.Get "css/main.css" | minify | fingerprint }}
+   <link rel="stylesheet" href="{{ $css.RelPermalink }}">
+ </head>
+-<body>
++<body data-showing-one="{{ i18n "showing_one" }}" data-show-all="{{ i18n "show_all" }}">
+   <header class="hero" style="background-image: linear-gradient(to bottom, rgba(7,14,28,.25) 0%, rgba(7,14,28,.55) 55%, var(--bg) 100%), url('{{ $hero.RelPermalink }}')">
+     <nav class="theme-switch" aria-label="Theme">
+       <button type="button" data-set-theme="light" title="{{ i18n "theme_light" }}" aria-label="{{ i18n "theme_light" }}">{{ partial "icon.html" "sun" }}</button>
+@@ -135,7 +135,7 @@
+   </script>
+   <script>
+   document.addEventListener("click", function (e) {
+-    var btn = e.target.closest(".copy-paypal");
++    var btn = e.target.closest(".copy-paypal, .share-card");
+     if (!btn || !navigator.clipboard) return;
+     navigator.clipboard.writeText(btn.dataset.copy).then(function () {
+       var t = btn.querySelector(".copy-text");
+@@ -147,5 +147,35 @@
+     });
+   });
+   </script>
++  <script>
++  (function () {
++    if (location.search.indexOf("only=1") === -1 || !location.hash) return;
++    var id = location.hash.slice(1);
++    var match = document.querySelectorAll(".cards article");
++    var found = false;
++    match.forEach(function (a) { if (a.id === id) found = true; });
++    if (!found) return;
++    match.forEach(function (a) { if (a.id !== id) a.hidden = true; });
++    document.querySelectorAll("main section").forEach(function (s) {
++      var cards = s.querySelectorAll(".cards article");
++      if (cards.length && !s.querySelector(".cards article:not([hidden])")) s.hidden = true;
++    });
++    var bar = document.createElement("p");
++    bar.className = "only-note";
++    bar.appendChild(document.createTextNode(document.body.dataset.showingOne + " "));
++    var link = document.createElement("a");
++    link.href = location.pathname + location.hash;
++    link.textContent = document.body.dataset.showAll;
++    link.addEventListener("click", function (e) {
++      e.preventDefault();
++      document.querySelectorAll("main section[hidden], .cards article[hidden]").forEach(function (el) { el.hidden = false; });
++      history.replaceState(null, "", location.pathname + location.hash);
++      bar.remove();
++    });
++    bar.appendChild(link);
++    var main = document.querySelector("main");
++    if (main) main.insertBefore(bar, main.firstChild);
++  })();
++  </script>
+ </body>
+ </html>
+diff --git a/layouts/partials/fundraiser-card.html b/layouts/partials/fundraiser-card.html
+index 35589d9..1524bf6 100644
+--- a/layouts/partials/fundraiser-card.html
++++ b/layouts/partials/fundraiser-card.html
+@@ -5,6 +5,9 @@
+   <header>
+     <h3>{{ $f.title }}</h3>
+     {{ with $org }}{{ $page := "volunteers/" }}{{ if in .type "ngo" }}{{ $page = "ngos/" }}{{ end }}<p class="by">{{ i18n "by" }} <a href="{{ $page | relLangURL }}#org-{{ .id }}">{{ .name }}</a></p>{{ end }}
++    <div class="badges">
++      <button type="button" class="badge share-card" data-copy="{{ "fundraisers/" | absLangURL }}?only=1#f-{{ $f.org }}" data-copied="{{ i18n "copied" }}" title="{{ i18n "share_hint" }}">{{ partial "icon.html" "share" }}<span class="copy-text">{{ i18n "share_label" }}</span></button>
++    </div>
+   </header>
+ 
+   {{ with $f.beneficiary }}<p class="desc"><strong>{{ i18n "for" }}:</strong> {{ . }}</p>{{ end }}
+diff --git a/layouts/partials/icon.html b/layouts/partials/icon.html
+index 6fdcc6c..8efae1f 100644
+--- a/layouts/partials/icon.html
++++ b/layouts/partials/icon.html
+@@ -32,6 +32,7 @@
+   "location" "M12 12c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm6-2c0-3.31-2.69-6-6-6s-6 2.69-6 6c0 4.5 6 11 6 11s6-6.5 6-11zm-2 0c0 2.5-2.6 6.35-4 8.16-1.4-1.81-4-5.66-4-8.16 0-2.21 1.79-4 4-4s4 1.79 4 4z"
+   "bmac" "M18.5 3H6c-1.1 0-2 .9-2 2v5.71c0 3.83 2.95 7.18 6.78 7.29 3.96.12 7.22-3.06 7.22-7v-1h.5c1.93 0 3.5-1.57 3.5-3.5S20.43 3 18.5 3zM16 5v3H6V5h10zm2.5 3H18V5h.5c.83 0 1.5.67 1.5 1.5S19.33 8 18.5 8zM4 21h16v-2H4v2z"
+   "check" "M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"
++  "share" "M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z"
+ -}}
+ {{- $d := index $icons . -}}
+ <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="{{ $d }}"/></svg>
+diff --git a/layouts/partials/org-card.html b/layouts/partials/org-card.html
+index 784eef0..6a83960 100644
+--- a/layouts/partials/org-card.html
++++ b/layouts/partials/org-card.html
+@@ -9,6 +9,8 @@
+       {{ if gt $liveCount 0 }}<a class="badge live-badge" href="{{ "fundraisers/" | relLangURL }}#f-{{ $o.id }}">{{ i18n "live_fundraiser" $liveCount }}{{ if gt $liveCount 1 }} ×{{ $liveCount }}{{ end }}</a>{{ end }}
+       {{ if $o.links.registration }}<span class="badge reg">{{ if eq $o.type "foreign-ngo" }}{{ i18n "badge_charity" }}{{ else }}{{ i18n "badge_ngo" }}{{ end }}</span>{{ end }}
+       {{ if eq $o.status "inactive" }}<span class="badge stale">{{ i18n "badge_inactive" }}</span>{{ end }}
++      {{ $sharePage := "volunteers/" }}{{ if in $o.type "ngo" }}{{ $sharePage = "ngos/" }}{{ end }}
++      <button type="button" class="badge share-card" data-copy="{{ $sharePage | absLangURL }}?only=1#org-{{ $o.id }}" data-copied="{{ i18n "copied" }}" title="{{ i18n "share_hint" }}">{{ partial "icon.html" "share" }}<span class="copy-text">{{ i18n "share_label" }}</span></button>
+     </div>
+   </header>
+   {{ with $o.location }}<p class="location">{{ partial "icon.html" "location" }}{{ . }}</p>{{ end }}
