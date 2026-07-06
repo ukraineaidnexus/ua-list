@@ -59,7 +59,7 @@
     <p>{{ printf (i18n "footer_disclaimer") (printf "%s#verify" ("/" | relLangURL)) | safeHTML }}
     {{ i18n "footer_contact" }}
     {{ if site.Params.contact_x_id }}<a href="https://x.com/messages/compose?recipient_id={{ site.Params.contact_x_id }}">{{ partial "icon.html" "x" }} @{{ site.Params.contact_x }}</a>{{ else }}<a href="https://x.com/{{ site.Params.contact_x }}">{{ partial "icon.html" "x" }} @{{ site.Params.contact_x }}</a>{{ end }}{{ with site.Params.contact_telegram }} · <a href="https://t.me/{{ . }}">{{ partial "icon.html" "telegram" }} Telegram</a>{{ end }}{{ with site.Params.contact_signal }} · <a href="{{ . }}">{{ partial "icon.html" "signal" }} Signal</a>{{ end }}.</p>
-    <p class="disclaimer">{{ i18n "footer_no_donations" }}</p>
+    <p class="disclaimer"><a href="{{ "about/" | relLangURL }}">{{ i18n "footer_about" }}</a> · {{ i18n "footer_no_donations" }}</p>
     <p class="build-date">{{ i18n "footer_built" }} {{ now.Format "2 January 2006" }}</p>
   </footer>
   <script>

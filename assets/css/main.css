@@ -647,3 +647,21 @@ html[data-theme="light"] .tag-pill.active { background: rgba(179,142,0,.12); bor
   html:not([data-theme]) .tag-pill:hover, html:not([data-theme]) .tag-pill:focus-visible { border-color: var(--yellow); outline-color: var(--yellow); }
   html:not([data-theme]) .tag-pill.active { background: rgba(179,142,0,.12); border-color: var(--yellow); color: var(--yellow); }
 }
+
+/* About page (session 7) */
+.about { max-width: 46rem; }
+.about img { max-width: 100%; border-radius: 8px; margin: 1rem 0; }
+.about figure { margin: 0; }
+.about figcaption { font-size: .8rem; opacity: .65; margin-top: .35rem; }
+.about .about-banner { margin: 0 0 1.75rem; }
+.about .about-banner img { width: 100%; aspect-ratio: 21 / 9; object-fit: cover; border-radius: 8px; margin: 0; }
+.about .photo img { width: 100%; height: auto; border-radius: 8px; margin: 0; }
+.about .float-r { float: right; width: 37%; margin: .3rem 0 1rem 1.25rem; }
+.about .float-l { float: left; width: 37%; margin: .3rem 1.25rem 1rem 0; }
+.about .fella-row { clear: both; display: grid; grid-template-columns: repeat(2, 160px); gap: 1rem; margin-top: 2rem; }
+.about .fella-row img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 8px; margin: 0; }
+@media (max-width: 600px) {
+  .about .float-r, .about .float-l { float: none; width: 100%; margin: 1rem 0; }
+  .about .about-banner img { aspect-ratio: 16 / 9; }
+  .about .fella-row { grid-template-columns: 1fr 1fr; }
+}
