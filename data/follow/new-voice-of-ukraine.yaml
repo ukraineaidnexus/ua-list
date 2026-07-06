@@ -4,4 +4,7 @@ why: "Independent English-language Ukrainian news outlet."
 category: ["News outlet"]
 handles:
   x: NewVoiceUkraine
+  facebook: TheNewVoiceUkraine
+links:
+  website: https://english.nv.ua
 last_verified: 2026-07-06

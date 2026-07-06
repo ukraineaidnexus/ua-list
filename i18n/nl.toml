@@ -88,6 +88,7 @@ share_label = "Delen"
 share_hint = "Directe link naar deze kaart kopiëren"
 showing_one = "Er wordt één vermelding getoond."
 show_all = "Alles tonen"
+tip_label = "Fooi"
 [live_fundraiser]
 one = "Actieve inzamelactie"
 other = "Actieve inzamelacties"

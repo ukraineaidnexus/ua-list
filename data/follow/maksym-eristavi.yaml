@@ -1,7 +1,10 @@
-id: maksym-eristavi
+id: maksymeristavi
 name: "Maksym Eristavi"
-why: "Author of the 'russian colonialism 101' guidebook; documents russian colonialism past and present."
-category: ["OSINT / analysis", "Advocacy"]
+why: "Journalist and creative producer. Author of the award-winning 'russian colonialism 101' guidebook; founder of Volya Hub and the #RussianColonialism conversation space, exposing russian colonialism past and present."
+category: ["Journalist", "Advocacy"]
 handles:
   x: maksymeristavi
+  substack: maksymeristavi
+links:
+  website: https://www.maksymeristavi.com
 last_verified: 2026-07-06

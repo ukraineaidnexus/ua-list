@@ -91,6 +91,7 @@ share_label = "Teilen"
 share_hint = "Direktlink zu dieser Karte kopieren"
 showing_one = "Es wird ein einzelner Eintrag angezeigt."
 show_all = "Alle anzeigen"
+tip_label = "Trinkgeld"
 [live_fundraiser]
 one = "Laufende Spendenaktion"
 other = "Laufende Spendenaktionen"

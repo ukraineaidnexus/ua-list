@@ -91,6 +91,7 @@ share_label = "Share"
 share_hint = "Copy a direct link to this card"
 showing_one = "Showing a single entry."
 show_all = "Show all"
+tip_label = "Tip"
 [live_fundraiser]
 one = "Live fundraiser"
 other = "Live fundraisers"

@@ -91,6 +91,7 @@ share_label = "Поділитися"
 share_hint = "Скопіювати пряме посилання на цю картку"
 showing_one = "Показано один запис."
 show_all = "Показати всі"
+tip_label = "Чайові"
 [live_fundraiser]
 one = "Активний збір"
 few = "Активні збори"

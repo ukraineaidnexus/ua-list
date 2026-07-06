@@ -91,6 +91,7 @@ share_label = "Udostępnij"
 share_hint = "Skopiuj bezpośredni link do tej karty"
 showing_one = "Wyświetlany jest jeden wpis."
 show_all = "Pokaż wszystkie"
+tip_label = "Napiwek"
 [live_fundraiser]
 one = "Trwająca zbiórka"
 few = "Trwające zbiórki"

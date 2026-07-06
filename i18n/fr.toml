@@ -92,6 +92,7 @@ share_label = "Partager"
 share_hint = "Copier un lien direct vers cette fiche"
 showing_one = "Une seule entrée est affichée."
 show_all = "Tout afficher"
+tip_label = "Pourboire"
 [live_fundraiser]
 one = "Collecte en cours"
 other = "Collectes en cours"
