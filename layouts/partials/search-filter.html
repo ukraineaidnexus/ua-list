@@ -26,5 +26,19 @@ document.addEventListener('DOMContentLoaded', function () {
     });
     empty.hidden = shown !== 0;
   });
+  function clearFilter() {
+    if (!input.value) return;
+    input.value = '';
+    cards.forEach(function (c) { c.hidden = false; });
+    empty.hidden = true;
+  }
+  function revealTarget() {
+    if (!location.hash) return;
+    var t = document.getElementById(location.hash.slice(1));
+    if (t && t.hidden) { clearFilter(); t.scrollIntoView(); }
+  }
+  window.addEventListener('hashchange', revealTarget);
+  revealTarget();
 });
+
 </script>
