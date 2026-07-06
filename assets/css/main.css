@@ -418,7 +418,7 @@ article[hidden] {
 /* ---------- Theme switcher ---------- */
 .theme-switch {
   position: absolute; top: 1rem; left: 1.1rem;
-  display: flex; gap: .15rem; z-index: 2;
+  display: flex; gap: .15rem; z-index: 3;
 }
 .theme-switch button {
   color: #e8edf6; background: rgba(10,20,40,.72);
@@ -566,3 +566,14 @@ article[id^="f-"]:target {
 
 /* Tighter gap between hero and first content section */
 main > section:first-child { margin-top: 1.5rem; }
+
+/* Mobile: stop lang switcher overlapping theme switcher */
+@media (max-width: 760px) {
+  .lang-switch {
+    left: 7rem;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    row-gap: .25rem;
+  }
+  .hero { padding-top: 6.5rem; }
+}
