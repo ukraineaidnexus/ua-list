@@ -603,3 +603,6 @@ button.share-card:focus-visible { outline: 2px solid var(--yellow); outline-offs
   background: rgba(255, 213, 0, 0.08);
 }
 .only-note a { color: var(--yellow); font-weight: 700; }
+
+/* Share button on its own row below the card header */
+.share-row { margin: .45rem 0 0; }

@@ -9,10 +9,9 @@
       {{ if gt $liveCount 0 }}<a class="badge live-badge" href="{{ "fundraisers/" | relLangURL }}#f-{{ $o.id }}">{{ i18n "live_fundraiser" $liveCount }}{{ if gt $liveCount 1 }} ×{{ $liveCount }}{{ end }}</a>{{ end }}
       {{ if $o.links.registration }}<span class="badge reg">{{ if eq $o.type "foreign-ngo" }}{{ i18n "badge_charity" }}{{ else }}{{ i18n "badge_ngo" }}{{ end }}</span>{{ end }}
       {{ if eq $o.status "inactive" }}<span class="badge stale">{{ i18n "badge_inactive" }}</span>{{ end }}
-      {{ $sharePage := "volunteers/" }}{{ if in $o.type "ngo" }}{{ $sharePage = "ngos/" }}{{ end }}
-      <button type="button" class="badge share-card" data-copy="{{ $sharePage | absLangURL }}?only=1#org-{{ $o.id }}" data-copied="{{ i18n "copied" }}" title="{{ i18n "share_hint" }}">{{ partial "icon.html" "share" }}<span class="copy-text">{{ i18n "share_label" }}</span></button>
     </div>
   </header>
+  <p class="share-row">{{ $sharePage := "volunteers/" }}{{ if in $o.type "ngo" }}{{ $sharePage = "ngos/" }}{{ end }}<button type="button" class="badge share-card" data-copy="{{ $sharePage | absLangURL }}?only=1#org-{{ $o.id }}" data-copied="{{ i18n "copied" }}" title="{{ i18n "share_hint" }}">{{ partial "icon.html" "share" }}<span class="copy-text">{{ i18n "share_label" }}</span></button></p>
   {{ with $o.location }}<p class="location">{{ partial "icon.html" "location" }}{{ . }}</p>{{ end }}
   <p class="desc">{{ $o.description | markdownify }}</p>
   {{ with $o.warning }}<p class="warning">⚠️ {{ . | markdownify }}</p>{{ end }}
