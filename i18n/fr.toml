@@ -70,6 +70,8 @@ x_permanent = "Lien permanent du profil X"
 x_permanent_short = "lien permanent"
 check_x_fundraisers = "Aucune collecte en cours listée. Consultez leur compte X pour les appels actuels."
 donate_no_military = "Ne mentionnez rien de militaire dans le message ou la note de paiement."
+personal_support = "soutien personnel, pas d'aide"
+tap_to_copy = "appuyez pour copier"
 [live_fundraiser]
 one = "Collecte en cours"
 other = "Collectes en cours"

@@ -502,3 +502,20 @@ article[id^="f-"]:target {
   opacity: .85;
   margin: .5rem 0 0;
 }
+
+.donate .personal-tag {
+  display: inline-block;
+  margin-left: .4rem;
+  padding: .05rem .45rem;
+  font-size: .7rem;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  opacity: .75;
+  vertical-align: middle;
+}
+
+.copy-paypal .copy-hint {
+  font-size: .7rem;
+  opacity: .6;
+  margin-left: .35rem;
+}

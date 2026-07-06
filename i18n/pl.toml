@@ -69,6 +69,8 @@ x_permanent = "Stały link do profilu X"
 x_permanent_short = "stały link"
 check_x_fundraisers = "Brak aktywnych zbiórek na liście. Sprawdź ich konto X, aby zobaczyć bieżące zbiórki."
 donate_no_military = "Nie wspominaj o niczym związanym z wojskiem w tytule ani opisie płatności."
+personal_support = "wsparcie osobiste, nie zbiórka"
+tap_to_copy = "dotknij, aby skopiować"
 [live_fundraiser]
 one = "Trwająca zbiórka"
 few = "Trwające zbiórki"

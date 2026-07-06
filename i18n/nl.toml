@@ -66,6 +66,8 @@ x_permanent = "Permanente X-profiellink"
 x_permanent_short = "permanente link"
 check_x_fundraisers = "Geen actieve inzamelactie vermeld. Bekijk hun X-account voor lopende oproepen."
 donate_no_military = "Vermeld niets militairs in het bericht of de omschrijving van de betaling."
+personal_support = "persoonlijke steun, geen hulpactie"
+tap_to_copy = "dotknij, aby skopiować"
 [live_fundraiser]
 one = "Actieve inzamelactie"
 other = "Actieve inzamelacties"

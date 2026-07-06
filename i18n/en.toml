@@ -69,6 +69,8 @@ x_permanent = "Permanent X profile link"
 x_permanent_short = "permanent link"
 check_x_fundraisers = "No live fundraiser listed. Check their X account for current appeals."
 donate_no_military = "Do not mention anything military-related in your payment message or note."
+personal_support = "personal support, not aid"
+tap_to_copy = "tap to copy"
 [live_fundraiser]
 one = "Live fundraiser"
 other = "Live fundraisers"

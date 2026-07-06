@@ -69,7 +69,8 @@ x_permanent = "Permanenter X-Profillink"
 x_permanent_short = "permanenter Link"
 check_x_fundraisers = "Keine aktive Spendenaktion gelistet. Aktuelle Aufrufe im X-Konto prüfen."
 donate_no_military = "Erwähnen Sie im Verwendungszweck oder in der Zahlungsnotiz nichts Militärisches."
-
+personal_support = "persönliche Unterstützung, keine Hilfsaktion"
+tap_to_copy = "zum Kopieren tippen"
 [live_fundraiser]
 one = "Laufende Spendenaktion"
 other = "Laufende Spendenaktionen"

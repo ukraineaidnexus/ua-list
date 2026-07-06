@@ -36,9 +36,9 @@
       {{ with $o.links.buymeacoffee }}<li><a href="{{ . }}" class="strong">{{ partial "icon.html" "bmac" }}Buy Me a Coffee</a></li>{{ end }}
       {{ with $o.links.monobank }}<li><a href="{{ . }}" class="strong" title="{{ i18n "ua_bank_tooltip" }}">{{ partial "icon.html" "jar" }}Monobank</a></li>{{ end }}
       {{ with $o.links.privat }}<li><a href="{{ . }}" class="strong" title="{{ i18n "ua_bank_tooltip" }}">{{ partial "icon.html" "card" }}PrivatBank</a></li>{{ end }}
-      {{ range $o.links.donate_other }}<li><a href="{{ .url }}" class="strong"{{ if .ua }} title="{{ i18n "ua_bank_tooltip" }}"{{ end }}>{{ partial "icon.html" (.icon | default "heart") }}{{ .label }}</a></li>{{ end }}
+      {{ range $o.links.donate_other }}<li><a href="{{ .url }}" class="strong"{{ if .ua }} title="{{ i18n "ua_bank_tooltip" }}"{{ end }}>{{ partial "icon.html" (.icon | default "heart") }}{{ .label }}</a>{{ if .personal }}<span class="personal-tag">{{ i18n "personal_support" }}</span>{{ end }}</li>{{ end }}
       {{ with $o.paypalme }}<li><a href="https://paypal.me/{{ . }}" class="strong">{{ partial "icon.html" "paypal" }}PayPal.Me</a></li>{{ end }}
-      {{ range $o.paypal }}<li><button type="button" class="copy-paypal" data-copy="{{ . }}" data-copied="{{ i18n "copied" }}" title="{{ i18n "copy_email" }}">{{ partial "icon.html" "paypal" }}<span class="copy-text">{{ . }}</span></button></li>{{ end }}
+      {{ range $o.paypal }}<li><button type="button" class="copy-paypal" data-copy="{{ . }}" data-copied="{{ i18n "copied" }}" title="{{ i18n "copy_email" }}">{{ partial "icon.html" "paypal" }}<span class="copy-text">{{ . }}</span><span class="copy-hint">{{ i18n "tap_to_copy" }}</span></button></li>{{ end }}
     </ul>
     <p class="donate-warning">{{ i18n "donate_no_military" }}</p>
     {{ with $o.payment_note }}<p class="payment">{{ . | markdownify }}</p>{{ end }}

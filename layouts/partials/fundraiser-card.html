@@ -29,7 +29,7 @@
     {{ with $f.last_updated }}<span class="date">{{ i18n "last_updated" }} {{ time.Format "2 Jan 2006" (time .) }}</span>{{ end }}
   </div>
 
-{{ $donateUrl := "" }}{{ with $f.links }}{{ with .donate }}{{ $donateUrl = . }}{{ end }}{{ end }}
+{{ $donateUrl := "" }}{{ $monoUrl := "" }}{{ $privatUrl := "" }}{{ with $f.links }}{{ with .donate }}{{ $donateUrl = . }}{{ end }}{{ with .monobank }}{{ $monoUrl = . }}{{ end }}{{ with .privat }}{{ $privatUrl = . }}{{ end }}{{ end }}
   <ul class="links">
     {{ with $f.links }}
       {{ with .x }}<li><a href="{{ . }}">{{ partial "icon.html" "x" }}{{ i18n "post_on_x" }}</a></li>{{ end }}
@@ -38,14 +38,16 @@
     {{ end }}
     {{ with $f.report }}<li><a href="{{ . }}" class="strong">{{ partial "icon.html" "doc" }}{{ i18n "completion_report" }}</a></li>{{ end }}
   </ul>
-  {{ if or $donateUrl $f.links.donate_other $f.paypalme $f.paypal }}
+  {{ if or $donateUrl $monoUrl $privatUrl $f.links.donate_other $f.paypalme $f.paypal }}
   <div class="donate">
     <p class="donate-heading">{{ i18n "link_donate" }}</p>
     <ul class="links donate-links">
       {{ with $donateUrl }}<li><a href="{{ . }}" class="strong">{{ partial "icon.html" "heart" }}{{ i18n "link_donate" }}</a></li>{{ end }}
-      {{ range $f.links.donate_other }}<li><a href="{{ .url }}" class="strong"{{ if .ua }} title="{{ i18n "ua_bank_tooltip" }}"{{ end }}>{{ partial "icon.html" (.icon | default "heart") }}{{ .label }}</a></li>{{ end }}
+      {{ with $monoUrl }}<li><a href="{{ . }}" class="strong" title="{{ i18n "ua_bank_tooltip" }}">{{ partial "icon.html" "jar" }}Monobank</a></li>{{ end }}
+      {{ with $privatUrl }}<li><a href="{{ . }}" class="strong" title="{{ i18n "ua_bank_tooltip" }}">{{ partial "icon.html" "card" }}PrivatBank</a></li>{{ end }}
+      {{ range $f.links.donate_other }}<li><a href="{{ .url }}" class="strong"{{ if .ua }} title="{{ i18n "ua_bank_tooltip" }}"{{ end }}>{{ partial "icon.html" (.icon | default "heart") }}{{ .label }}</a>{{ if .personal }}<span class="personal-tag">{{ i18n "personal_support" }}</span>{{ end }}</li>{{ end }}
       {{ with $f.paypalme }}<li><a href="https://paypal.me/{{ . }}" class="strong">{{ partial "icon.html" "paypal" }}PayPal.Me</a></li>{{ end }}
-      {{ range $f.paypal }}<li><button type="button" class="copy-paypal" data-copy="{{ . }}" data-copied="{{ i18n "copied" }}" title="{{ i18n "copy_email" }}">{{ partial "icon.html" "paypal" }}<span class="copy-text">{{ . }}</span></button></li>{{ end }}
+      {{ range $f.paypal }}<li><button type="button" class="copy-paypal" data-copy="{{ . }}" data-copied="{{ i18n "copied" }}" title="{{ i18n "copy_email" }}">{{ partial "icon.html" "paypal" }}<span class="copy-text">{{ . }}</span><span class="copy-hint">{{ i18n "tap_to_copy" }}</span></button></li>{{ end }}
     </ul>
     <p class="donate-warning">{{ i18n "donate_no_military" }}</p>
   </div>
