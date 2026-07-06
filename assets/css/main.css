@@ -400,7 +400,7 @@ article[hidden] {
 .card .donate ul.links { margin-top: .15rem; }
 
 .card .vouched {
-  border-left: 3px solid #2e7d32;
+  border: 1px solid #2e7d32;
   background: rgba(46, 125, 50, 0.06);
   padding: 0.5rem 0.75rem;
   margin: 0.5rem 0;
@@ -495,7 +495,7 @@ html[data-theme="light"] ul.links.handles { border-top-color: rgba(0,0,0,.12); }
 a.badge.live-badge { animation: live-pulse 2.6s ease-in-out infinite; }
 
 /* Highlight the fundraiser card arrived at via a live badge link */
-article[id^="f-"]:target {
+article[id^="f-"]:target, article[id^="org-"]:target {
   outline: 2px solid var(--yellow);
   outline-offset: 3px;
   animation: target-flash 2.4s ease-out 1;
@@ -506,7 +506,7 @@ article[id^="f-"]:target {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  a.badge.live-badge, article[id^="f-"]:target { animation: none; }
+  a.badge.live-badge, article[id^="f-"]:target, article[id^="org-"]:target { animation: none; }
 }
 
 .donate .donate-warning {

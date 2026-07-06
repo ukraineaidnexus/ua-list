@@ -3,17 +3,17 @@
   <label for="card-sort">{{ i18n "sort_label" }}</label>
   <select id="card-sort">
     {{ if eq $mode "orgs" }}
-    <option value="random" selected>{{ i18n "sort_random" }}</option>
-    <option value="az">{{ i18n "sort_name_az" }}</option>
+    <option value="random">{{ i18n "sort_random" }}</option>
+    <option value="az" selected>{{ i18n "sort_name_az" }}</option>
     <option value="za">{{ i18n "sort_name_za" }}</option>
     <option value="checked">{{ i18n "sort_last_checked" }}</option>
     {{ else }}
-    <option value="oldest" selected>{{ i18n "sort_posted_old" }}</option>
+    <option value="oldest">{{ i18n "sort_posted_old" }}</option>
     <option value="newest">{{ i18n "sort_posted_new" }}</option>
     <option value="updated">{{ i18n "sort_updated" }}</option>
     <option value="closest">{{ i18n "sort_closest" }}</option>
     <option value="furthest">{{ i18n "sort_furthest" }}</option>
-    <option value="az">{{ i18n "sort_name_az" }}</option>
+    <option value="az" selected>{{ i18n "sort_name_az" }}</option>
     <option value="random">{{ i18n "sort_random" }}</option>
     {{ end }}
   </select>

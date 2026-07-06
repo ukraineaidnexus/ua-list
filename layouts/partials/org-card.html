@@ -12,10 +12,10 @@
     </div>
   </header>
   {{ with $o.location }}<p class="location">{{ partial "icon.html" "location" }}{{ . }}</p>{{ end }}
-  <p class="desc">{{ $o.description }}</p>
+  <p class="desc">{{ $o.description | markdownify }}</p>
   {{ with $o.warning }}<p class="warning">⚠️ {{ . | markdownify }}</p>{{ end }}
   {{ with $o.notes }}<p class="notes">{{ . | markdownify }}</p>{{ end }}
-  {{ with $o.verified_by }}<p class="vouched">{{ partial "icon.html" "check" }}{{ i18n "vouched_by" }} {{ . | markdownify }}</p>{{ end }}
+  {{ with $o.verified_by }}<p class="vouched">{{ partial "icon.html" "shield" }}{{ i18n "vouched_by" }} {{ . | markdownify }}</p>{{ end }}
 <ul class="links">
     {{ with $o.handles }}{{ partial "primary-handles.html" . }}{{ end }}
     {{ with $o.links }}
