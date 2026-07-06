@@ -39,10 +39,10 @@ a:focus-visible { outline: 2px solid var(--yellow); outline-offset: 2px; }
   color: #e8edf6;
   background-size: cover;
   background-position: center 30%;
-  min-height: 46vh;
+  min-height: 36vh;
   display: flex;
   align-items: flex-end;
-  padding: 3rem 1.25rem 2.5rem;
+  padding: 3rem 1.25rem 1.9rem;
 }
 .hero-inner { max-width: 1080px; margin: 0 auto; width: 100%; }
 .hero h1 {
@@ -335,7 +335,12 @@ nav a .icon { width: 0.9em; height: 0.9em; vertical-align: -0.1em; margin-right:
 .card ul.links.handles { display: flex; flex-wrap: wrap; gap: 0.4rem 1.1rem; }
 .card ul.links.handles > li { display: inline; margin: 0; }
 
-.search-filter { margin: 1.25rem 0 2rem; }
+.search-filter {
+  margin: 1.25rem 1.25rem 1.25rem 0;
+  display: inline-block;
+  width: min(28rem, 100%);
+  vertical-align: middle;
+}
 #card-search {
   width: 100%;
   max-width: 28rem;
@@ -353,7 +358,7 @@ nav a .icon { width: 0.9em; height: 0.9em; vertical-align: -0.1em; margin-right:
   color: rgba(232, 236, 244, 0.45);
 }
 #card-search:focus {
-  border-color: #ffd500;
+  border-color: var(--yellow);
 }
 #card-search-empty {
   opacity: 0.75;
@@ -443,6 +448,10 @@ html[data-theme="light"] .card .warning { color: #8a1f1f; }
 html[data-theme="light"] .card.scammer h3,
 html[data-theme="light"] .badge.scam { color: #b23a3a; }
 html[data-theme="light"] #card-search { color: #17233c; background: rgba(0,0,0,.04); border-color: rgba(0,0,0,.22); }
+html[data-theme="light"] .sort-controls select { color: #17233c; background-color: rgba(0,0,0,.04); border-color: rgba(0,0,0,.22); }
+html[data-theme="light"] .sort-controls label { color: rgba(23,35,60,.65); }
+html[data-theme="light"] #card-search:focus,
+html[data-theme="light"] .sort-controls select:focus { border-color: var(--yellow); }
 html[data-theme="light"] #card-search::placeholder { color: rgba(23,35,60,.45); }
 html[data-theme="light"] ul.links.handles { border-top-color: rgba(0,0,0,.12); }
 
@@ -465,6 +474,10 @@ html[data-theme="light"] ul.links.handles { border-top-color: rgba(0,0,0,.12); }
   html:not([data-theme]) .card.scammer h3,
   html:not([data-theme]) .badge.scam { color: #b23a3a; }
   html:not([data-theme]) #card-search { color: #17233c; background: rgba(0,0,0,.04); border-color: rgba(0,0,0,.22); }
+  html:not([data-theme]) .sort-controls select { color: #17233c; background-color: rgba(0,0,0,.04); border-color: rgba(0,0,0,.22); }
+  html:not([data-theme]) .sort-controls label { color: rgba(23,35,60,.65); }
+  html:not([data-theme]) #card-search:focus,
+  html:not([data-theme]) .sort-controls select:focus { border-color: var(--yellow); }
   html:not([data-theme]) #card-search::placeholder { color: rgba(23,35,60,.45); }
   html:not([data-theme]) ul.links.handles { border-top-color: rgba(0,0,0,.12); }
 }
@@ -521,16 +534,35 @@ article[id^="f-"]:target {
 }
 
 .sort-controls {
-  margin: .5rem 0 1rem;
+  display: inline-flex;
+  align-items: center;
+  vertical-align: middle;
+  margin: .5rem 0 1.25rem;
   font-size: .85rem;
 }
-.sort-controls label { margin-right: .4rem; opacity: .75; }
+
+.sort-controls label { margin-right: .5rem; color: rgba(232, 236, 244, 0.65); }
+
 .sort-controls select {
-  padding: .25rem .5rem;
-  border-radius: 6px;
-  border: 1px solid currentColor;
-  background: inherit;
-  color: inherit;
-  font: inherit;
-  font-size: .85rem;
+  -webkit-appearance: none;
+  appearance: none;
+  padding: 0.65rem 2.4rem 0.65rem 1.1rem;
+  font-size: 1rem;
+  font-family: inherit;
+  color: #e8ecf4;
+  background-color: rgba(255, 255, 255, 0.06);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='none' stroke='%23999999' stroke-width='2' d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 2rem;
+  outline: none;
+  transition: border-color 0.15s ease;
+  cursor: pointer;
 }
+.sort-controls select:focus {
+  border-color: var(--yellow);
+}
+
+/* Tighter gap between hero and first content section */
+main > section:first-child { margin-top: 1.5rem; }
