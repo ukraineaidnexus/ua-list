@@ -14,10 +14,11 @@
 {{ end }}
 {{ $live := slice }}
 {{ $past := slice }}
+{{ $cutoff := ($now.AddDate 0 -3 0).Format "2006-01-02" }}
 {{ range $all }}
   {{ $expired := false }}
   {{ with .expires }}{{ $expired = $now.After (time .) }}{{ end }}
-  {{ if and (eq .status "active") (not $expired) }}{{ $live = $live | append . }}{{ else }}{{ $past = $past | append . }}{{ end }}
+  {{ if and (eq .status "active") (not $expired) }}{{ $live = $live | append . }}{{ else if ge (printf "%v" .announced) $cutoff }}{{ $past = $past | append . }}{{ end }}
 {{ end }}
 
 <section id="live" class="fundraisers">
@@ -34,11 +35,12 @@
 
   {{ if $past }}
   <details class="past">
-    <summary>{{ i18n "past_summary" }} ({{ len $past }})</summary>
+    <summary>{{ i18n "past_summary_recent" }} ({{ len $past }})</summary>
     <div class="cards">
       {{ range sort $past "announced" "desc" }}{{ partial "fundraiser-card.html" (dict "f" . "ctx" $) }}{{ end }}
     </div>
   </details>
   {{ end }}
+  <p class="section-note">{{ i18n "older_on_profiles" }}</p>
 </section>
 {{ end }}
