@@ -751,23 +751,18 @@ html[data-theme="light"] .submit-form label { color: rgba(23,35,60,.65); }
 .submit-form input[readonly]:focus { border-color: rgba(255, 255, 255, 0.18); }
 
 /* ---- Detail pages (session 6) ---- */
-.detail { display: grid; grid-template-columns: 340px 1fr; gap: 1.5rem; align-items: start; }
-.detail-side { position: sticky; top: 1rem; }
-.detail-side .card { margin: 0; }
+.detail { display: block; max-width: 860px; margin: 0 auto; }
+.detail > .card { margin: 0 0 1.5rem; }
 .detail-logo { display: block; max-width: 140px; max-height: 140px; border-radius: var(--radius); margin: 0 0 1rem; border: 1px solid var(--line); background-color: var(--panel); }
-.detail-back { margin-top: 1rem; font-size: .85rem; }
-.detail-main .detail-section { margin-top: 0; margin-bottom: 2.25rem; }
-.detail-main .detail-section:first-child h2 { margin-top: 0; }
+.detail-back { margin-top: 1.5rem; font-size: .85rem; }
+.detail .detail-section { margin-top: 0; margin-bottom: 2.25rem; }
+.detail .rep-meter { max-width: none; }
 .team-list { list-style: none; padding: 0; margin: 0; }
 .team-member { padding: .6rem 0; border-bottom: 1px solid var(--line); }
 .team-member:last-child { border-bottom: none; }
 .team-name { font-weight: 700; }
 .team-role { color: var(--muted); font-size: .85rem; margin-left: .5rem; }
 .team-links { margin: .3rem 0 0; }
-@media (max-width: 900px) {
-  .detail { grid-template-columns: 1fr; }
-  .detail-side { position: static; }
-}
 
 /* ---- Reputation meter (session 6) ---- */
 .rep-meter {
@@ -823,3 +818,21 @@ html[data-theme="light"] .rep-meter-marker { background-color: #ffffff; box-shad
 
 /* Full profile badge on cards */
 a.badge.full-profile { text-decoration: none; }
+
+/* ---- Fundraiser boost box (session 6) ---- */
+.boost {
+  border: 1px solid rgba(255, 213, 0, .55);
+  background-color: rgba(255, 213, 0, .07);
+  border-radius: var(--radius);
+  padding: .7rem .85rem;
+  margin: .9rem 0;
+}
+.boost-heading { margin: 0 0 .15rem; font-size: .7rem; font-weight: 800; letter-spacing: .05em; text-transform: uppercase; color: var(--yellow); }
+.boost-title { margin: 0; font-weight: 700; }
+.boost-title p { margin: 0; display: inline; }
+.boost-details { font-size: .85rem; color: var(--muted); margin-top: .3rem; }
+.boost-details p { margin: .3rem 0; }
+.boost-until { margin: .35rem 0 0; font-size: .75rem; color: var(--muted); }
+.boost-image { display: block; max-width: 420px; width: 100%; border-radius: var(--radius); margin-top: .6rem; border: 1px solid var(--line); }
+html[data-theme="light"] .boost { border-color: rgba(176, 138, 0, .55); background-color: rgba(255, 213, 0, .12); }
+html[data-theme="light"] .boost-heading { color: #7a6000; }

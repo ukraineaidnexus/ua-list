@@ -30,7 +30,9 @@ jobs:
           repository: ukraineaidnexus/ua-list-data
           path: ua-list-data
       - name: Merge data repo into data/
-        run: cp -r ua-list-data/data/. data/
+        run: |
+          cp -r ua-list-data/data/. data/
+          if [ -d ua-list-data/static ]; then cp -r ua-list-data/static/. static/; fi
       - name: Install Hugo
         run: |
           wget -qO /tmp/hugo.deb \

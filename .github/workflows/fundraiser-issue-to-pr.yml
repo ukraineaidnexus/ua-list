@@ -1,8 +1,8 @@
 name: Fundraiser issue to PR
 
 # Runs when YOU add the "approved" label to a fundraiser-submission issue.
-# It parses the issue form, writes data/fundraisers/<date>-<org>-issue<N>.yaml,
-# and opens a PR. You merge the PR, the site rebuilds. Nothing is published
+# It parses the issue form, writes data/fundraisers/<date>-<org>-issue<N>.yaml
+# in the ua-list-data repo, and opens a PR there. You merge the PR, the site rebuilds. Nothing is published
 # without two explicit actions from you (label + merge).
 
 on:
@@ -20,6 +20,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
+        with:
+          repository: ukraineaidnexus/ua-list-data
+          token: ${{ secrets.DATA_REPO_TOKEN }}
+          path: ua-list-data
 
       - name: Parse issue form and write YAML
         uses: actions/github-script@v7
@@ -68,8 +72,8 @@ jobs:
             yaml += `report: null\n`;
 
             const fs = require('fs');
-            const path = `data/fundraisers/${announced}-${org}-issue${context.payload.issue.number}.yaml`;
-            fs.mkdirSync('data/fundraisers', { recursive: true });
+            const path = `ua-list-data/data/fundraisers/${announced}-${org}-issue${context.payload.issue.number}.yaml`;
+            fs.mkdirSync('ua-list-data/data/fundraisers', { recursive: true });
             fs.writeFileSync(path, yaml);
             core.exportVariable('FR_PATH', path);
             core.exportVariable('ISSUE_NUM', String(context.payload.issue.number));
@@ -77,10 +81,12 @@ jobs:
       - name: Open PR
         uses: peter-evans/create-pull-request@v6
         with:
+          path: ua-list-data
+          token: ${{ secrets.DATA_REPO_TOKEN }}
           branch: fundraiser/issue-${{ env.ISSUE_NUM }}
           commit-message: "Add fundraiser from issue #${{ env.ISSUE_NUM }}"
           title: "Add fundraiser from issue #${{ env.ISSUE_NUM }}"
           body: |
             Auto-generated from issue #${{ env.ISSUE_NUM }}.
-            Review the YAML, then merge to publish. Closes #${{ env.ISSUE_NUM }}.
+            Review the YAML, then merge to publish. Submitted as ukraineaidnexus/ua-list#${{ env.ISSUE_NUM }}.
           labels: fundraiser-submission

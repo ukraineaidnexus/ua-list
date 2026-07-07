@@ -33,6 +33,15 @@
   </div>
 
 {{ $donateUrl := "" }}{{ $monoUrl := "" }}{{ $privatUrl := "" }}{{ with $f.links }}{{ with .donate }}{{ $donateUrl = . }}{{ end }}{{ with .monobank }}{{ $monoUrl = . }}{{ end }}{{ with .privat }}{{ $privatUrl = . }}{{ end }}{{ end }}
+  {{ $now := now }}{{ range $f.boosts }}{{ $bExpired := false }}{{ with .expires }}{{ $bExpired = $now.After (time .) }}{{ end }}{{ if not $bExpired }}
+  <div class="boost">
+    <p class="boost-heading">★ {{ i18n "boost_label" }}</p>
+    <p class="boost-title">{{ .label | markdownify }}</p>
+    {{ with .details }}<div class="boost-details">{{ . | markdownify }}</div>{{ end }}
+    {{ with .expires }}<p class="boost-until">{{ i18n "boost_until" }} {{ . }}</p>{{ end }}
+    {{ if and $.showImages .image }}<a href="{{ .image | relURL }}"><img class="boost-image" src="{{ .image | relURL }}" alt="{{ .label }}" loading="lazy"></a>{{ end }}
+  </div>
+{{ end }}{{ end }}
   <ul class="links">
     {{ with $f.links }}
       {{ with .x }}<li><a href="{{ . }}">{{ partial "icon.html" "x" }}{{ i18n "post_on_x" }}</a></li>{{ end }}
