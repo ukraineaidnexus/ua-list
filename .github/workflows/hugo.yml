@@ -23,6 +23,12 @@ jobs:
       HUGO_VERSION: 0.163.0
     steps:
       - uses: actions/checkout@v6
+      - uses: actions/checkout@v6
+        with:
+          repository: ukraineaidnexus/ua-list-data
+          path: ua-list-data
+      - name: Merge data repo into data/
+        run: cp -r ua-list-data/data/. data/
       - name: Install Hugo
         run: |
           wget -qO /tmp/hugo.deb \

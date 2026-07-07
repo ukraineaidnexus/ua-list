@@ -1,7 +1,0 @@
-id: anton-shekhovtsov
-name: "Anton Shekhovtsov"
-why: "Senior fellow at CEU Vienna; author of 'Russia and the Western Far Right' and 'Russian Political Warfare'."
-category: ["OSINT / analysis"]
-handles:
-  x: A_SHEKH0VTS0V              # VERIFY: display name uses Ø glyphs; confirm the zeros in the real handle
-last_verified: 2026-07-06
