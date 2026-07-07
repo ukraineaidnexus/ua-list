@@ -25,6 +25,13 @@
   <script>try{var t=localStorage.getItem("theme-pref");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
   {{ $css := resources.Get "css/main.css" | minify | fingerprint }}
   <link rel="stylesheet" href="{{ $css.RelPermalink }}">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#1c5ea3">
 </head>
 <body data-showing-one="{{ i18n "showing_one" }}" data-show-all="{{ i18n "show_all" }}">
   <header class="hero" style="background-image: linear-gradient(to bottom, rgba(7,14,28,.25) 0%, rgba(7,14,28,.55) 55%, var(--bg) 100%), url('{{ $hero.RelPermalink }}')">

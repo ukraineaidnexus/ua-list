@@ -1,0 +1,18 @@
+id: yuri-chornomorets
+name: "Yuri Chornomorets"
+type: ua-volunteer
+status: active
+tags: [military]
+location: "Kyiv, Ukraine"
+handles: { x: Y_Chornomorets }
+links:
+  website: https://chornomorets.notepin.co
+  donate: https://donorbox.org/light-will-prevail
+  monobank: https://send.monobank.ua/jar/7uwhtDGmiD
+  donate_other:
+    - { label: "SpotFund", url: "https://spot.fund/rlnzphsc", icon: card }
+    - { label: "Bitcoin", url: "bitcoin:bc1qwcmc2nqz4jnfyeuwx03vn3y8u2lh8zfz4nxkgd", icon: card }
+  other:
+    - { label: "TeamYuri Merch", url: "https://bonfire.com/store/teamyuri/" }
+description: "Ukrainian volunteer (theologian by training) supplying ammunition, optical sights, thermal collimators, and shotguns to Ukrainian sniper teams, including the 14th Brigade's sniper unit."
+last_verified: 2026-07-07
