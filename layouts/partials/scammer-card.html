@@ -4,7 +4,7 @@
     <h3>{{ $s.name }}</h3>
     <div class="badges"><span class="badge scam">{{ i18n "badge_scam" }}</span></div>
   </header>
-  <p class="share-row"><a class="badge full-profile" href="{{ printf "scammers/%s/" $s.id | relURL }}">{{ i18n "full_profile" }} &rarr;</a></p>
+  {{ if not .self }}<p class="share-row"><a class="badge full-profile" href="{{ printf "scammers/%s/" $s.id | relURL }}">{{ i18n "full_profile" }} &rarr;</a></p>{{ end }}
   <p class="desc">{{ $s.summary }}</p>
   <ul class="links">
     {{ with $s.handles }}

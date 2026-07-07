@@ -1,7 +1,7 @@
 {{ $c := .c }}
 <article class="card org" id="creator-{{ $c.id }}">
   <header><h3>{{ $c.name }}</h3></header>
-  <p class="share-row"><a class="badge full-profile" href="{{ printf "creators/%s/" $c.id | relURL }}">{{ i18n "full_profile" }} &rarr;</a></p>
+  {{ if not .self }}<p class="share-row"><a class="badge full-profile" href="{{ printf "creators/%s/" $c.id | relURL }}">{{ i18n "full_profile" }} &rarr;</a></p>{{ end }}
   <p class="desc">{{ $c.makes }}</p>
   {{ with $c.notes }}<p class="notes">{{ . | markdownify }}</p>{{ end }}
   {{ with $c.vouched_by }}<p class="notes">{{ i18n "vouched_by" }} {{ . | markdownify }}</p>{{ end }}

@@ -15,10 +15,7 @@
   {{ with $org }}
   <section class="detail-section">
     <h2><span class="rule"></span>{{ i18n "backed_by" }}</h2>
-    {{ with .warning }}<p class="warning">⚠️ {{ . | markdownify }}</p>{{ end }}
-    {{ partial "rep-meter.html" (dict "o" .) }}
-    {{ $orgPage := "volunteers/" }}{{ if in .type "ngo" }}{{ $orgPage = "ngos/" }}{{ end }}
-    <p><a class="badge full-profile" href="{{ printf "%s%s/" $orgPage .id | relURL }}">{{ .name }}: {{ i18n "full_profile" }} &rarr;</a></p>
+    {{ partial "org-mini.html" (dict "o" .) }}
   </section>
   {{ end }}
 

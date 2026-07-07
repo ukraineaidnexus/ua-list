@@ -1,0 +1,20 @@
+{{/* Compact org/volunteer profile strip, used in "Backed by" on fundraiser pages.
+     Usage: partial "org-mini.html" (dict "o" $org)
+     Name first and prominent, then badges, location, description, meter, profile link.
+     Warning (red) renders FIRST when present: warnings always dominate. */}}
+{{ $o := .o }}
+{{ $orgPage := "volunteers/" }}{{ if in $o.type "ngo" }}{{ $orgPage = "ngos/" }}{{ end }}
+<div class="card org-mini{{ if eq $o.status "inactive" }} inactive{{ end }}">
+  {{ with $o.warning }}<p class="warning">⚠️ {{ . | markdownify }}</p>{{ end }}
+  <header>
+    <h3><a href="{{ printf "%s%s/" $orgPage $o.id | relURL }}">{{ $o.name }}</a>{{ with $o.name_ua }} <span class="uk">/ {{ . }}</span>{{ end }}</h3>
+    <div class="badges">
+      {{ if $o.links.registration }}<span class="badge reg">{{ if eq $o.type "foreign-ngo" }}{{ i18n "badge_charity" }}{{ else }}{{ i18n "badge_ngo" }}{{ end }}</span>{{ end }}
+      {{ if eq $o.status "inactive" }}<span class="badge stale">{{ i18n "badge_inactive" }}</span>{{ end }}
+    </div>
+  </header>
+  {{ with $o.location }}<p class="location">{{ partial "icon.html" "location" }}{{ . }}</p>{{ end }}
+  <p class="desc">{{ $o.description | markdownify }}</p>
+  {{ partial "rep-meter.html" (dict "o" $o) }}
+  <p><a class="badge full-profile" href="{{ printf "%s%s/" $orgPage $o.id | relURL }}">{{ i18n "full_profile" }} &rarr;</a></p>
+</div>

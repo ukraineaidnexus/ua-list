@@ -1,6 +1,6 @@
 {{ $a := .Params.a }}
 <div class="detail">
-  {{ partial "follow-card.html" (dict "a" $a) }}
+  {{ partial "follow-card.html" (dict "a" $a "self" true) }}
   {{ with .Content }}
   <section class="detail-section">
     <h2><span class="rule"></span>{{ i18n "detail_history" }}</h2>

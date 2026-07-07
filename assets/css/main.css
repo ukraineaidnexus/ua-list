@@ -854,3 +854,9 @@ html[data-theme="light"] .boost-heading { color: #7a6000; }
 .xpost-text { margin: .5rem 0 0; }
 .xpost-text p { margin: .35rem 0; }
 .xpost-link { margin: .55rem 0 0; font-size: .85rem; }
+
+/* ---- Backed-by org strip (session 6) ---- */
+.org-mini h3 { margin: 0; }
+.org-mini h3 a { text-decoration: none; }
+.org-mini h3 a:hover { text-decoration: underline; }
+.org-mini .rep-meter { border: none; padding-left: 0; padding-right: 0; background-color: transparent; }

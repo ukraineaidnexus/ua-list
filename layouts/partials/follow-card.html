@@ -4,7 +4,7 @@
     <h3>{{ $a.name }}</h3>
     {{ with $a.category }}<div class="badges">{{ range $c := cond (reflect.IsSlice .) . (slice .) }}<span class="badge reg">{{ $c }}</span>{{ end }}</div>{{ end }}
   </header>
-  <p class="share-row"><a class="badge full-profile" href="{{ printf "follow/%s/" $a.id | relURL }}">{{ i18n "full_profile" }} &rarr;</a></p>
+  {{ if not .self }}<p class="share-row"><a class="badge full-profile" href="{{ printf "follow/%s/" $a.id | relURL }}">{{ i18n "full_profile" }} &rarr;</a></p>{{ end }}
   <p class="desc">{{ $a.why }}</p>
   <ul class="links">
     {{ with $a.handles }}{{ $ids := slice }}{{ with .x_id }}{{ $ids = . }}{{ if not (reflect.IsSlice $ids) }}{{ $ids = slice $ids }}{{ end }}{{ end }}

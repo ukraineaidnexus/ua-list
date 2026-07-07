@@ -1,6 +1,6 @@
 {{ $s := .Params.s }}
 <div class="detail">
-  {{ partial "scammer-card.html" (dict "s" $s) }}
+  {{ partial "scammer-card.html" (dict "s" $s "self" true) }}
   {{ with .Content }}
   <section class="detail-section">
     <h2><span class="rule"></span>{{ i18n "detail_history" }}</h2>

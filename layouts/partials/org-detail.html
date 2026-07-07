@@ -21,7 +21,7 @@
 <div class="detail">
   {{ with $o.logo }}<img class="detail-logo" src="{{ . | relURL }}" alt="{{ $o.name }} logo" loading="lazy">{{ end }}
   {{ partial "rep-meter.html" (dict "o" $o) }}
-  {{ partial "org-card.html" (dict "o" $o "live" $live) }}
+  {{ partial "org-card.html" (dict "o" $o "live" $live "self" true) }}
 
   {{ with .Content }}
   <section class="detail-section">
