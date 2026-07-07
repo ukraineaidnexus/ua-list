@@ -10,21 +10,7 @@
   {{ range $f, $c := hugo.Data.creators }}{{ if not $c.draft }}{{ $creators = $creators | append $c }}{{ end }}{{ end }}
   <div class="cards">
     {{ range sort $creators "name" }}
-    <article class="card org" id="creator-{{ .id }}">
-      <header><h3>{{ .name }}</h3></header>
-      <p class="desc">{{ .makes }}</p>
-      {{ with .notes }}<p class="notes">{{ . | markdownify }}</p>{{ end }}
-      {{ with .vouched_by }}<p class="notes">{{ i18n "vouched_by" }} {{ . | markdownify }}</p>{{ end }}
-      <ul class="links">
-        {{ with .handles }}{{ with .x }}<li><a href="https://x.com/{{ . }}">{{ partial "icon.html" "x" }}@{{ . }}</a></li>{{ end }}
-        {{ with .bluesky }}<li><a href="https://bsky.app/profile/{{ . }}">Bluesky</a></li>{{ end }}{{ end }}
-        {{ range .shop }}<li><a href="{{ .url }}" class="strong">{{ partial "icon.html" "link" }}{{ .label }}</a></li>{{ end }}
-        {{ range .other }}<li><a href="{{ .url }}">{{ .label }}</a></li>{{ end }}
-        {{ with .paypalme }}<li><a href="https://paypal.me/{{ . }}" class="strong">{{ partial "icon.html" "paypal" }}PayPal.Me</a></li>{{ end }}
-        {{ range .paypal }}<li><button type="button" class="copy-paypal" data-copy="{{ . }}" data-copied="{{ i18n "copied" }}" title="{{ i18n "copy_email" }}">{{ partial "icon.html" "paypal" }}<span class="copy-text">{{ . }}</span><span class="copy-hint">{{ i18n "tap_to_copy" }}</span></button></li>{{ end }}
-      </ul>
-      {{ with .last_verified }}<p class="verified-stamp">{{ i18n "last_checked" }}: {{ . }}</p>{{ end }}
-    </article>
+    {{ partial "creator-card.html" (dict "c" .) }}
     {{ end }}
   </div>
 </section>

@@ -6,7 +6,7 @@
 {{/* all fundraisers for this org, newest first */}}
 {{ $mine := slice }}
 {{ range $file, $f := hugo.Data.fundraisers }}
-  {{ if and (not $f.draft) (eq $f.org $o.id) }}{{ $mine = $mine | append $f }}{{ end }}
+  {{ if and (not $f.draft) (eq $f.org $o.id) }}{{ $mine = $mine | append (merge $f (dict "_file" $file)) }}{{ end }}
 {{ end }}
 {{ $mine = sort $mine "announced" "desc" }}
 

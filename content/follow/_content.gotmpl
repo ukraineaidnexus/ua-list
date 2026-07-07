@@ -1,0 +1,12 @@
+{{/* One detail page per follow entry. English only. */}}
+{{ range $file, $a := site.Data.follow }}
+  {{ if $a.draft }}{{ continue }}{{ end }}
+  {{ $content := dict "mediaType" "text/markdown" "value" ($a.history | default "") }}
+  {{ $.AddPage (dict
+    "path" $a.id
+    "title" $a.name
+    "kind" "page"
+    "params" (dict "a" $a)
+    "content" $content
+  ) }}
+{{ end }}

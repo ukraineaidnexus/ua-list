@@ -1,0 +1,12 @@
+{{/* One detail page per creator. English only. */}}
+{{ range $file, $c := site.Data.creators }}
+  {{ if $c.draft }}{{ continue }}{{ end }}
+  {{ $content := dict "mediaType" "text/markdown" "value" ($c.history | default "") }}
+  {{ $.AddPage (dict
+    "path" $c.id
+    "title" $c.name
+    "kind" "page"
+    "params" (dict "c" $c)
+    "content" $content
+  ) }}
+{{ end }}

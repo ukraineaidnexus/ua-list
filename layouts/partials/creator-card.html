@@ -1,0 +1,17 @@
+{{ $c := .c }}
+<article class="card org" id="creator-{{ $c.id }}">
+  <header><h3>{{ $c.name }}</h3></header>
+  <p class="share-row"><a class="badge full-profile" href="{{ printf "creators/%s/" $c.id | relURL }}">{{ i18n "full_profile" }} &rarr;</a></p>
+  <p class="desc">{{ $c.makes }}</p>
+  {{ with $c.notes }}<p class="notes">{{ . | markdownify }}</p>{{ end }}
+  {{ with $c.vouched_by }}<p class="notes">{{ i18n "vouched_by" }} {{ . | markdownify }}</p>{{ end }}
+  <ul class="links">
+    {{ with $c.handles }}{{ with .x }}<li><a href="https://x.com/{{ . }}">{{ partial "icon.html" "x" }}@{{ . }}</a></li>{{ end }}
+    {{ with .bluesky }}<li><a href="https://bsky.app/profile/{{ . }}">Bluesky</a></li>{{ end }}{{ end }}
+    {{ range $c.shop }}<li><a href="{{ .url }}" class="strong">{{ partial "icon.html" "link" }}{{ .label }}</a></li>{{ end }}
+    {{ range $c.other }}<li><a href="{{ .url }}">{{ .label }}</a></li>{{ end }}
+    {{ with $c.paypalme }}<li><a href="https://paypal.me/{{ . }}" class="strong">{{ partial "icon.html" "paypal" }}PayPal.Me</a></li>{{ end }}
+    {{ range $c.paypal }}<li><button type="button" class="copy-paypal" data-copy="{{ . }}" data-copied="{{ i18n "copied" }}" title="{{ i18n "copy_email" }}">{{ partial "icon.html" "paypal" }}<span class="copy-text">{{ . }}</span><span class="copy-hint">{{ i18n "tap_to_copy" }}</span></button></li>{{ end }}
+  </ul>
+  {{ with $c.last_verified }}<p class="verified-stamp">{{ i18n "last_checked" }}: {{ . }}</p>{{ end }}
+</article>

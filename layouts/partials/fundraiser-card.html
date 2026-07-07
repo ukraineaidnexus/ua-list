@@ -8,7 +8,7 @@
     {{ with $org }}{{ $page := "volunteers/" }}{{ if in .type "ngo" }}{{ $page = "ngos/" }}{{ end }}<p class="by">{{ i18n "by" }} <a href="{{ $page | relLangURL }}#org-{{ .id }}">{{ .name }}</a></p>{{ end }}
   </header>
   {{ if $f.featured }}{{ with $f.featured_note }}<p class="featured-note">{{ . | markdownify }}</p>{{ end }}{{ end }}
-  <p class="share-row"><button type="button" class="badge share-card" data-copy="{{ "fundraisers/" | absLangURL }}?only=1#f-{{ $f.org }}" data-copied="{{ i18n "copied" }}" title="{{ i18n "share_hint" }}">{{ partial "icon.html" "share" }}<span class="copy-text">{{ i18n "share_label" }}</span></button></p>
+  <p class="share-row"><button type="button" class="badge share-card" data-copy="{{ with $f._file }}{{ printf "fundraisers/%s/" . | absURL }}{{ else }}{{ "fundraisers/" | absLangURL }}?only=1#f-{{ $f.org }}{{ end }}" data-copied="{{ i18n "copied" }}" title="{{ i18n "share_hint" }}">{{ partial "icon.html" "share" }}<span class="copy-text">{{ i18n "share_label" }}</span></button></p>
 
   {{ with $f.beneficiary }}<p class="desc"><strong>{{ i18n "for" }}:</strong> {{ . }}</p>{{ end }}
 

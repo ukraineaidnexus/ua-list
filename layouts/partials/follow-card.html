@@ -1,0 +1,16 @@
+{{ $a := .a }}
+<article class="card org" id="follow-{{ $a.id }}" data-tags="{{ with $a.category }}{{ $s := cond (reflect.IsSlice .) . (slice .) }}{{ range $i, $c := $s }}{{ if $i }} {{ end }}{{ anchorize $c }}{{ end }}{{ end }}">
+  <header>
+    <h3>{{ $a.name }}</h3>
+    {{ with $a.category }}<div class="badges">{{ range $c := cond (reflect.IsSlice .) . (slice .) }}<span class="badge reg">{{ $c }}</span>{{ end }}</div>{{ end }}
+  </header>
+  <p class="share-row"><a class="badge full-profile" href="{{ printf "follow/%s/" $a.id | relURL }}">{{ i18n "full_profile" }} &rarr;</a></p>
+  <p class="desc">{{ $a.why }}</p>
+  <ul class="links">
+    {{ with $a.handles }}{{ $ids := slice }}{{ with .x_id }}{{ $ids = . }}{{ if not (reflect.IsSlice $ids) }}{{ $ids = slice $ids }}{{ end }}{{ end }}
+    {{ with .x }}<li><a href="https://x.com/{{ . }}">{{ partial "icon.html" "x" }}@{{ . }}</a>{{ if gt (len $ids) 0 }} <a class="xid" href="https://x.com/i/user/{{ index $ids 0 }}" title="{{ i18n "x_permanent" }}">({{ i18n "x_permanent_short" }})</a>{{ end }}</li>{{ end }}
+    {{ with .bluesky }}<li><a href="https://bsky.app/profile/{{ . }}">{{ partial "icon.html" "butterfly" }}Bluesky</a></li>{{ end }}{{ partial "social-links.html" . }}{{ end }}
+    {{ with $a.links }}{{ with .website }}<li><a href="{{ . }}">{{ partial "icon.html" "globe" }}{{ i18n "link_website" }}</a></li>{{ end }}{{ with .tip }}<li><a href="{{ . }}">{{ partial "icon.html" "bmac" }}{{ i18n "tip_label" }}</a></li>{{ end }}{{ end }}
+  </ul>
+  {{ with $a.last_verified }}<p class="verified-stamp">{{ i18n "last_checked" }}: {{ . }}</p>{{ end }}
+</article>

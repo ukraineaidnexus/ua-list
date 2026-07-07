@@ -1,0 +1,12 @@
+{{/* One detail page per fundraiser, path = data filename key. English only. */}}
+{{ range $file, $f := site.Data.fundraisers }}
+  {{ if $f.draft }}{{ continue }}{{ end }}
+  {{ $content := dict "mediaType" "text/markdown" "value" ($f.history | default "") }}
+  {{ $.AddPage (dict
+    "path" $file
+    "title" $f.title
+    "kind" "page"
+    "params" (dict "f" (merge $f (dict "_file" $file)))
+    "content" $content
+  ) }}
+{{ end }}
