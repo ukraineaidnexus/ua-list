@@ -3,7 +3,7 @@
 
 <article class="card fundraiser status-{{ $f.status }}{{ if $f.featured }} featured{{ end }}" id="f-{{ $f.org }}" data-name="{{ $f.title }}" data-posted="{{ $f.announced }}" data-updated="{{ $f.last_updated | default $f.announced }}" data-tags="{{ with $f.tags }}{{ delimit . " " }}{{ end }}"{{ if $f.goal }} data-left="{{ sub 100 (div (mul ($f.raised | default 0) 100) $f.goal.amount) }}"{{ end }}>
   <header>
-    <h3>{{ $f.title }}</h3>
+    <h3>{{ if and $f._file (not .self) }}<a class="title-link" href="{{ printf "fundraisers/%s/" $f._file | relURL }}">{{ $f.title }}</a>{{ else }}{{ $f.title }}{{ end }}</h3>
     {{ if or $f.tags $f.featured }}<div class="badges">{{ if $f.featured }}<span class="badge featured-badge">★ {{ i18n "featured" }}</span>{{ end }}{{ range $f.tags }}<span class="badge tag">{{ i18n (printf "tag_%s" .) }}</span>{{ end }}</div>{{ end }}
     {{ with $org }}{{ $page := "volunteers/" }}{{ if in .type "ngo" }}{{ $page = "ngos/" }}{{ end }}<p class="by">{{ i18n "by" }} <a href="{{ printf "%s%s/" $page .id | relURL }}">{{ .name }}</a></p>{{ end }}
   </header>

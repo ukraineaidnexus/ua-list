@@ -1,7 +1,7 @@
 {{ $f := .Params.f }}
 {{ $org := index hugo.Data.orgs $f.org }}
 <div class="detail">
-  {{ partial "fundraiser-card.html" (dict "f" $f "showImages" true) }}
+  {{ partial "fundraiser-card.html" (dict "f" $f "showImages" true "self" true) }}
 
   {{ with .Content }}
   <section class="detail-section">
