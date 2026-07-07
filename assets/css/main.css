@@ -861,6 +861,6 @@ html[data-theme="light"] .boost-heading { color: #7a6000; }
 .org-mini h3 a:hover { text-decoration: underline; }
 .org-mini .rep-meter { border: none; padding-left: 0; padding-right: 0; background-color: transparent; }
 
-/* Fundraiser title links: keep normal text colour (session 6) */
-.fundraiser h3 a.title-link { color: inherit; text-decoration: none; }
-.fundraiser h3 a.title-link:hover { text-decoration: underline; }
+/* Fundraiser title links: keep normal text colour, subtle underline */
+.fundraiser h3 a.title-link { color: inherit; text-decoration: underline; text-decoration-color: var(--line); text-underline-offset: 3px; }
+.fundraiser h3 a.title-link:hover { text-decoration-color: var(--muted); }
