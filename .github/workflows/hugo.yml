@@ -3,6 +3,8 @@ name: Build and deploy to GitHub Pages
 on:
   push:
     branches: [main]
+  repository_dispatch:
+    types: [data-updated]
   schedule:
     - cron: "17 3 * * *"   # daily rebuild so date-based expiry actually fires
   workflow_dispatch:
