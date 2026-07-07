@@ -151,6 +151,10 @@ export default {
     if (type === 'fundraiser' && !values.orgid) {
       body += '\n_Maintainer: edit this issue and put the real org id under "### Org ID" before adding the approved label._';
     }
+    const contact = clean(fd.get('contact'), 300);
+    if (contact) {
+      body = '### Contact (optional)\n\n' + contact + '\n\n' + body;
+    }
 
     const res = await fetch('https://api.github.com/repos/' + REPO + '/issues', {
       method: 'POST',

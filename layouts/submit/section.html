@@ -79,6 +79,9 @@
       <p><label>{{ i18n "submit_fo_why" }}<textarea name="why" rows="4" maxlength="2000" placeholder="{{ i18n "submit_ph_fo_why" }}" required></textarea></label></p>
     </fieldset>
 
+    <p><label>{{ i18n "submit_contact" }}<input type="text" name="contact" maxlength="300" placeholder="{{ i18n "submit_ph_contact" }}"></label></p>
+    <p class="form-note">{{ i18n "submit_contact_note" }}</p>
+
     {{ with site.Params.turnstile_sitekey }}
     <div class="cf-turnstile" data-sitekey="{{ . }}"></div>
     {{ end }}
