@@ -749,3 +749,77 @@ html[data-theme="light"] .submit-form label { color: rgba(23,35,60,.65); }
 /* Locked (prefilled) field on the correction form */
 .submit-form input[readonly] { opacity: .65; cursor: default; }
 .submit-form input[readonly]:focus { border-color: rgba(255, 255, 255, 0.18); }
+
+/* ---- Detail pages (session 6) ---- */
+.detail { display: grid; grid-template-columns: 340px 1fr; gap: 1.5rem; align-items: start; }
+.detail-side { position: sticky; top: 1rem; }
+.detail-side .card { margin: 0; }
+.detail-logo { display: block; max-width: 140px; max-height: 140px; border-radius: var(--radius); margin: 0 0 1rem; border: 1px solid var(--line); background-color: var(--panel); }
+.detail-back { margin-top: 1rem; font-size: .85rem; }
+.detail-main .detail-section { margin-top: 0; margin-bottom: 2.25rem; }
+.detail-main .detail-section:first-child h2 { margin-top: 0; }
+.team-list { list-style: none; padding: 0; margin: 0; }
+.team-member { padding: .6rem 0; border-bottom: 1px solid var(--line); }
+.team-member:last-child { border-bottom: none; }
+.team-name { font-weight: 700; }
+.team-role { color: var(--muted); font-size: .85rem; margin-left: .5rem; }
+.team-links { margin: .3rem 0 0; }
+@media (max-width: 900px) {
+  .detail { grid-template-columns: 1fr; }
+  .detail-side { position: static; }
+}
+
+/* ---- Reputation meter (session 6) ---- */
+.rep-meter {
+  background-color: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1rem 1rem .85rem;
+  margin: 0 0 1rem;
+}
+.rep-meter-head { display: flex; align-items: baseline; justify-content: space-between; gap: .5rem; margin-bottom: .55rem; }
+.rep-meter-tier { font-weight: 800; font-size: .98rem; }
+.rep-meter.t-limited .rep-meter-tier { color: #c17a35; }
+.rep-meter.t-unverified .rep-meter-tier { color: #6b7280; }
+.rep-meter.t-vouched .rep-meter-tier { color: #5fa88a; }
+.rep-meter.t-verified .rep-meter-tier { color: #3f8f74; }
+.rep-meter.t-established .rep-meter-tier { color: #2c7a63; }
+.rep-meter-stale {
+  font-size: .66rem; font-weight: 600; color: var(--muted);
+  border: 1px solid var(--line); border-radius: 99px; padding: .12rem .5rem;
+  white-space: nowrap;
+}
+.rep-meter-track {
+  position: relative; height: 8px; border-radius: 99px; margin: .4rem 0 .5rem;
+  background: linear-gradient(to right,
+    #c17a35 0%, #c17a35 16%,
+    var(--line) 16%, var(--line) 20%,
+    #6b7280 20%, #6b7280 42%,
+    #5fa88a 42%, #5fa88a 62%,
+    #3f8f74 62%, #3f8f74 82%,
+    #2c7a63 82%, #2c7a63 100%);
+}
+.rep-meter-marker {
+  position: absolute; top: 50%; width: 15px; height: 15px;
+  background-color: var(--panel); border: 3px solid var(--muted); border-radius: 4px;
+  transform: translate(-50%, -50%) rotate(45deg);
+  box-shadow: 0 0 0 3px var(--panel);
+}
+.rep-meter.t-limited .rep-meter-marker { border-color: #c17a35; }
+.rep-meter.t-unverified .rep-meter-marker { border-color: #6b7280; }
+.rep-meter.t-vouched .rep-meter-marker { border-color: #5fa88a; }
+.rep-meter.t-verified .rep-meter-marker { border-color: #3f8f74; }
+.rep-meter.t-established .rep-meter-marker { border-color: #2c7a63; }
+.rep-meter-ticks { display: flex; justify-content: space-between; font-size: .58rem; color: var(--muted); opacity: .75; }
+.rep-meter-ticks span { flex: 1; text-align: center; }
+.rep-meter-ticks span:first-child { text-align: left; }
+.rep-meter-ticks span:last-child { text-align: right; }
+.rep-meter-note {
+  margin: .65rem 0 0; font-size: .78rem; color: var(--muted);
+  background-color: var(--panel-2); border-left: 2px solid #c17a35;
+  padding: .5rem .65rem; border-radius: 4px;
+}
+html[data-theme="light"] .rep-meter-marker { background-color: #ffffff; box-shadow: 0 0 0 3px #ffffff; }
+
+/* Full profile badge on cards */
+a.badge.full-profile { text-decoration: none; }

@@ -1,0 +1,15 @@
+{{/* Generates one detail page per volunteer entry from data/orgs.
+     English only by design: entry content is English site-wide. */}}
+{{ range $file, $o := site.Data.orgs }}
+  {{ if $o.draft }}{{ continue }}{{ end }}
+  {{ if or (eq $o.type "ua-volunteer") (eq $o.type "foreign-volunteer") }}
+    {{ $content := dict "mediaType" "text/markdown" "value" ($o.history | default "") }}
+    {{ $.AddPage (dict
+      "path" $o.id
+      "title" $o.name
+      "kind" "page"
+      "params" (dict "org" $o)
+      "content" $content
+    ) }}
+  {{ end }}
+{{ end }}

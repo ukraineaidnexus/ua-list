@@ -1,0 +1,59 @@
+{{/* Reputation / verification meter.
+     Usage: partial "rep-meter.html" (dict "o" $org)
+     Tiers: 0 limited (manual flag) / 1 unverified / 2 vouched / 3 verified / 4 established
+     Never red. Warning box always dominates; this states facts only. */}}
+{{ $o := .o }}
+
+{{/* nil-safe link fields */}}
+{{ $reg := "" }}{{ $transp := "" }}
+{{ with $o.links }}{{ with .registration }}{{ $reg = . }}{{ end }}{{ with .transparency }}{{ $transp = . }}{{ end }}{{ end }}
+
+{{/* base tier from existing fields.
+     Vouched   = personal vouch (human trust)
+     Verified  = registration or transparency link (documentary evidence, no vouch required)
+     Established = Verified + a completed fundraiser with a public report */}}
+{{ $tier := 1 }}
+{{ if or $reg $transp }}
+  {{ $tier = 3 }}
+  {{ $completed := 0 }}{{ $reported := 0 }}
+  {{ range $file, $f := hugo.Data.fundraisers }}
+    {{ if and (eq $f.org $o.id) (eq $f.status "completed") }}
+      {{ $completed = add $completed 1 }}
+      {{ if $f.report }}{{ $reported = add $reported 1 }}{{ end }}
+    {{ end }}
+  {{ end }}
+  {{ if and (gt $completed 0) (eq $completed $reported) }}{{ $tier = 4 }}{{ end }}
+{{ else if or $o.verified_by $o.vouched_by }}
+  {{ $tier = 2 }}
+{{ end }}
+
+{{/* stale cap: last_verified > 12 months caps one tier down (never below unverified) */}}
+{{ $stale := false }}
+{{ with $o.last_verified }}
+  {{ $cutoff := (now.AddDate -1 0 0).Format "2006-01-02" }}
+  {{ if lt (printf "%v" .) $cutoff }}{{ $stale = true }}{{ end }}
+{{ end }}
+{{ if and $stale (ge $tier 2) }}{{ $tier = sub $tier 1 }}{{ end }}
+
+{{/* manual flag overrides everything */}}
+{{ if $o.transparency_flag }}{{ $tier = 0 }}{{ end }}
+
+{{ $labels := slice (i18n "tier_limited") (i18n "tier_unverified") (i18n "tier_vouched") (i18n "tier_verified") (i18n "tier_established") }}
+{{ $positions := slice "8%" "31%" "50%" "69%" "92%" }}
+{{ $classes := slice "t-limited" "t-unverified" "t-vouched" "t-verified" "t-established" }}
+
+<div class="rep-meter {{ index $classes $tier }}">
+  <div class="rep-meter-head">
+    <span class="rep-meter-tier">{{ index $labels $tier }}</span>
+    {{ if $stale }}<span class="rep-meter-stale">{{ i18n "needs_recheck" }}</span>{{ end }}
+  </div>
+  <div class="rep-meter-track">
+    <span class="rep-meter-marker" style="left: {{ index $positions $tier }}"></span>
+  </div>
+  <div class="rep-meter-ticks" aria-hidden="true">
+    <span>{{ i18n "tier_limited" }}</span><span>{{ i18n "tier_unverified" }}</span><span>{{ i18n "tier_vouched" }}</span><span>{{ i18n "tier_verified" }}</span><span>{{ i18n "tier_established" }}</span>
+  </div>
+  {{ if and (eq $tier 0) $o.transparency_note }}
+  <p class="rep-meter-note">{{ $o.transparency_note | markdownify }}</p>
+  {{ end }}
+</div>

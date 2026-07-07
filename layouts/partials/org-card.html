@@ -13,7 +13,7 @@
       {{ range $o.tags }}<span class="badge tag">{{ i18n (printf "tag_%s" .) }}</span>{{ end }}
     </div>
   </header>
-  <p class="share-row">{{ $sharePage := "volunteers/" }}{{ if in $o.type "ngo" }}{{ $sharePage = "ngos/" }}{{ end }}<button type="button" class="badge share-card" data-copy="{{ $sharePage | absLangURL }}?only=1#org-{{ $o.id }}" data-copied="{{ i18n "copied" }}" title="{{ i18n "share_hint" }}">{{ partial "icon.html" "share" }}<span class="copy-text">{{ i18n "share_label" }}</span></button></p>
+  <p class="share-row">{{ $sharePage := "volunteers/" }}{{ if in $o.type "ngo" }}{{ $sharePage = "ngos/" }}{{ end }}<button type="button" class="badge share-card" data-copy="{{ $sharePage | absLangURL }}?only=1#org-{{ $o.id }}" data-copied="{{ i18n "copied" }}" title="{{ i18n "share_hint" }}">{{ partial "icon.html" "share" }}<span class="copy-text">{{ i18n "share_label" }}</span></button> <a class="badge full-profile" href="{{ printf "%s%s/" $sharePage $o.id | relURL }}">{{ i18n "full_profile" }} &rarr;</a></p>
   {{ if $o.featured }}{{ with $o.featured_note }}<p class="featured-note">{{ . | markdownify }}</p>{{ end }}{{ end }}
   {{ with $o.location }}<p class="location">{{ partial "icon.html" "location" }}{{ . }}</p>{{ end }}
   <p class="desc">{{ $o.description | markdownify }}</p>
