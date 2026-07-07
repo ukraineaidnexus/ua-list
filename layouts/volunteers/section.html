@@ -1,5 +1,6 @@
 {{ define "main" }}
 <section class="intro">{{ .Content }}</section>
+<p class="submit-cta"><a href="{{ "submit/" | relURL }}?type=org">{{ i18n "submit_cta" }} &rarr;</a></p>
 {{ partial "verify-banner.html" . }}
 {{ partial "search-filter.html" . }}
 {{ partial "sort-controls.html" (dict "mode" "orgs") }}

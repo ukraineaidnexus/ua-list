@@ -480,6 +480,13 @@ html[data-theme="light"] ul.links.handles { border-top-color: rgba(0,0,0,.12); }
   html:not([data-theme]) .sort-controls select:focus { border-color: var(--yellow); }
   html:not([data-theme]) #card-search::placeholder { color: rgba(23,35,60,.45); }
   html:not([data-theme]) ul.links.handles { border-top-color: rgba(0,0,0,.12); }
+  html:not([data-theme]) .submit-form input,
+  html:not([data-theme]) .submit-form textarea,
+  html:not([data-theme]) .submit-form select { color: #17233c; background-color: rgba(0,0,0,.04); border-color: rgba(0,0,0,.22); }
+  html:not([data-theme]) .submit-form input:focus,
+  html:not([data-theme]) .submit-form textarea:focus,
+  html:not([data-theme]) .submit-form select:focus { border-color: var(--yellow); }
+  html:not([data-theme]) .submit-form label { color: rgba(23,35,60,.65); }
 }
 
 .card .xid { font-size: .8em; opacity: .75; white-space: nowrap; }
@@ -682,3 +689,58 @@ html[data-theme="light"] .tag-pill.active { background: rgba(179,142,0,.12); bor
 }
 .card .suggest-correction { margin: .35rem 0 0; font-size: .75rem; }
 .card .suggest-correction a { color: var(--muted); }
+
+/* ---------- Submission form + CTA (session 7) ---------- */
+.submit-cta { margin: -.5rem 0 1.5rem; }
+.submit-cta a { color: var(--yellow); font-weight: 700; }
+.submit-form { max-width: 34rem; }
+.submit-form fieldset { border: 0; padding: 0; margin: 0; }
+.submit-form label { display: block; margin: 0 0 .9rem; font-size: .9rem; color: var(--muted); }
+.submit-form input, .submit-form textarea, .submit-form select {
+  display: block;
+  width: 100%;
+  margin-top: .3rem;
+  padding: .55rem .8rem;
+  font-size: 1rem;
+  font-family: inherit;
+  color: #e8ecf4;
+  background-color: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: .5rem;
+}
+.submit-form select {
+  -webkit-appearance: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23999999' stroke-width='2'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right .8rem center;
+  padding-right: 2.2rem;
+}
+.submit-form input:focus, .submit-form textarea:focus, .submit-form select:focus { border-color: var(--yellow); outline: none; }
+.submit-form .two-col { display: flex; gap: 1rem; }
+.submit-form .two-col label { flex: 1; }
+.submit-form .hp-field { position: absolute; left: -9999px; height: 0; overflow: hidden; }
+.submit-form .form-note { font-size: .85rem; color: var(--muted); }
+.submit-btn {
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 800;
+  padding: .6rem 1.6rem;
+  border-radius: 2rem;
+  border: 1px solid var(--yellow);
+  background-color: rgba(255, 213, 0, .12);
+  color: var(--yellow);
+  cursor: pointer;
+}
+.submit-btn:hover { background-color: rgba(255, 213, 0, .22); }
+.submit-btn:disabled { opacity: .5; cursor: default; }
+#submit-status.status-ok { color: var(--green); font-weight: 700; }
+#submit-status.status-err { color: #ff7b7b; font-weight: 700; }
+
+html[data-theme="light"] .submit-form input,
+html[data-theme="light"] .submit-form textarea,
+html[data-theme="light"] .submit-form select { color: #17233c; background-color: rgba(0,0,0,.04); border-color: rgba(0,0,0,.22); }
+html[data-theme="light"] .submit-form input:focus,
+html[data-theme="light"] .submit-form textarea:focus,
+html[data-theme="light"] .submit-form select:focus { border-color: var(--yellow); }
+html[data-theme="light"] .submit-form label { color: rgba(23,35,60,.65); }

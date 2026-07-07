@@ -1,0 +1,146 @@
+{{ define "main" }}
+<section class="intro">{{ .Content }}</section>
+
+<section class="submit-page">
+  {{ if not site.Params.turnstile_sitekey }}
+  <p class="warning">⚠️ The submission form is not configured yet (missing Turnstile site key in hugo.toml).</p>
+  {{ end }}
+
+  <form id="submit-form" class="submit-form" novalidate>
+    <p>
+      <label for="sub-type">What are you submitting?</label>
+      <select id="sub-type" name="type">
+        <option value="correction">A correction to an existing entry</option>
+        <option value="org">An organisation or volunteer</option>
+        <option value="fundraiser">A fundraiser</option>
+        <option value="creator">A creator</option>
+        <option value="scammer">A suspected grifter / scammer</option>
+        <option value="follow">An account worth following</option>
+      </select>
+    </p>
+
+    <!-- honeypot: humans never see or fill this -->
+    <p class="hp-field" aria-hidden="true"><label>Website<input type="text" name="website" tabindex="-1" autocomplete="off"></label></p>
+
+    <fieldset data-type="correction">
+      <p><label>Which entry? (name or ID)<input type="text" name="entry" maxlength="200" required></label></p>
+      <p><label>What's wrong, and what's your evidence?<textarea name="details" rows="6" maxlength="3000" required></textarea></label></p>
+    </fieldset>
+
+    <fieldset data-type="org" disabled hidden>
+      <p><label>Organisation or volunteer name<input type="text" name="name" maxlength="200" required></label></p>
+      <p><label>Type<select name="orgtype">
+        <option value="ua-volunteer">Ukrainian volunteer</option>
+        <option value="ua-ngo">Ukrainian registered nonprofit</option>
+        <option value="foreign-volunteer">Foreign volunteer</option>
+        <option value="foreign-ngo">Foreign organisation</option>
+      </select></label></p>
+      <p><label>Links and social handles (website, X, registration, donation links)<textarea name="links" rows="4" maxlength="2000" required></textarea></label></p>
+      <p><label>Why should this be trusted? (registration number, vouches, track record)<textarea name="trust" rows="4" maxlength="3000"></textarea></label></p>
+    </fieldset>
+
+    <fieldset data-type="fundraiser" disabled hidden>
+      <p><label>Org ID (from the card's share link, e.g. <code>org-yaness</code> &rarr; <code>yaness</code>)<input type="text" name="orgid" maxlength="100" required></label></p>
+      <p><label>Fundraiser title<input type="text" name="title" maxlength="200" required></label></p>
+      <p><label>Who it's for<input type="text" name="beneficiary" maxlength="200"></label></p>
+      <p class="two-col"><label>Goal amount (number only)<input type="number" name="amount" min="1" required></label>
+      <label>Currency<select name="currency"><option>USD</option><option>EUR</option><option>GBP</option><option>UAH</option></select></label></p>
+      <p><label>Date announced<input type="date" name="announced" required></label></p>
+      <p><label>Link to the fundraiser post on X<input type="url" name="xlink" maxlength="500" required></label></p>
+      <p><label>Link to the Bluesky post (optional)<input type="url" name="bsky" maxlength="500"></label></p>
+      <p><label>Direct donation link (optional)<input type="url" name="donate" maxlength="500"></label></p>
+      <p><label>Why should this be trusted?<textarea name="trust" rows="4" maxlength="3000"></textarea></label></p>
+    </fieldset>
+
+    <fieldset data-type="creator" disabled hidden>
+      <p><label>Creator name<input type="text" name="name" maxlength="200" required></label></p>
+      <p><label>What do they make?<input type="text" name="makes" maxlength="300" required></label></p>
+      <p><label>Storefront link (Etsy, own shop, etc. &mdash; required)<input type="url" name="shop" maxlength="500" required></label></p>
+      <p><label>Social handles<textarea name="links" rows="3" maxlength="2000"></textarea></label></p>
+      <p><label>Notes (optional)<textarea name="notes" rows="3" maxlength="2000"></textarea></label></p>
+    </fieldset>
+
+    <fieldset data-type="scammer" disabled hidden>
+      <p><label>Account name(s) and handles<input type="text" name="name" maxlength="300" required></label></p>
+      <p><label>What happened? Describe the behaviour<textarea name="details" rows="6" maxlength="3000" required></textarea></label></p>
+      <p><label>Public evidence links (required &mdash; posts, archives, exposure threads)<textarea name="evidence" rows="4" maxlength="2000" required></textarea></label></p>
+      <p class="form-note">Reports without public, linkable evidence cannot be listed. Nothing is published automatically; every report is reviewed manually.</p>
+    </fieldset>
+
+    <fieldset data-type="follow" disabled hidden>
+      <p><label>Name<input type="text" name="name" maxlength="200" required></label></p>
+      <p><label>Where to follow them (X, Bluesky, etc.)<textarea name="handles" rows="3" maxlength="1000" required></textarea></label></p>
+      <p><label>Why are they worth following?<textarea name="why" rows="4" maxlength="2000" required></textarea></label></p>
+    </fieldset>
+
+    {{ with site.Params.turnstile_sitekey }}
+    <div class="cf-turnstile" data-sitekey="{{ . }}"></div>
+    {{ end }}
+
+    <p><button type="submit" id="submit-btn" class="submit-btn">Send</button></p>
+    <p id="submit-status" hidden></p>
+  </form>
+</section>
+
+{{ if site.Params.turnstile_sitekey }}
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+{{ end }}
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var form = document.getElementById('submit-form');
+  var typeSel = document.getElementById('sub-type');
+  var status = document.getElementById('submit-status');
+  var btn = document.getElementById('submit-btn');
+  var sets = Array.prototype.slice.call(form.querySelectorAll('fieldset[data-type]'));
+
+  function showType(t) {
+    sets.forEach(function (fs) {
+      var on = fs.getAttribute('data-type') === t;
+      fs.disabled = !on;
+      fs.hidden = !on;
+    });
+  }
+  typeSel.addEventListener('change', function () { showType(typeSel.value); });
+
+  // Prefill from ?type=...&entry=...
+  var q = new URLSearchParams(location.search);
+  var t = q.get('type');
+  if (t && form.querySelector('fieldset[data-type="' + t + '"]')) { typeSel.value = t; }
+  showType(typeSel.value);
+  var entry = q.get('entry');
+  if (entry) {
+    var ef = form.querySelector('fieldset[data-type="correction"] input[name="entry"]');
+    if (ef) ef.value = entry.slice(0, 200);
+  }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (!form.reportValidity()) return;
+    btn.disabled = true;
+    status.hidden = false;
+    status.className = '';
+    status.textContent = 'Sending\u2026';
+    fetch('/api/submit', { method: 'POST', body: new FormData(form) })
+      .then(function (r) { return r.json().then(function (d) { return { ok: r.ok, d: d }; }); })
+      .then(function (res) {
+        if (res.ok && res.d.ok) {
+          status.className = 'status-ok';
+          status.textContent = 'Thank you! Your submission has been received and will be reviewed manually.';
+          form.reset();
+          showType(typeSel.value);
+          if (window.turnstile) { window.turnstile.reset(); }
+        } else {
+          status.className = 'status-err';
+          status.textContent = (res.d && res.d.error) || 'Something went wrong. Please try again.';
+        }
+        btn.disabled = false;
+      })
+      .catch(function () {
+        status.className = 'status-err';
+        status.textContent = 'Could not send. Check your connection and try again.';
+        btn.disabled = false;
+      });
+  });
+});
+</script>
+{{ end }}

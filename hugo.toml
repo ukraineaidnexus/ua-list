@@ -11,6 +11,7 @@ defaultContentLanguageInSubdir = false
   contact_x_id = "1345747076387364873"  # your NUMERIC X user ID; if set, the X link opens a DM compose window instead of your profile
   contact_telegram = "mrdouglashall"    # Telegram username, without @ (renders t.me link); leave "" to hide
   contact_signal = ""                   # full signal.me link, e.g. https://signal.me/#eu/XXXX; leave "" to hide
+  turnstile_sitekey = "0x4AAAAAADxMk1gOFXN8IY0X"
 
 [languages]
   [languages.en]
