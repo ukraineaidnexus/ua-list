@@ -1,0 +1,16 @@
+{{/* Static, self-hosted post cards. No third-party JS, no build-time fetch.
+     Usage: partial "featured-posts.html" (dict "posts" $entry.featured_posts)
+     Each post: user (required), id (required, quoted), text (optional, pasted
+     by maintainer), date (optional). */}}
+{{ with .posts }}
+<section class="detail-section">
+  <h2><span class="rule"></span>{{ i18n "detail_posts" }}</h2>
+  {{ range . }}
+  <blockquote class="xpost">
+    <p class="xpost-head">{{ partial "icon.html" "x" }}<a href="https://x.com/{{ .user }}" rel="nofollow">@{{ .user }}</a>{{ with .date }}<span class="xpost-date">{{ . }}</span>{{ end }}</p>
+    {{ with .text }}<div class="xpost-text">{{ . | markdownify }}</div>{{ end }}
+    <p class="xpost-link"><a href="https://x.com/{{ .user }}/status/{{ .id }}" rel="nofollow">{{ i18n "view_on_x" }} &rarr;</a></p>
+  </blockquote>
+  {{ end }}
+</section>
+{{ end }}

@@ -1,0 +1,22 @@
+{{ $s := .Params.s }}
+<div class="detail">
+  {{ partial "scammer-card.html" (dict "s" $s) }}
+  {{ with .Content }}
+  <section class="detail-section">
+    <h2><span class="rule"></span>{{ i18n "detail_history" }}</h2>
+    {{ . }}
+  </section>
+  {{ end }}
+  {{ with $s.screenshots }}
+  <section class="detail-section">
+    <h2><span class="rule"></span>{{ i18n "detail_evidence" }}</h2>
+    {{ range . }}
+    <figure class="evidence-shot">
+      <a href="{{ .file | relURL }}"><img src="{{ .file | relURL }}" alt="{{ .label }}" loading="lazy"></a>
+      <figcaption>{{ .label | markdownify }}</figcaption>
+    </figure>
+    {{ end }}
+  </section>
+  {{ end }}
+  <p class="detail-back"><a href="{{ "scammers/" | relURL }}#scam-{{ $s.id }}">&larr; {{ i18n "back_to_list" }}</a></p>
+</div>

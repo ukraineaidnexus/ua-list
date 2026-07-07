@@ -1,0 +1,18 @@
+{{ $s := .s }}
+<article class="card scammer" id="scam-{{ $s.id }}">
+  <header>
+    <h3>{{ $s.name }}</h3>
+    <div class="badges"><span class="badge scam">{{ i18n "badge_scam" }}</span></div>
+  </header>
+  <p class="share-row"><a class="badge full-profile" href="{{ printf "scammers/%s/" $s.id | relURL }}">{{ i18n "full_profile" }} &rarr;</a></p>
+  <p class="desc">{{ $s.summary }}</p>
+  <ul class="links">
+    {{ with $s.handles }}
+      {{ $ids := slice }}{{ with .x_id }}{{ $ids = . }}{{ if not (reflect.IsSlice $ids) }}{{ $ids = slice $ids }}{{ end }}{{ end }}
+      {{ with .x }}{{ $xs := . }}{{ if not (reflect.IsSlice $xs) }}{{ $xs = slice $xs }}{{ end }}{{ range $i, $h := $xs }}<li><a href="https://x.com/{{ $h }}" rel="nofollow">{{ partial "icon.html" "x" }}@{{ $h }}</a>{{ if lt $i (len $ids) }} <a class="xid" href="https://x.com/i/user/{{ index $ids $i }}" rel="nofollow" title="{{ i18n "x_permanent" }}">({{ i18n "x_permanent_short" }})</a>{{ end }}</li>{{ end }}{{ end }}
+      {{ partial "social-links.html" . }}
+    {{ end }}
+    {{ range $s.evidence }}<li><a href="{{ .url }}" class="strong">{{ partial "icon.html" "doc" }}{{ .label }}</a></li>{{ end }}
+  </ul>
+  {{ with $s.last_verified }}<p class="verified-stamp">{{ i18n "last_checked" }}: {{ . }}</p>{{ end }}
+</article>

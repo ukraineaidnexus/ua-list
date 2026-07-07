@@ -10,6 +10,8 @@
   </section>
   {{ end }}
 
+  {{ partial "featured-posts.html" (dict "posts" $f.featured_posts) }}
+
   {{ with $org }}
   <section class="detail-section">
     <h2><span class="rule"></span>{{ i18n "backed_by" }}</h2>

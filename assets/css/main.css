@@ -836,3 +836,21 @@ a.badge.full-profile { text-decoration: none; }
 .boost-image { display: block; max-width: 420px; width: 100%; border-radius: var(--radius); margin-top: .6rem; border: 1px solid var(--line); }
 html[data-theme="light"] .boost { border-color: rgba(176, 138, 0, .55); background-color: rgba(255, 213, 0, .12); }
 html[data-theme="light"] .boost-heading { color: #7a6000; }
+
+/* ---- Scammer evidence screenshots (session 6) ---- */
+.evidence-shot { margin: 0 0 1.25rem; }
+.evidence-shot img { display: block; max-width: 560px; width: 100%; border-radius: var(--radius); border: 1px solid var(--line); }
+.evidence-shot figcaption { font-size: .78rem; color: var(--muted); margin-top: .35rem; }
+
+/* ---- Featured post cards (session 6) ---- */
+.xpost {
+  margin: 0 0 1rem; padding: .85rem 1rem;
+  background-color: var(--panel); border: 1px solid var(--line);
+  border-radius: var(--radius); max-width: 560px;
+}
+.xpost-head { margin: 0; font-weight: 700; display: flex; align-items: center; gap: .45rem; }
+.xpost-head svg { width: 1em; height: 1em; }
+.xpost-date { color: var(--muted); font-weight: 400; font-size: .8rem; }
+.xpost-text { margin: .5rem 0 0; }
+.xpost-text p { margin: .35rem 0; }
+.xpost-link { margin: .55rem 0 0; font-size: .85rem; }

@@ -1,0 +1,14 @@
+{{/* One detail page per documented scammer. English only.
+     House rules apply: attributed language, public evidence links,
+     archive.ph stays the primary citation. Never automated. */}}
+{{ range $file, $s := site.Data.scammers }}
+  {{ if $s.draft }}{{ continue }}{{ end }}
+  {{ $content := dict "mediaType" "text/markdown" "value" ($s.history | default "") }}
+  {{ $.AddPage (dict
+    "path" $s.id
+    "title" $s.name
+    "kind" "page"
+    "params" (dict "s" $s)
+    "content" $content
+  ) }}
+{{ end }}

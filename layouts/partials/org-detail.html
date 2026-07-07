@@ -30,6 +30,8 @@
   </section>
   {{ end }}
 
+  {{ partial "featured-posts.html" (dict "posts" $o.featured_posts) }}
+
   {{ with $o.team }}
   <section class="detail-section">
     <h2><span class="rule"></span>{{ i18n "detail_team" }}</h2>
