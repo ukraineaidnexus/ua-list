@@ -748,12 +748,3 @@ html[data-theme="light"] .submit-form label { color: rgba(23,35,60,.65); }
 /* Locked (prefilled) field on the correction form */
 .submit-form input[readonly] { opacity: .65; cursor: default; }
 .submit-form input[readonly]:focus { border-color: rgba(255, 255, 255, 0.18); }
-
-/* Manual-verification note under the submission form */
-.submit-form .form-footer-note {
-  margin-top: 1.2rem;
-  padding-top: .8rem;
-  border-top: 1px dashed var(--line);
-  font-size: .82rem;
-  color: var(--muted);
-}

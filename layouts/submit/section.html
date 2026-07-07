@@ -52,7 +52,7 @@
       <p class="two-col"><label>{{ i18n "submit_fr_amount" }}<input type="number" name="amount" min="1" placeholder="7500" required></label>
       <label>{{ i18n "submit_fr_currency" }}<input type="text" name="currency" list="currency-list" maxlength="3" pattern="[A-Za-z]{3}" placeholder="USD" required>
       <datalist id="currency-list"><option>USD</option><option>EUR</option><option>GBP</option><option>UAH</option><option>CAD</option></datalist></label></p>
-      <p><label>{{ i18n "submit_fr_date" }}<input type="date" name="announced" required></label></p>
+      <p><label>{{ i18n "submit_fr_date" }}<input type="date" name="announced" id="fr-date"></label></p>
       <p><label>{{ i18n "submit_fr_post" }}<input type="url" name="post" maxlength="500" placeholder="https://x.com/…  /  https://bsky.app/…" required></label></p>
       <p><label>{{ i18n "submit_fr_donate" }}<input type="url" name="donate" maxlength="500" placeholder="https://…"></label></p>
       <p><label>{{ i18n "submit_trust" }}<textarea name="trust" rows="4" maxlength="3000" placeholder="{{ i18n "submit_ph_trust" }}"></textarea></label></p>
@@ -85,7 +85,6 @@
 
     <p><button type="submit" id="submit-btn" class="submit-btn">{{ i18n "submit_send" }}</button></p>
     <p id="submit-status" hidden></p>
-    <p class="form-footer-note">{{ i18n "submit_footer_note" }}</p>
   </form>
 </section>
 
@@ -108,6 +107,14 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
   typeSel.addEventListener('change', function () { showType(typeSel.value); });
+
+  // Default the fundraiser date to today; reset() keeps it via defaultValue.
+  var dateField = document.getElementById('fr-date');
+  if (dateField) {
+    var today = new Date().toISOString().slice(0, 10);
+    dateField.value = today;
+    dateField.defaultValue = today;
+  }
 
   // Prefill from ?type=...&entry=...
   var q = new URLSearchParams(location.search);
@@ -155,8 +162,10 @@ document.addEventListener('DOMContentLoaded', function () {
         if (res.ok && res.d.ok) {
           status.className = 'status-ok';
           status.textContent = form.getAttribute('data-msg-ok');
+          var cur = typeSel.value;
           form.reset();
-          showType(typeSel.value);
+          typeSel.value = cur;
+          showType(cur);
           if (window.turnstile) { window.turnstile.reset(); }
         } else {
           status.className = 'status-err';
