@@ -56,9 +56,13 @@ jobs:
             yaml += `expires: ${expires}\n`;
             yaml += `status: active\n`;
             yaml += `links:\n`;
-            yaml += `  x: ${q(get('Link to the fundraiser post on X'))}\n`;
+            const post = get('Link to the fundraiser post') || get('Link to the fundraiser post on X');
+            let postKey = 'web';
+            if (/https?:\/\/(www\.)?(x\.com|twitter\.com)\//.test(post)) postKey = 'x';
+            else if (/https?:\/\/(www\.)?bsky\.app\//.test(post)) postKey = 'bluesky';
+            yaml += `  ${postKey}: ${q(post)}\n`;
             const bsky = get('Link to the Bluesky post \\(optional\\)');
-            if (bsky) yaml += `  bluesky: ${q(bsky)}\n`;
+            if (bsky && postKey !== 'bluesky') yaml += `  bluesky: ${q(bsky)}\n`;
             const donate = get('Direct donation link \\(optional\\)');
             if (donate) yaml += `  donate: ${q(donate)}\n`;
             yaml += `report: null\n`;

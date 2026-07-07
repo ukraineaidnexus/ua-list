@@ -50,10 +50,10 @@
       <p><label>{{ i18n "submit_fr_title" }}<input type="text" name="title" maxlength="200" placeholder="{{ i18n "submit_ph_fr_title" }}" required></label></p>
       <p><label>{{ i18n "submit_fr_benef" }}<input type="text" name="beneficiary" maxlength="200" placeholder="{{ i18n "submit_ph_fr_benef" }}"></label></p>
       <p class="two-col"><label>{{ i18n "submit_fr_amount" }}<input type="number" name="amount" min="1" placeholder="7500" required></label>
-      <label>{{ i18n "submit_fr_currency" }}<select name="currency"><option>USD</option><option>EUR</option><option>GBP</option><option>UAH</option></select></label></p>
+      <label>{{ i18n "submit_fr_currency" }}<input type="text" name="currency" list="currency-list" maxlength="3" pattern="[A-Za-z]{3}" placeholder="USD" required>
+      <datalist id="currency-list"><option>USD</option><option>EUR</option><option>GBP</option><option>UAH</option><option>CAD</option></datalist></label></p>
       <p><label>{{ i18n "submit_fr_date" }}<input type="date" name="announced" required></label></p>
-      <p><label>{{ i18n "submit_fr_x" }}<input type="url" name="xlink" maxlength="500" placeholder="https://x.com/…/status/…" required></label></p>
-      <p><label>{{ i18n "submit_fr_bsky" }}<input type="url" name="bsky" maxlength="500" placeholder="https://bsky.app/…"></label></p>
+      <p><label>{{ i18n "submit_fr_post" }}<input type="url" name="post" maxlength="500" placeholder="https://x.com/…  /  https://bsky.app/…" required></label></p>
       <p><label>{{ i18n "submit_fr_donate" }}<input type="url" name="donate" maxlength="500" placeholder="https://…"></label></p>
       <p><label>{{ i18n "submit_trust" }}<textarea name="trust" rows="4" maxlength="3000" placeholder="{{ i18n "submit_ph_trust" }}"></textarea></label></p>
     </fieldset>
@@ -85,6 +85,7 @@
 
     <p><button type="submit" id="submit-btn" class="submit-btn">{{ i18n "submit_send" }}</button></p>
     <p id="submit-status" hidden></p>
+    <p class="form-footer-note">{{ i18n "submit_footer_note" }}</p>
   </form>
 </section>
 

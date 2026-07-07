@@ -42,8 +42,7 @@ const TYPES = {
       ['amount', 'Goal amount (number only)', true],
       ['currency', 'Currency', true],
       ['announced', 'Date announced (YYYY-MM-DD)', true],
-      ['xlink', 'Link to the fundraiser post on X', true],
-      ['bsky', 'Link to the Bluesky post (optional)', false],
+      ['post', 'Link to the fundraiser post', true],
       ['donate', 'Direct donation link (optional)', false],
       ['trust', 'Why should this be trusted?', false],
     ],
@@ -135,6 +134,8 @@ export default {
     if (type === 'fundraiser') {
       if (!/^\d{4}-\d{2}-\d{2}$/.test(values.announced)) return json({ error: 'Date must be YYYY-MM-DD.' }, 400);
       if (!/^\d+$/.test(values.amount)) return json({ error: 'Goal amount must be a whole number.' }, 400);
+      values.currency = values.currency.toUpperCase();
+      if (!/^[A-Z]{3}$/.test(values.currency)) return json({ error: 'Currency must be a 3-letter code, e.g. USD.' }, 400);
       values.orgid = values.orgid.toLowerCase().replace(/[^a-z0-9-]/g, '');
     }
 
