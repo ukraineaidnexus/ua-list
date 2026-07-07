@@ -19,6 +19,7 @@ const TYPES = {
     titlePrefix: '[Correction] ', titleField: 'entry', label: 'correction',
     fields: [
       ['entry', 'Which entry?', true],
+      ['entryid', 'Entry ID', false],
       ['details', "What's wrong, and what's your evidence?", true],
     ],
   },
@@ -35,7 +36,7 @@ const TYPES = {
     titlePrefix: '[Fundraiser] ', titleField: 'title', label: 'fundraiser-submission',
     fields: [
       ['orgname', 'Organisation or volunteer', true],
-      ['__orgid', 'Org ID', false],
+      ['orgid', 'Org ID', false],
       ['title', 'Fundraiser title', true],
       ['beneficiary', "Who it's for", false],
       ['amount', 'Goal amount (number only)', true],
@@ -134,16 +135,18 @@ export default {
     if (type === 'fundraiser') {
       if (!/^\d{4}-\d{2}-\d{2}$/.test(values.announced)) return json({ error: 'Date must be YYYY-MM-DD.' }, 400);
       if (!/^\d+$/.test(values.amount)) return json({ error: 'Goal amount must be a whole number.' }, 400);
+      values.orgid = values.orgid.toLowerCase().replace(/[^a-z0-9-]/g, '');
     }
 
     const title = (spec.titlePrefix + values[spec.titleField]).slice(0, 120);
-    // '__orgid' has no form input; it renders as "_No response_" so the
-    // fundraiser-issue-to-pr.yml parser fails safely until the maintainer
-    // edits the issue and fills in the real org id.
+    // Card click-throughs carry the org id in a hidden field, so "### Org ID"
+    // is prefilled and the fundraiser-issue-to-pr.yml automation works
+    // unattended. Generic submissions leave it as "_No response_" and the
+    // parser fails safely until the maintainer edits the issue.
     let body = spec.fields
       .map(([name, heading]) => '### ' + heading + '\n\n' + (values[name] || '_No response_') + '\n')
       .join('\n') + '\n---\n_Submitted via the site form._';
-    if (type === 'fundraiser') {
+    if (type === 'fundraiser' && !values.orgid) {
       body += '\n_Maintainer: edit this issue and put the real org id under "### Org ID" before adding the approved label._';
     }
 

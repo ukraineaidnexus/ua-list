@@ -27,6 +27,7 @@
     <p class="hp-field" aria-hidden="true"><label>Website<input type="text" name="website" tabindex="-1" autocomplete="off"></label></p>
 
     <fieldset data-type="correction">
+      <input type="hidden" name="entryid">
       <p><label>{{ i18n "submit_entry" }}<input type="text" name="entry" maxlength="200" placeholder="{{ i18n "submit_ph_entry" }}" required></label></p>
       <p><label>{{ i18n "submit_details" }}<textarea name="details" rows="6" maxlength="3000" placeholder="{{ i18n "submit_ph_details" }}" required></textarea></label></p>
     </fieldset>
@@ -44,6 +45,7 @@
     </fieldset>
 
     <fieldset data-type="fundraiser" disabled hidden>
+      <input type="hidden" name="orgid">
       <p><label>{{ i18n "submit_fr_org" }}<input type="text" name="orgname" maxlength="200" placeholder="{{ i18n "submit_ph_fr_org" }}" required></label></p>
       <p><label>{{ i18n "submit_fr_title" }}<input type="text" name="title" maxlength="200" placeholder="{{ i18n "submit_ph_fr_title" }}" required></label></p>
       <p><label>{{ i18n "submit_fr_benef" }}<input type="text" name="beneficiary" maxlength="200" placeholder="{{ i18n "submit_ph_fr_benef" }}"></label></p>
@@ -112,17 +114,30 @@ document.addEventListener('DOMContentLoaded', function () {
   if (t && form.querySelector('fieldset[data-type="' + t + '"]')) { typeSel.value = t; }
   showType(typeSel.value);
 
-  // Arriving from a card's "suggest a correction" link: the entry is known,
-  // so lock it and hide the type dropdown. Only the details box stays editable.
+  // Arriving from a card link: the entry (and its id) is known, so lock the
+  // prefilled field and hide the type dropdown.
   var entry = q.get('entry');
+  var entryId = q.get('id');
+  function lockField(sel, val) {
+    var f = form.querySelector(sel);
+    if (!f) return;
+    f.value = val.slice(0, 200);
+    f.defaultValue = f.value;
+    f.readOnly = true;
+    f.classList.add('locked');
+  }
   if (t === 'correction' && entry) {
-    var ef = form.querySelector('fieldset[data-type="correction"] input[name="entry"]');
-    if (ef) {
-      ef.value = entry.slice(0, 200);
-      ef.defaultValue = ef.value;
-      ef.readOnly = true;
-      ef.classList.add('locked');
+    lockField('fieldset[data-type="correction"] input[name="entry"]', entry);
+    if (entryId) {
+      var idf = form.querySelector('fieldset[data-type="correction"] input[name="entryid"]');
+      if (idf) { idf.value = entryId.slice(0, 100); idf.defaultValue = idf.value; }
     }
+    document.getElementById('type-row').hidden = true;
+  }
+  if (t === 'fundraiser' && entryId) {
+    var of = form.querySelector('fieldset[data-type="fundraiser"] input[name="orgid"]');
+    if (of) { of.value = entryId.slice(0, 100); of.defaultValue = of.value; }
+    if (entry) { lockField('fieldset[data-type="fundraiser"] input[name="orgname"]', entry); }
     document.getElementById('type-row').hidden = true;
   }
 
