@@ -4,7 +4,7 @@
   {{ if not $f.draft }}
     {{ $expired := false }}
     {{ with $f.expires }}{{ $expired = $now.After (time .) }}{{ end }}
-    {{ if and (eq $f.status "active") (not $expired) }}{{ $live = $live | append $f }}{{ end }}
+    {{ if and (eq $f.status "active") (not $expired) }}{{ $live = $live | append (merge $f (dict "_file" $file)) }}{{ end }}
   {{ end }}
 {{ end }}
 {{ return $live }}

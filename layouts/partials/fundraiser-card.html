@@ -5,7 +5,7 @@
   <header>
     <h3>{{ $f.title }}</h3>
     {{ if or $f.tags $f.featured }}<div class="badges">{{ if $f.featured }}<span class="badge featured-badge">★ {{ i18n "featured" }}</span>{{ end }}{{ range $f.tags }}<span class="badge tag">{{ i18n (printf "tag_%s" .) }}</span>{{ end }}</div>{{ end }}
-    {{ with $org }}{{ $page := "volunteers/" }}{{ if in .type "ngo" }}{{ $page = "ngos/" }}{{ end }}<p class="by">{{ i18n "by" }} <a href="{{ $page | relLangURL }}#org-{{ .id }}">{{ .name }}</a></p>{{ end }}
+    {{ with $org }}{{ $page := "volunteers/" }}{{ if in .type "ngo" }}{{ $page = "ngos/" }}{{ end }}<p class="by">{{ i18n "by" }} <a href="{{ printf "%s%s/" $page .id | relURL }}">{{ .name }}</a></p>{{ end }}
   </header>
   {{ if $f.featured }}{{ with $f.featured_note }}<p class="featured-note">{{ . | markdownify }}</p>{{ end }}{{ end }}
   <p class="share-row"><button type="button" class="badge share-card" data-copy="{{ with $f._file }}{{ printf "fundraisers/%s/" . | absURL }}{{ else }}{{ "fundraisers/" | absLangURL }}?only=1#f-{{ $f.org }}{{ end }}" data-copied="{{ i18n "copied" }}" title="{{ i18n "share_hint" }}">{{ partial "icon.html" "share" }}<span class="copy-text">{{ i18n "share_label" }}</span></button></p>
