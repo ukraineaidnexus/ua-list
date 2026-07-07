@@ -15,7 +15,9 @@
   <h2><span class="rule"></span>{{ i18n "ua_volunteers" }}</h2>
   <p class="section-note">{{ i18n "ua_volunteers_note" }}</p>
   <div class="cards">
-    {{ range sort (where $orgs "type" "ua-volunteer") "name" }}{{ partial "org-card.html" (dict "o" . "live" $live) }}{{ end }}
+    {{ $uaVols := sort (where $orgs "type" "ua-volunteer") "name" }}
+    {{ range where $uaVols "featured" true }}{{ partial "org-card.html" (dict "o" . "live" $live) }}{{ end }}
+    {{ range where $uaVols "featured" "!=" true }}{{ partial "org-card.html" (dict "o" . "live" $live) }}{{ end }}
   </div>
 </section>
 
@@ -24,7 +26,9 @@
 <section id="foreign-volunteers" class="directory">
   <h2><span class="rule"></span>{{ i18n "foreign_volunteers" }}</h2>
   <div class="cards">
-    {{ range sort $foreignVols "name" }}{{ partial "org-card.html" (dict "o" . "live" $live) }}{{ end }}
+    {{ $sortedFV := sort $foreignVols "name" }}
+    {{ range where $sortedFV "featured" true }}{{ partial "org-card.html" (dict "o" . "live" $live) }}{{ end }}
+    {{ range where $sortedFV "featured" "!=" true }}{{ partial "org-card.html" (dict "o" . "live" $live) }}{{ end }}
   </div>
 </section>
 {{ end }}

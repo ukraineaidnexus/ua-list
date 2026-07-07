@@ -15,7 +15,9 @@ document.addEventListener('DOMContentLoaded', function () {
   var cards = Array.prototype.slice.call(
     document.querySelectorAll('.card, article[id^="f-"]')
   );
-  var texts = cards.map(function (c) { return norm(c.textContent); });
+  var texts = cards.map(function (c) {
+    return norm(c.textContent + ' ' + (c.getAttribute('data-handles') || ''));
+  });
   input.addEventListener('input', function () {
     var q = norm(input.value.trim());
     var shown = 0;

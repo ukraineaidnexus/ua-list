@@ -1,12 +1,13 @@
 {{ $f := .f }}
 {{ $org := index hugo.Data.orgs $f.org }}
 
-<article class="card fundraiser status-{{ $f.status }}" id="f-{{ $f.org }}" data-name="{{ $f.title }}" data-posted="{{ $f.announced }}" data-updated="{{ $f.last_updated | default $f.announced }}" data-tags="{{ with $f.tags }}{{ delimit . " " }}{{ end }}"{{ if $f.goal }} data-left="{{ sub 100 (div (mul ($f.raised | default 0) 100) $f.goal.amount) }}"{{ end }}>
+<article class="card fundraiser status-{{ $f.status }}{{ if $f.featured }} featured{{ end }}" id="f-{{ $f.org }}" data-name="{{ $f.title }}" data-posted="{{ $f.announced }}" data-updated="{{ $f.last_updated | default $f.announced }}" data-tags="{{ with $f.tags }}{{ delimit . " " }}{{ end }}"{{ if $f.goal }} data-left="{{ sub 100 (div (mul ($f.raised | default 0) 100) $f.goal.amount) }}"{{ end }}>
   <header>
     <h3>{{ $f.title }}</h3>
-    {{ with $f.tags }}<div class="badges">{{ range . }}<span class="badge tag">{{ i18n (printf "tag_%s" .) }}</span>{{ end }}</div>{{ end }}
+    {{ if or $f.tags $f.featured }}<div class="badges">{{ if $f.featured }}<span class="badge featured-badge">★ {{ i18n "featured" }}</span>{{ end }}{{ range $f.tags }}<span class="badge tag">{{ i18n (printf "tag_%s" .) }}</span>{{ end }}</div>{{ end }}
     {{ with $org }}{{ $page := "volunteers/" }}{{ if in .type "ngo" }}{{ $page = "ngos/" }}{{ end }}<p class="by">{{ i18n "by" }} <a href="{{ $page | relLangURL }}#org-{{ .id }}">{{ .name }}</a></p>{{ end }}
   </header>
+  {{ if $f.featured }}{{ with $f.featured_note }}<p class="featured-note">{{ . | markdownify }}</p>{{ end }}{{ end }}
   <p class="share-row"><button type="button" class="badge share-card" data-copy="{{ "fundraisers/" | absLangURL }}?only=1#f-{{ $f.org }}" data-copied="{{ i18n "copied" }}" title="{{ i18n "share_hint" }}">{{ partial "icon.html" "share" }}<span class="copy-text">{{ i18n "share_label" }}</span></button></p>
 
   {{ with $f.beneficiary }}<p class="desc"><strong>{{ i18n "for" }}:</strong> {{ . }}</p>{{ end }}
@@ -54,4 +55,5 @@
     <p class="donate-warning">{{ i18n "donate_no_military" }}</p>
   </div>
   {{ end }}
+  <p class="suggest-correction"><a href="https://github.com/ukraineaidnexus/ua-list/issues/new?template=correction.yml&org={{ $f.org }}" rel="nofollow">{{ i18n "suggest_correction" }}</a></p>
 </article>

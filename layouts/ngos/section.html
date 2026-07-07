@@ -14,7 +14,9 @@
   <h2><span class="rule"></span>{{ i18n "ua_ngos" }}</h2>
   <p class="section-note">{{ i18n "ua_ngos_note" }}</p>
   <div class="cards">
-    {{ range sort (where $orgs "type" "ua-ngo") "name" }}{{ partial "org-card.html" (dict "o" . "live" $live) }}{{ end }}
+    {{ $uaNgos := sort (where $orgs "type" "ua-ngo") "name" }}
+    {{ range where $uaNgos "featured" true }}{{ partial "org-card.html" (dict "o" . "live" $live) }}{{ end }}
+    {{ range where $uaNgos "featured" "!=" true }}{{ partial "org-card.html" (dict "o" . "live" $live) }}{{ end }}
   </div>
 </section>
 
@@ -24,7 +26,9 @@
   <h2><span class="rule"></span>{{ i18n "foreign_ngos" }}</h2>
   <p class="section-note">{{ i18n "foreign_ngos_note" }}</p>
   <div class="cards">
-    {{ range sort $foreignNgos "name" }}{{ partial "org-card.html" (dict "o" . "live" $live) }}{{ end }}
+    {{ $sortedFN := sort $foreignNgos "name" }}
+    {{ range where $sortedFN "featured" true }}{{ partial "org-card.html" (dict "o" . "live" $live) }}{{ end }}
+    {{ range where $sortedFN "featured" "!=" true }}{{ partial "org-card.html" (dict "o" . "live" $live) }}{{ end }}
   </div>
 </section>
 {{ end }}

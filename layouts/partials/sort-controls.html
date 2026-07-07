@@ -51,7 +51,9 @@ document.addEventListener('DOMContentLoaded', function () {
           return mode === 'closest' ? av - bv : bv - av;
         });
       }
-      active.concat(inactive).forEach(function (c) { box.appendChild(c); });
+      var pinned = active.filter(function (c) { return c.classList.contains('featured'); });
+      var rest = active.filter(function (c) { return !c.classList.contains('featured'); });
+      pinned.concat(rest).concat(inactive).forEach(function (c) { box.appendChild(c); });
     });
     if (location.hash) {
       var target = document.getElementById(location.hash.slice(1));

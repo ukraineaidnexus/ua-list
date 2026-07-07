@@ -2,10 +2,11 @@
 {{ $live := .live }}
 {{ $liveCount := 0 }}
 {{ range $live }}{{ if eq .org $o.id }}{{ $liveCount = add $liveCount 1 }}{{ end }}{{ end }}
-<article class="card org {{ if eq $o.status "inactive" }}inactive{{ end }}" id="org-{{ $o.id }}" data-name="{{ $o.name }}" data-verified="{{ $o.last_verified }}" data-tags="{{ with $o.tags }}{{ delimit . " " }}{{ end }}">
+<article class="card org {{ if $o.featured }}featured {{ end }}{{ if eq $o.status "inactive" }}inactive{{ end }}" id="org-{{ $o.id }}" data-name="{{ $o.name }}" data-verified="{{ $o.last_verified }}" data-tags="{{ with $o.tags }}{{ delimit . " " }}{{ end }}" data-handles="{{ with $o.handles }}{{ range $k, $v := . }}{{ $v }} {{ end }}{{ end }}{{ with $o.paypalme }}{{ . }} {{ end }}{{ range $o.paypal }}{{ . }} {{ end }}">
   <header>
     <h3>{{ $o.name }}{{ with $o.name_ua }} <span class="uk">/ {{ . }}</span>{{ end }}</h3>
     <div class="badges">
+      {{ if $o.featured }}<span class="badge featured-badge">★ {{ i18n "featured" }}</span>{{ end }}
       {{ if gt $liveCount 0 }}<a class="badge live-badge" href="{{ "fundraisers/" | relLangURL }}#f-{{ $o.id }}">{{ i18n "live_fundraiser" $liveCount }}{{ if gt $liveCount 1 }} ×{{ $liveCount }}{{ end }}</a>{{ end }}
       {{ if $o.links.registration }}<span class="badge reg">{{ if eq $o.type "foreign-ngo" }}{{ i18n "badge_charity" }}{{ else }}{{ i18n "badge_ngo" }}{{ end }}</span>{{ end }}
       {{ if eq $o.status "inactive" }}<span class="badge stale">{{ i18n "badge_inactive" }}</span>{{ end }}
@@ -13,6 +14,7 @@
     </div>
   </header>
   <p class="share-row">{{ $sharePage := "volunteers/" }}{{ if in $o.type "ngo" }}{{ $sharePage = "ngos/" }}{{ end }}<button type="button" class="badge share-card" data-copy="{{ $sharePage | absLangURL }}?only=1#org-{{ $o.id }}" data-copied="{{ i18n "copied" }}" title="{{ i18n "share_hint" }}">{{ partial "icon.html" "share" }}<span class="copy-text">{{ i18n "share_label" }}</span></button></p>
+  {{ if $o.featured }}{{ with $o.featured_note }}<p class="featured-note">{{ . | markdownify }}</p>{{ end }}{{ end }}
   {{ with $o.location }}<p class="location">{{ partial "icon.html" "location" }}{{ . }}</p>{{ end }}
   <p class="desc">{{ $o.description | markdownify }}</p>
   {{ with $o.warning }}<p class="warning">⚠️ {{ . | markdownify }}</p>{{ end }}
@@ -48,4 +50,5 @@
   {{ end }}
   {{ if and (eq $liveCount 0) $o.handles.x (ne $o.status "inactive") }}<p class="check-x">{{ i18n "check_x_fundraisers" }}</p>{{ end }}
   {{ with $o.last_verified }}<p class="verified-stamp">{{ i18n "last_checked" }}: {{ . }}</p>{{ end }}
+  <p class="suggest-correction"><a href="https://github.com/ukraineaidnexus/ua-list/issues/new?template=correction.yml&org={{ $o.id }}" rel="nofollow">{{ i18n "suggest_correction" }}</a></p>
 </article>

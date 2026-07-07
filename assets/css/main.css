@@ -665,3 +665,20 @@ html[data-theme="light"] .tag-pill.active { background: rgba(179,142,0,.12); bor
   .about .about-banner img { aspect-ratio: 16 / 9; }
   .about .fella-row { grid-template-columns: 1fr 1fr; }
 }
+
+/* ---------- Featured entries + correction link (session 7) ---------- */
+.card.featured {
+  grid-column: 1 / -1;
+  border: 2px solid var(--yellow);
+}
+.badge.featured-badge { background: rgba(255,213,0,.15); color: var(--yellow); }
+.card .featured-note {
+  border-left: 3px solid var(--yellow);
+  background: rgba(255,213,0,.08);
+  padding: .5rem .75rem;
+  margin: .5rem 0;
+  border-radius: 0 4px 4px 0;
+  font-size: .9em;
+}
+.card .suggest-correction { margin: .35rem 0 0; font-size: .75rem; }
+.card .suggest-correction a { color: var(--muted); }

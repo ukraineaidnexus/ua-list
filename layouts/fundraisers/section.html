@@ -23,7 +23,9 @@
   <h2><span class="rule"></span>{{ i18n "live_now" }}</h2>
   {{ if $live }}
   <div class="cards">
-    {{ range sort $live "announced" "desc" }}{{ partial "fundraiser-card.html" (dict "f" . "ctx" $) }}{{ end }}
+    {{ $sortedLive := sort $live "announced" "desc" }}
+    {{ range where $sortedLive "featured" true }}{{ partial "fundraiser-card.html" (dict "f" . "ctx" $) }}{{ end }}
+    {{ range where $sortedLive "featured" "!=" true }}{{ partial "fundraiser-card.html" (dict "f" . "ctx" $) }}{{ end }}
   </div>
   {{ else }}
   <p class="empty">{{ i18n "none_live" }}</p>
