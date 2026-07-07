@@ -1,6 +1,6 @@
 {{ define "main" }}
 <section class="intro">{{ .Content }}</section>
-<p class="submit-cta"><a href="{{ "submit/" | relURL }}?type=follow">{{ i18n "submit_cta" }} &rarr;</a></p>
+<p class="submit-cta"><a href="{{ "submit/" | relLangURL }}?type=follow">{{ i18n "submit_cta" }} &rarr;</a></p>
 
 {{ $items := slice }}
 {{ range $f, $a := hugo.Data.follow }}{{ if not $a.draft }}{{ $items = $items | append $a }}{{ end }}{{ end }}

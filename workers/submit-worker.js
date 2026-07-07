@@ -34,7 +34,8 @@ const TYPES = {
   fundraiser: {
     titlePrefix: '[Fundraiser] ', titleField: 'title', label: 'fundraiser-submission',
     fields: [
-      ['orgid', 'Org ID', true],
+      ['orgname', 'Organisation or volunteer', true],
+      ['__orgid', 'Org ID', false],
       ['title', 'Fundraiser title', true],
       ['beneficiary', "Who it's for", false],
       ['amount', 'Goal amount (number only)', true],
@@ -133,14 +134,18 @@ export default {
     if (type === 'fundraiser') {
       if (!/^\d{4}-\d{2}-\d{2}$/.test(values.announced)) return json({ error: 'Date must be YYYY-MM-DD.' }, 400);
       if (!/^\d+$/.test(values.amount)) return json({ error: 'Goal amount must be a whole number.' }, 400);
-      values.orgid = values.orgid.toLowerCase().replace(/[^a-z0-9-]/g, '');
-      if (!values.orgid) return json({ error: 'Org ID must be lowercase letters, numbers and hyphens.' }, 400);
     }
 
     const title = (spec.titlePrefix + values[spec.titleField]).slice(0, 120);
-    const body = spec.fields
+    // '__orgid' has no form input; it renders as "_No response_" so the
+    // fundraiser-issue-to-pr.yml parser fails safely until the maintainer
+    // edits the issue and fills in the real org id.
+    let body = spec.fields
       .map(([name, heading]) => '### ' + heading + '\n\n' + (values[name] || '_No response_') + '\n')
       .join('\n') + '\n---\n_Submitted via the site form._';
+    if (type === 'fundraiser') {
+      body += '\n_Maintainer: edit this issue and put the real org id under "### Org ID" before adding the approved label._';
+    }
 
     const res = await fetch('https://api.github.com/repos/' + REPO + '/issues', {
       method: 'POST',

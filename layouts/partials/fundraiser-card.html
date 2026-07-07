@@ -55,5 +55,5 @@
     <p class="donate-warning">{{ i18n "donate_no_military" }}</p>
   </div>
   {{ end }}
-  <p class="suggest-correction"><a href="{{ "submit/" | relURL }}?type=correction&entry={{ $f.org }}">{{ i18n "suggest_correction" }}</a></p>
+  <p class="suggest-correction"><a href="{{ "submit/" | relLangURL }}?type=correction&entry={{ urlquery $f.title }}">{{ i18n "suggest_correction" }}</a></p>
 </article>
