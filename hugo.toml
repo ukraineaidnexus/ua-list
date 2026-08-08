@@ -7,9 +7,9 @@ defaultContentLanguageInSubdir = false
 
 [params]
   tagline = "A curated list of Ukrainian organisations and volunteers supporting Ukraine's defence and its people."
-  contact_x = "mrdouglashall"           # X handle, without @
-  contact_x_id = "1345747076387364873"  # your NUMERIC X user ID; if set, the X link opens a DM compose window instead of your profile
-  contact_telegram = "mrdouglashall"    # Telegram username, without @ (renders t.me link); leave "" to hide
+  contact_x = "ukraineaidnexus"         # X handle, without @
+  contact_x_id = "1046794216645570560"  # your NUMERIC X user ID; if set, the X link opens a DM compose window instead of your profile
+  contact_telegram = "ukraineaidnexus"  # Telegram username, without @ (renders t.me link); leave "" to hide
   contact_signal = ""                   # full signal.me link, e.g. https://signal.me/#eu/XXXX; leave "" to hide
   turnstile_sitekey = "0x4AAAAAADxMk1gOFXN8IY0X"
 

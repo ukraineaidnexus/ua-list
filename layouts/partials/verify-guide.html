@@ -11,3 +11,28 @@
   <h2><span class="rule"></span>{{ i18n "verify_title" }}</h2>
   {{ partial (printf "verify/%s.html" .Language.Lang) . }}
 </section>
+{{/* Foldable sections: opens a <details> when it is the hash target, and wires
+     the expand/collapse-all button. The button is hidden without JS. Languages
+     whose guide partial has no <details class="verify-section"> are unaffected. */}}
+<script>
+(function () {
+  var secs = document.querySelectorAll("details.verify-section");
+  if (!secs.length) return;
+  function openHash() {
+    var h = location.hash.slice(1);
+    if (!h) return;
+    var t = document.getElementById(h);
+    if (t && t.tagName === "DETAILS") { t.open = true; t.scrollIntoView(); }
+  }
+  window.addEventListener("hashchange", openHash);
+  openHash();
+  var btn = document.querySelector("[data-verify-expand]");
+  if (!btn) return;
+  btn.hidden = false;
+  btn.addEventListener("click", function () {
+    var anyClosed = Array.prototype.some.call(secs, function (d) { return !d.open; });
+    Array.prototype.forEach.call(secs, function (d) { d.open = anyClosed; });
+    btn.textContent = anyClosed ? btn.dataset.collapseLabel : btn.dataset.expandLabel;
+  });
+})();
+</script>

@@ -1,0 +1,8 @@
+{{ define "main" }}
+{{/* Standards / code of conduct. Deliberately NOT linked from nav, footer or the
+     home page: shared by direct URL only. Front matter sets noindex: true and
+     build.list: never, so it stays out of the sitemap and any list pages.
+     Body text lives in content/standards/_index.<lang>.md, one file per
+     language, so translating it is a plain markdown edit. */}}
+<section class="intro standards">{{ .Content }}</section>
+{{ end }}

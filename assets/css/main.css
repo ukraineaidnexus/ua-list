@@ -99,13 +99,12 @@ h2 .rule {
 
 /* ---------- Verify guide ---------- */
 .verify-grid {
-  columns: 3 300px;
-  column-gap: 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+  align-items: start;
 }
-.verify-grid .verify-card {
-  break-inside: avoid;
-  margin-bottom: 1rem;
-}
+
 .verify-card {
   background: var(--panel);
   border: 1px solid var(--line);
@@ -134,13 +133,51 @@ h2 .rule {
 .verify-summary li { font-size: .95rem; color: var(--text); margin-bottom: .4rem; }
 .verify-summary li:last-child { margin-bottom: 0; }
 .verify-group {
-  margin: 1.8rem 0 .8rem;
+  display: inline;
+  margin: 0;
   font-size: 1.02rem;
   color: var(--text);
   letter-spacing: .02em;
-  border-bottom: 1px solid var(--line);
-  padding-bottom: .4rem;
 }
+.verify-wip {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--yellow);
+  border-radius: var(--radius);
+  padding: .8rem 1rem;
+  margin: 0 0 1.2rem;
+  font-size: .95rem;
+}
+.verify-wip p { margin: 0; }
+.verify-jump { font-size: .95rem; color: var(--muted); margin: 0 0 1.2rem; }
+.verify-jump a { margin: 0 .1rem; }
+.verify-expand {
+  margin-left: .5rem;
+  font: inherit;
+  color: var(--yellow);
+  background: none;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: .15rem .5rem;
+  cursor: pointer;
+}
+.verify-expand:hover { border-color: var(--yellow); }
+.verify-section { border-bottom: 1px solid var(--line); }
+.verify-section > summary {
+  cursor: pointer;
+  list-style: none;
+  padding: .7rem 0;
+}
+.verify-section > summary::-webkit-details-marker { display: none; }
+.verify-section > summary::before {
+  content: "\25B8";
+  color: var(--yellow);
+  margin-right: .5rem;
+}
+.verify-section[open] > summary::before { content: "\25BE"; }
+.verify-section > summary:hover h3 { color: var(--yellow); }
+.verify-section .verify-grid { margin: .3rem 0 1.2rem; }
+.verify-section .verify-action { margin: .3rem 0 1.2rem; }
 .verify-card p { margin: 0 0 .6rem; font-size: .95rem; color: var(--text); }
 .verify-card p:last-child { margin-bottom: 0; }
 .verify-footer { color: var(--muted); max-width: 72ch; margin-top: 1.2rem; }
@@ -149,6 +186,23 @@ h2 .rule {
 .verify-action li { font-size: .95rem; color: var(--text); margin-bottom: .55rem; }
 .verify-action li:last-child { margin-bottom: 0; }
 
+
+/* ---------- Standards / code of conduct page (unlinked) ---------- */
+.standards h2 { font-size: 1.15rem; margin: 2rem 0 .6rem; color: var(--yellow); }
+.standards h3 { font-size: 1rem; margin: 1.4rem 0 .5rem; }
+.standards p { margin: 0 0 .8rem; }
+.standards hr { border: 0; border-top: 1px solid var(--line); margin: 2rem 0; }
+.doc-status {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--yellow);
+  border-radius: var(--radius);
+  padding: .9rem 1.1rem;
+  margin: 0 0 1.6rem;
+  font-size: .95rem;
+}
+.doc-status p { margin: 0 0 .5rem; }
+.doc-status p:last-child { margin-bottom: 0; }
 
 /* ---------- Cards ---------- */
 .cards {

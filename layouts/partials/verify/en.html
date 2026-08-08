@@ -1,5 +1,9 @@
 <p class="verify-alert"><strong>Never donate via unsolicited DMs.</strong> If a "soldier", "volunteer" or "war widow" messages you first asking for money, it is a scam. Legitimate volunteers never solicit donations in private messages. No exceptions.</p>
 
+<div class="verify-wip">
+  <p><strong>This guide is a work in progress.</strong> If something here is unclear, wrong, or missing, please tell me: <a href="https://x.com/{{ site.Params.contact_x }}">@{{ site.Params.contact_x }}</a>. It is written for donors, and it gets better every time somebody points out a gap.</p>
+</div>
+
 <div class="verify-summary">
   <h3>The short version</h3>
   <ul>
@@ -13,7 +17,17 @@
   </ul>
 </div>
 
-<h3 class="verify-group">A. The money</h3>
+<p class="verify-jump"><strong>Jump to:</strong>
+  <a href="#money">The money</a> ·
+  <a href="#reports">The reports</a> ·
+  <a href="#account">The organisation &amp; the account</a> ·
+  <a href="#behaviour">The behaviour</a> ·
+  <a href="#action">If something looks wrong</a>
+  <button type="button" class="verify-expand" data-verify-expand data-expand-label="Expand all" data-collapse-label="Collapse all" hidden>Expand all</button>
+</p>
+
+<details class="verify-section" id="money">
+<summary><h3 class="verify-group">A. The money</h3></summary>
 <div class="verify-grid">
   <div class="verify-card">
     <h4>1. Check where the money actually goes</h4>
@@ -32,12 +46,15 @@
     <p>This applies especially to foreign volunteers living in Ukraine full time. They need to eat, pay rent, fuel a vehicle and replace kit. Being supported to do that work is legitimate and nobody should pretend otherwise.</p>
     <p><strong>What is not legitimate is blurring the two.</strong> If someone runs a Patreon, Buy Me a Coffee, Ko-fi or personal jar alongside their aid collections, donors are entitled to know which is which, to see them kept in separate accounts, and to have some idea of what personal support covers.</p>
     <p>These platforms show supporter counts and earnings publicly by default. Hiding those figures is a deliberate setting, and asking why is fair.</p>
+    <p><strong>This includes paid advocacy.</strong> People who host regular spaces, moderate communities, or promote one organisation constantly are sometimes paid to do it, and it is rarely disclosed. Being paid is not wrong. But an endorsement from somebody on the payroll is an advert, and it should be labelled as one. If someone's enthusiasm for a particular organisation is unusually constant, it is fair to ask whether they are compensated for it.</p>
     <p><strong>It is also reasonable to weigh the overhead.</strong> Money covering an intermediary's rent is money not buying equipment. That is not automatically wrong, since a full-time presence on the ground has real value. But it is a trade-off donors are entitled to know about and to decide on for themselves.</p>
     <p>On this site, personal support links are marked with a "personal support, not aid" label wherever an entry declares them.</p>
   </div>
 </div>
+</details>
 
-<h3 class="verify-group">B. The reports</h3>
+<details class="verify-section" id="reports">
+<summary><h3 class="verify-group">B. The reports</h3></summary>
 <div class="verify-grid">
   <div class="verify-card">
     <h4>4. Reports are the only proof that counts</h4>
@@ -60,8 +77,10 @@
     <p><strong>What matters is what happens after they are asked.</strong> Once someone is told publicly and politely that donors expect reporting, there is no excuse for not starting. Honest people say "fair point" and start. The refusal is the signal, not the gap.</p>
   </div>
 </div>
+</details>
 
-<h3 class="verify-group">C. The organisation and the account</h3>
+<details class="verify-section" id="account">
+<summary><h3 class="verify-group">C. The organisation and the account</h3></summary>
 <div class="verify-grid">
   <div class="verify-card">
     <h4>7. Check official registration (NGOs)</h4>
@@ -97,8 +116,10 @@
     <p><strong>Keep this proportionate.</strong> You are checking whether public claims are consistent with each other. You are not investigating someone's family.</p>
   </div>
 </div>
+</details>
 
-<h3 class="verify-group">D. The behaviour</h3>
+<details class="verify-section" id="behaviour">
+<summary><h3 class="verify-group">D. The behaviour</h3></summary>
 <div class="verify-grid">
   <div class="verify-card">
     <h4>12. Watch what happens when someone asks a question</h4>
@@ -119,9 +140,11 @@
     <p><strong>The serious version of this is appropriation.</strong> Someone volunteers with an established organisation, then launches a similarly named page with their own payment account, uses that organisation's photos and videos to raise into it, and donors cannot tell the two apart. If two entities have confusingly similar names, find out which one your money reaches, and whether the original organisation agreed to any of it.</p>
   </div>
 </div>
+</details>
 
+<details class="verify-section" id="action">
+<summary><h3 class="verify-group">If something looks wrong: what to actually do</h3></summary>
 <div class="verify-card verify-action">
-  <h3>If something looks wrong: what to actually do</h3>
   <ol>
     <li><strong>Ask before you accuse, and privately first where you can.</strong> Most gaps are ignorance, not theft. A direct, private, non-hostile question gives an honest person room to fix it without a public fight. Go public when a private approach is ignored, when money is still actively being collected, or when others are being asked to donate right now.</li>
     <li><strong>Screenshot first, ask second.</strong> Posts get deleted and accounts get closed once questions start. Archive the campaign posts, amounts, dates and payment details before you raise anything. Use archive.today, or save the images yourself.</li>
@@ -132,5 +155,6 @@
     <li><strong>Do not turn it into a pile-on.</strong> Present what you have, attribute claims to their source, and let the unit and the authorities do their job. Accusations without documents damage honest volunteers and make the next real case harder to raise.</li>
   </ol>
 </div>
+</details>
 
 <p class="verify-footer">If in doubt, do not donate. There are enough transparent, documented organisations in this directory that you never need to gamble: browse <a href="{{ "ngos/" | relLangURL }}">Ukrainian NGOs</a>, <a href="{{ "foreign-ngos/" | relLangURL }}">foreign NGOs</a>, <a href="{{ "volunteers/" | relLangURL }}">volunteers</a> and <a href="{{ "fundraisers/" | relLangURL }}">live fundraisers</a>. And if you have already given to someone who turned out to be lying: that is on them, not on you. Say so publicly anyway. Quietly walking away is how the next round of collections gets funded.</p>
