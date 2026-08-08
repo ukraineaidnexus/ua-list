@@ -1,12 +1,16 @@
 {{/* Generates one detail page per volunteer entry from data/orgs.
-     English only by design: entry content is English site-wide. */}}
+     EnableAllLanguages: detail pages are now per-language, using the same
+     field-lang.html priority as cards. See DATA.md. */}}
+{{ .EnableAllLanguages }}
 {{ range $file, $o := site.Data.orgs }}
   {{ if $o.draft }}{{ continue }}{{ end }}
   {{ if or (eq $o.type "ua-volunteer") (eq $o.type "foreign-volunteer") }}
-    {{ $content := dict "mediaType" "text/markdown" "value" ($o.history | default "") }}
+    {{ $title := partial "field-lang.html" (dict "entry" $o "field" "name") }}
+    {{ $history := partial "field-lang.html" (dict "entry" $o "field" "history") }}
+    {{ $content := dict "mediaType" "text/markdown" "value" $history }}
     {{ $.AddPage (dict
       "path" $o.id
-      "title" $o.name
+      "title" $title
       "kind" "page"
       "params" (dict "org" $o)
       "content" $content

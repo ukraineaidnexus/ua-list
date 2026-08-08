@@ -1,12 +1,19 @@
-{{/* One detail page per documented scammer. English only.
+{{/* One detail page per documented scammer.
      House rules apply: attributed language, public evidence links,
-     archive.ph stays the primary citation. Never automated. */}}
+     archive.ph stays the primary citation. Never automated.
+     EnableAllLanguages: detail pages are now per-language, using the same
+     field-lang.html priority as cards. See DATA.md's translation caution
+     for summary_ and history_ language variants on scammers specifically
+     before adding any. */}}
+{{ .EnableAllLanguages }}
 {{ range $file, $s := site.Data.scammers }}
   {{ if $s.draft }}{{ continue }}{{ end }}
-  {{ $content := dict "mediaType" "text/markdown" "value" ($s.history | default "") }}
+  {{ $title := partial "field-lang.html" (dict "entry" $s "field" "name") }}
+  {{ $history := partial "field-lang.html" (dict "entry" $s "field" "history") }}
+  {{ $content := dict "mediaType" "text/markdown" "value" $history }}
   {{ $.AddPage (dict
     "path" $s.id
-    "title" $s.name
+    "title" $title
     "kind" "page"
     "params" (dict "s" $s)
     "content" $content

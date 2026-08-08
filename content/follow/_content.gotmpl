@@ -1,10 +1,15 @@
-{{/* One detail page per follow entry. English only. */}}
+{{/* One detail page per follow entry.
+     EnableAllLanguages: detail pages are now per-language, using the same
+     field-lang.html priority as cards. See DATA.md. */}}
+{{ .EnableAllLanguages }}
 {{ range $file, $a := site.Data.follow }}
   {{ if $a.draft }}{{ continue }}{{ end }}
-  {{ $content := dict "mediaType" "text/markdown" "value" ($a.history | default "") }}
+  {{ $title := partial "field-lang.html" (dict "entry" $a "field" "name") }}
+  {{ $history := partial "field-lang.html" (dict "entry" $a "field" "history") }}
+  {{ $content := dict "mediaType" "text/markdown" "value" $history }}
   {{ $.AddPage (dict
     "path" $a.id
-    "title" $a.name
+    "title" $title
     "kind" "page"
     "params" (dict "a" $a)
     "content" $content

@@ -1,10 +1,15 @@
-{{/* One detail page per fundraiser, path = data filename key. English only. */}}
+{{/* One detail page per fundraiser, path = data filename key.
+     EnableAllLanguages: detail pages are now per-language, using the same
+     field-lang.html priority as cards. See DATA.md. */}}
+{{ .EnableAllLanguages }}
 {{ range $file, $f := site.Data.fundraisers }}
   {{ if $f.draft }}{{ continue }}{{ end }}
-  {{ $content := dict "mediaType" "text/markdown" "value" ($f.history | default "") }}
+  {{ $title := partial "field-lang.html" (dict "entry" $f "field" "title") }}
+  {{ $history := partial "field-lang.html" (dict "entry" $f "field" "history") }}
+  {{ $content := dict "mediaType" "text/markdown" "value" $history }}
   {{ $.AddPage (dict
     "path" $file
-    "title" $f.title
+    "title" $title
     "kind" "page"
     "params" (dict "f" (merge $f (dict "_file" $file)))
     "content" $content

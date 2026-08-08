@@ -51,9 +51,10 @@ correction through the [submission form](https://ukraineaidnexus.org/submit/).
   `_en` are interchangeable as the English baseline, use whichever you prefer, but
   if both exist on one entry, `_en` wins. This only applies on **cards** (the
   listing pages under /ngos/, /volunteers/, /fundraisers/, /creators/, /follow/,
-  /scammers/). Individual entry detail pages (e.g. /volunteers/some-id/) remain
-  English-only regardless, a separate, existing design decision this feature
-  doesn't change. List-form fields (like `category` on follow entries) work the
+  /scammers/). Individual entry detail pages (e.g. /volunteers/some-id/) now
+  also respoect these overrides, including the page title and the history field.
+  EnableAllLanguages in each _content.gotmpl now generates one page per language.
+  List-form fields (like `category` on follow entries) work the
   same way, e.g. `category_ua: ["Журналіст", "OSINT / аналітика"]`.
 - `name_ua` (on orgs) does double duty: it's the primary name shown when the site
   language is Ukrainian, AND it's still always shown as a secondary "/ Ukrainian
@@ -325,10 +326,14 @@ English original rather than risk a stronger claim slipping in.
 
 - `field-lang.html` partial does the language-fallback lookup for all of the above;
   see `layouts/partials/field-lang.html`.
-- Detail pages (individual entry sub-pages) are single canonical English-rooted
-  URLs, they don't have per-language versions, so language overrides only affect
-  the cards shown on listing pages, not detail pages. `history`, `featured_posts`,
-  `team`, and the reputation meter (`transparency_flag`/`transparency_note`) only
-  ever render on detail pages, so they're English-only regardless.
+- Detail pages (individual entry sub-pages) are now per-language, one real page
+  per language per entry, via `.EnableAllLanguages` in each `_content.gotmpl`.
+  `title` and `history` respect the same field-lang priority as cards.
+  `featured_posts`, `team`, and the reputation meter
+  (`transparency_flag`/`transparency_note`) still have no `_lang` variants and
+  stay English-only, they weren't asked for and I didn't add them, say the word
+  if you want those extended too.
 - `org-mini.html`: a compact org summary shown in the "Backed by" section on
-  fundraiser detail pages. Also English-only, for the same reason.
+  fundraiser detail pages. It reads `.name`/`.description` directly rather than
+  through field-lang.html, so it's still English-only regardless of what
+  language the fundraiser detail page itself is now showing.
