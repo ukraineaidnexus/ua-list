@@ -10,7 +10,7 @@ This license covers the site's code, templates, and design only. The
 underlying listing data (organisations, volunteers, fundraisers,
 creators, and accounts to follow) is maintained separately in the
 ua-list-data repository and released there under CC0 (public domain).
-See: https://github.com/ukraineaidnexus/ua-list-data/blob/main/LICENSE
+See LICENSE-DATA.
 
 The scammer register (data/scammers) is covered by this all-rights-
 reserved license, not CC0, since it is not intended for reuse or
