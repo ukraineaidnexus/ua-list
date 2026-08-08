@@ -196,6 +196,10 @@ title: "..."                   # required. title_ua/_fr/etc supported.
 beneficiary: "Who it's for"    # optional. beneficiary_ua/_fr/etc supported.
 description: >                 # optional. description_ua/_fr/etc supported.
   ...
+image: /media/file.jpg         # optional. Poster/graphic, detail page only,
+                                # never on listing cards. Store in static/media/,
+                                # strip EXIF first.
+image_alt: "..."               # optional, alt text. Falls back to title.
 goal: { amount: 13900, currency: USD }   # USD | EUR | GBP | UAH; omit for open-ended
 raised: 0                      # optional, integers only
 announced: 2026-06-11          # required
