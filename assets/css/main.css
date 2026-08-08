@@ -903,3 +903,20 @@ html[data-theme="light"] .boost-heading { color: #7a6000; }
 .verify-cta-link { font-weight: 600; }
 .cross-link { margin-top: 1.25rem; }
 .cross-link a { font-weight: 600; }
+
+/* ---------- Home link in hero (session 7) ---------- */
+.jump a.jump-home { display: inline-flex; align-items: center; gap: .35rem; }
+.jump a.jump-home .icon { width: .9em; height: .9em; }
+.hero-eyebrow {
+  margin: 0 0 .35rem;
+  font-size: .85rem;
+  font-weight: 600;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+.hero-eyebrow a {
+  color: #cbd6e8;
+  text-decoration: none;
+  text-shadow: 0 1px 12px rgba(0,0,0,.7);
+}
+.hero-eyebrow a:hover { color: var(--yellow); }

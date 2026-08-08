@@ -51,9 +51,11 @@
       {{ end }}
     </nav>
     <div class="hero-inner">
+      {{ if not .IsHome }}<p class="hero-eyebrow"><a href="{{ "/" | relLangURL }}">{{ site.Title }}</a></p>{{ end }}
       <h1>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }}{{ end }}</h1>
       <p class="tagline">{{ site.Params.tagline }}</p>
       <nav class="jump">
+        <a class="jump-home" href="{{ "/" | relLangURL }}">{{ partial "icon.html" "home" }}{{ i18n "nav_home" }}</a>
         <a href="{{ "verify/" | relLangURL }}">{{ i18n "nav_verify" }}</a>
         <a href="{{ "fundraisers/" | relLangURL }}">{{ i18n "nav_fundraisers" }}</a>
         <a href="{{ "ngos/" | relLangURL }}">{{ i18n "nav_ngos" }}</a>

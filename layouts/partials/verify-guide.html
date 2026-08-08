@@ -1,1 +1,13 @@
-{{ partial (printf "verify/%s.html" .Language.Lang) . }}
+{{/* Wrapper for the verification guide.
+
+     The <section> and the <h2> live HERE, once, so the heading text exists in
+     exactly one place per language: the `verify_title` key in i18n/*.toml.
+     It is used both by this heading and by the link on the home page.
+
+     layouts/partials/verify/<lang>.html hold ONLY the guide body (the alert,
+     the .verify-grid cards, the footer paragraph). Do not put a <section> or
+     an <h2> back into those files. */}}
+<section id="verify" class="verify">
+  <h2><span class="rule"></span>{{ i18n "verify_title" }}</h2>
+  {{ partial (printf "verify/%s.html" .Language.Lang) . }}
+</section>

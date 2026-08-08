@@ -90,7 +90,13 @@
         {{ $months := slice }}
         {{ range $inYear }}{{ if not (in $months ._ym) }}{{ $months = $months | append ._ym }}{{ end }}{{ end }}
         {{ range $m := $months }}
-          <h3 class="past-month">{{ time.Format "January 2006" (printf "%s-01" $m) }}</h3>
+          {{/* month name comes from i18n month_1..month_12, NOT time.Format.
+               time.Format gives the CLDR "format" month, which is genitive in
+               Ukrainian, Russian and Polish (червня, not червень) - correct
+               inside a full date, wrong as a standalone heading.
+               Keys are ZERO-PADDED (month_01..month_12) so the "06" slice can be
+               used directly: `int "09"` fails in Go, it is not valid octal. */}}
+          <h3 class="past-month">{{ i18n (printf "month_%s" (substr $m 5 7)) }} {{ substr $m 0 4 }}</h3>
           <div class="cards">
             {{ range where $inYear "_ym" $m }}{{ partial "fundraiser-card.html" (dict "f" .) }}{{ end }}
           </div>
