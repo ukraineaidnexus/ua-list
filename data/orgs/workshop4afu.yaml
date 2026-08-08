@@ -3,7 +3,6 @@ name: "Workshop4AFU"
 type: ua-volunteer
 status: inactive
 tags: [military]
-handles: { x: Workshop4AFU }
-description: "This account is no longer running fundraisers for Dobro's workshop."
-notes: "See the [update post](https://x.com/Workshop4AFU/status/1956384862279180703) for details."
-last_verified: 2025-08-23
+description: "Retired reporting account for Dobro's workshop, run by a volunteer rather than by the workshop itself. It stopped posting in August 2025. The workshop now fundraises directly as [Workshop of Kindness](/volunteers/workshop-of-kindness/)."
+notes: "The @Workshop4AFU handle no longer belongs to this project; it is now held by an unrelated account. Do not send funds to anything posted there. The volunteer's own [wind-down post](https://x.com/Rootdar/status/1956384862279180703) explains the split."
+last_verified: 2026-08-08

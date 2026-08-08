@@ -1,0 +1,16 @@
+id: harry-skif
+name: "Harry Skif"
+type: ua-volunteer
+status: active
+tags: [military]
+description: "Ukrainian volunteer fundraising for FPV drones and other equipment for special operations units, working alongside [Igor Kyivskyi](https://x.com/Ihor_from_Kyiv)."
+verified_by: "[@BilasHeidi](https://x.com/BilasHeidi), who has supported these collections and reports no issues across several years of FPV fundraisers. [@JanPKoller509](https://x.com/JanPKoller509) and [@CynlandNS](https://x.com/CynlandNS) also name Harry Skif and Igor Kyivskyi as the route for supporting SOF units."
+handles:
+  x: Harry_Skif
+team:
+  - name: "Igor Kyivskyi"
+    role: "Runs the collections jointly"
+    handles: { x: Ihor_from_Kyiv }
+paypal: ["skiflevichko@gmail.com"]
+last_verified: 2026-08-08
+draft: true

@@ -1,0 +1,16 @@
+org: harry-skif
+title: "50 FPV drones for the 73rd Naval Special Operations Centre"
+beneficiary: "SOF 73rd"
+description: >
+  Minimum target of 50 FPV drones at 380 USD each. 30 units were already
+  collected at the time of the announcement post, leaving 20 to fund.
+goal: { amount: 19000, currency: USD }
+raised: 11400
+announced: 2026-08-03
+status: active
+tags: [military]
+links:
+  x: https://x.com/Harry_Skif/status/2084229308009075135
+paypal: ["skiflevichko@gmail.com"]
+report: null
+draft: true

@@ -1,0 +1,22 @@
+id: workshop-of-kindness
+name: "Workshop of Kindness"
+type: ua-volunteer
+status: active
+tags: [military]
+description: "In-house workshop producing and welding equipment for Ukrainian units, operating under the NGO \"Military Chaplains\". Successor to the fundraising previously reported on by the Workshop4AFU account."
+location: "Kyiv, Ukraine"
+notes: "Submitted as a correction to the [workshop4afu](/volunteers/workshop4afu/) entry. Workshop4AFU was a reporting account run by a volunteer, not the workshop's own account; the workshop itself fundraises here. Linktree lists two Monobank jars: the second is labelled with their PayPal address but links to a jar, not to PayPal."
+payment_note: "Direct Monobank transfer: IBAN `UA653220010000026206360081041`. PayPal is by pasting `sk_dobro@ukr.net` into PayPal yourself, not via a payment link."
+handles:
+  x: workshopofkind
+  instagram: workshop_of_kindness
+  facebook: https://www.facebook.com/share/1BdBRTi2Vv/
+  whatsapp: "380662939976"
+links:
+  linktree: https://linktr.ee/Workshop_of_kindness
+  monobank: https://send.monobank.ua/jar/A9aT2o7ysu
+  donate_other:
+    - { label: "Monobank jar (second jar on their Linktree)", url: "https://send.monobank.ua/jar/4RDrdPmpc4", icon: jar, ua: true }
+paypal: ["sk_dobro@ukr.net"]
+last_verified: 2026-08-08
+draft: true
