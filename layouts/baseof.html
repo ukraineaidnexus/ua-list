@@ -164,13 +164,35 @@
   </script>
   <script>
   (function () {
-    if (location.search.indexOf("only=1") === -1 || !location.hash) return;
-    var id = location.hash.slice(1);
     var match = document.querySelectorAll(".cards article");
+    if (!match.length) return;
+    var params = new URLSearchParams(location.search);
+    var org = params.get("org");
+    var id = location.hash ? location.hash.slice(1) : "";
+
+    // Legacy links: fundraiser cards used to be id="f-<org-id>". They are now
+    // id="f-<data-file-key>". Redirect an old anchor to that org's first card.
+    if (id && id.indexOf("f-") === 0 && !document.getElementById(id)) {
+      var legacy = null;
+      match.forEach(function (a) { if (!legacy && a.dataset.org === id.slice(2)) legacy = a; });
+      if (legacy) {
+        id = legacy.id;
+        history.replaceState(null, "", location.pathname + location.search + "#" + id);
+        legacy.scrollIntoView();
+      }
+    }
+
+    var keep;
+    if (org) {
+      keep = function (a) { return a.dataset.org === org; };
+    } else if (params.get("only") === "1" && id) {
+      keep = function (a) { return a.id === id; };
+    } else { return; }
+
     var found = false;
-    match.forEach(function (a) { if (a.id === id) found = true; });
+    match.forEach(function (a) { if (keep(a)) found = true; });
     if (!found) return;
-    match.forEach(function (a) { if (a.id !== id) a.hidden = true; });
+    match.forEach(function (a) { if (!keep(a)) a.hidden = true; });
     document.querySelectorAll("main section").forEach(function (s) {
       var cards = s.querySelectorAll(".cards article");
       if (cards.length && !s.querySelector(".cards article:not([hidden])")) s.hidden = true;
@@ -179,12 +201,12 @@
     bar.className = "only-note";
     bar.appendChild(document.createTextNode(document.body.dataset.showingOne + " "));
     var link = document.createElement("a");
-    link.href = location.pathname + location.hash;
+    link.href = location.pathname + (id ? "#" + id : "");
     link.textContent = document.body.dataset.showAll;
     link.addEventListener("click", function (e) {
       e.preventDefault();
       document.querySelectorAll("main section[hidden], .cards article[hidden]").forEach(function (el) { el.hidden = false; });
-      history.replaceState(null, "", location.pathname + location.hash);
+      history.replaceState(null, "", location.pathname + (id ? "#" + id : ""));
       bar.remove();
     });
     bar.appendChild(link);

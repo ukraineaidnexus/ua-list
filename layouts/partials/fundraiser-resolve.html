@@ -7,7 +7,12 @@
        _status       effective status; an active child inherits a closed parent's status
        _report       effective report link; own report, else the parent's
        _report_own   true when the report link came from this entry, not the parent
-       _closed       close date (YYYY-MM-DD) when _status is completed
+       _closed       explicit close date (YYYY-MM-DD) when _status is completed and
+                     a `completed:` date is set on this entry or inherited from the
+                     parent. Empty otherwise. NEVER falls back to last_updated or
+                     announced: those are edit/publish timestamps, not close dates,
+                     and using them silently hands the report grace period to entries
+                     that closed years ago.
        _parent       resolved parent entry, or false
        _parent_file  parent data file key, or ""
 
@@ -29,13 +34,12 @@
     {{ $parent = merge . (dict "_file" $parentFile) }}
     {{ if and (eq $status "active") (ne .status "active") }}{{ $status = .status }}{{ end }}
     {{ if not $report }}{{ with .report }}{{ $report = . }}{{ end }}{{ end }}
-    {{ $closed = printf "%v" (.completed | default .last_updated | default .announced) }}
+    {{ with .completed }}{{ $closed = printf "%v" . }}{{ end }}
   {{ end }}
 {{ end }}{{ end }}
 
 {{ if eq $status "completed" }}
   {{ with $f.completed }}{{ $closed = printf "%v" . }}{{ end }}
-  {{ if not $closed }}{{ $closed = printf "%v" ($f.last_updated | default $f.announced) }}{{ end }}
 {{ else }}
   {{ $closed = "" }}
 {{ end }}

@@ -201,9 +201,10 @@ raised: 0                      # optional, integers only
 announced: 2026-06-11          # required
 last_updated: 2026-07-08        # optional, bump when raised/status is updated
 completed: 2026-07-08           # optional, date the collection closed. Only meaningful
-                                # with status: completed. Starts the 8-week report
-                                # grace clock (see below). Falls back to last_updated,
-                                # then announced, if omitted.
+                                # with status: completed. REQUIRED to get the 8-week
+                                # report grace period (see below). No fallback: without
+                                # it, a completed fundraiser with no report counts
+                                # against the meter immediately.
 expires: 2026-08-11            # omit for open-ended
 status: active                 # required: active | completed | expired
 part_of:                        # optional. Marks this as a helper jar feeding a larger
@@ -244,6 +245,14 @@ paypal: ["email@..."]
 report: null                   # completion report link, set alongside status: completed
 ```
 
+### Card anchors
+
+Each fundraiser card renders with `id="f-<data file key>"`, e.g.
+`#f-2026-08-yuliia-anikina-66-ombr-vehicle`, plus `data-org="<org id>"`. The anchor
+is per fundraiser, not per org, because one org routinely runs several at once.
+Old `#f-<org-id>` links are redirected client-side to that org's first card.
+`/fundraisers/?org=<org id>` filters the listing to a single org.
+
 ### Helper jars (`part_of`) and the master collection
 
 Ukrainian volunteers routinely open a small "friendly jar" feeding a larger
@@ -270,11 +279,18 @@ overall target and is shown as a separate line, not counted in the progress bar.
 ### The 8-week report grace period
 
 Frontline reporting takes time. A `status: completed` fundraiser with no `report`
-is **ignored entirely** by the reputation meter for 56 days from its close date
-(`completed`, else `last_updated`, else `announced`). It neither earns Established
-nor blocks it, and the card shows a neutral "report pending" badge. After 56 days
-it counts as an unreported completed fundraiser and blocks Established until a
-`report` is added. Inherited reports (see above) satisfy the requirement.
+is **ignored entirely** by the reputation meter for 56 days from the `completed`
+date. It neither earns Established nor blocks it, and the card shows a neutral
+"report pending" badge. After 56 days it counts as an unreported completed
+fundraiser and blocks Established until a `report` is added. Inherited reports
+(see above) satisfy the requirement.
+
+**Grace requires an explicit `completed:` date.** There is deliberately no fallback
+to `last_updated` or `announced`. Those are edit and publish timestamps, not close
+dates: a bulk edit across old entries would otherwise hand every one of them a fresh
+grace period and award Established to an org with dozens of unreported collections.
+An entry with `status: completed`, no `report` and no `completed:` date counts
+against the meter straight away. Set `completed:` when you close something.
 
 ## Schema: data/creators/&lt;id&gt;.yaml
 

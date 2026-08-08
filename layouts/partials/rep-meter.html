@@ -23,7 +23,9 @@
       {{ if eq $f._status "completed" }}
         {{ if $f._report }}
           {{ $completed = add $completed 1 }}{{ $reported = add $reported 1 }}
-        {{ else if lt $f._closed $grace }}
+        {{ else if or (not $f._closed) (lt $f._closed $grace) }}
+          {{/* no explicit close date, or closed more than 56 days ago:
+               counts as an unreported completed fundraiser and blocks Established */}}
           {{ $completed = add $completed 1 }}
         {{ end }}
       {{ end }}
