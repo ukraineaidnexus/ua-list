@@ -26,7 +26,11 @@ correction through the [submission form](https://ukraineaidnexus.org/submit/).
 
 ## Universal rules
 
-- `id`: lowercase-hyphens. `dates`: YYYY-MM-DD.
+- `id`: lowercase-hyphens. Not just a style preference: Hugo lowercases
+  generated page URLs by default, so a mixed-case `id` creates a real
+  mismatch between the card's links (which use the raw `id`) and the
+  actual page path, resulting in a 404 on the entry's own detail page.
+- `dates`: YYYY-MM-DD.
 - `draft: true` hides an entry from the live site without deleting it. Works on
   every entry type (orgs, fundraisers, creators, follow, scammers).
 - `history`: optional, markdown, works on every entry type. Renders as a "History"
