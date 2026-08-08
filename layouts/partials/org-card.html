@@ -30,7 +30,10 @@
       {{ with .transparency }}<li><a href="{{ . }}" class="strong">{{ partial "icon.html" "doc" }}{{ i18n "link_transparency" }}</a></li>{{ end }}
       {{ with .registration }}
         {{ $regUrl := . }}{{ $regNote := "" }}
-        {{ if reflect.IsMap . }}{{ $regUrl = .url }}{{ $regNote = .note }}{{ end }}
+        {{ if reflect.IsMap . }}
+          {{ $regUrl = .url }}
+          {{ $regNote = partial "field-lang.html" (dict "entry" . "field" "note") }}
+        {{ end }}
         <li><a href="{{ $regUrl }}">{{ partial "icon.html" "shield" }}{{ if eq $o.type "foreign-ngo" }}{{ i18n "link_charity_register" }}{{ else }}{{ i18n "link_registry" }}{{ end }}</a>{{ with $regNote }}<span class="reg-note">{{ . | markdownify }}</span>{{ end }}</li>
       {{ end }}
       {{ range .other }}<li><a href="{{ .url }}">{{ partial "icon.html" "link" }}{{ .label }}</a></li>{{ end }}

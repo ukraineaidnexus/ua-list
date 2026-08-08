@@ -80,7 +80,8 @@ correction through the [submission form](https://ukraineaidnexus.org/submit/).
 ```
   The link still goes to `url`; `note` renders as a small line underneath it,
   always visible, not a hover tooltip, since it's necessary information, not a
-  minor caveat. Markdown allowed in `note`.
+  minor caveat. Markdown allowed in `note`. `note` itself supports the same
+  `_ua`/`_fr`/etc language overrides as everything else, e.g. `note_de: "..."`.
 
 ## Schema: data/orgs/&lt;id&gt;.yaml
 

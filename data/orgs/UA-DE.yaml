@@ -20,4 +20,6 @@ links:
   registration:
     url: https://www.handelsregister.de/rp_web/welcome.xhtml
     note: "Search for \"UA-DE e.V.\" or use registration number VR 12567 to verify."
+    note_de: "Suchen Sie nach \"UA-DE e.V.\" oder verwenden Sie die Registernummer VR 12567 zur Überprüfung."
+    note_ua: "Шукайте \"UA-DE e.V.\" або використовуйте реєстраційний номер VR 12567 для перевірки."
 last_verified: 2026-08-08
