@@ -494,6 +494,7 @@ html[data-theme="light"] ul.links.handles { border-top-color: rgba(0,0,0,.12); }
 
 /* No-live-fundraiser hint */
 .card .check-x { font-size: .85rem; color: var(--muted); font-style: italic; margin: .5rem 0 0; }
+.card .reg-note { display: block; font-size: .8rem; color: var(--muted); margin-top: .15rem; }
 
 /* Live badge slow pulse */
 @keyframes live-pulse {

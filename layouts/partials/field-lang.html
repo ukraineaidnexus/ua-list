@@ -1,0 +1,14 @@
+{{/* Language-fallback field lookup.
+     Usage: {{ partial "field-lang.html" (dict "entry" $o "field" "description") }}
+     Priority: field_<currentlang> (if not English) > field_en > plain field.
+     "field_en" and the plain field are both treated as valid English text; if
+     both exist on the same entry, field_en wins. Returns "" if none are set. */}}
+{{ $entry := .entry }}
+{{ $field := .field }}
+{{ $lang := site.Language.Lang }}
+{{ $value := index $entry $field }}
+{{ with index $entry (printf "%s_en" $field) }}{{ $value = . }}{{ end }}
+{{ if ne $lang "en" }}
+  {{ with index $entry (printf "%s_%s" $field $lang) }}{{ $value = . }}{{ end }}
+{{ end }}
+{{ return $value }}

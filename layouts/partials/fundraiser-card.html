@@ -1,18 +1,19 @@
 {{ $f := .f }}
 {{ $org := index hugo.Data.orgs $f.org }}
+{{ $title := partial "field-lang.html" (dict "entry" $f "field" "title") }}
 
-<article class="card fundraiser status-{{ $f.status }}{{ if $f.featured }} featured{{ end }}" id="f-{{ $f.org }}" data-name="{{ $f.title }}" data-posted="{{ $f.announced }}" data-updated="{{ $f.last_updated | default $f.announced }}" data-tags="{{ with $f.tags }}{{ delimit . " " }}{{ end }}"{{ if $f.goal }} data-left="{{ sub 100 (div (mul ($f.raised | default 0) 100) $f.goal.amount) }}"{{ end }}>
+<article class="card fundraiser status-{{ $f.status }}{{ if $f.featured }} featured{{ end }}" id="f-{{ $f.org }}" data-name="{{ $title }}" data-posted="{{ $f.announced }}" data-updated="{{ $f.last_updated | default $f.announced }}" data-tags="{{ with $f.tags }}{{ delimit . " " }}{{ end }}"{{ if $f.goal }} data-left="{{ sub 100 (div (mul ($f.raised | default 0) 100) $f.goal.amount) }}"{{ end }}>
   <header>
-    <h3>{{ if and $f._file (not .self) }}<a class="title-link" href="{{ printf "fundraisers/%s/" $f._file | relURL }}">{{ $f.title }}</a>{{ else }}{{ $f.title }}{{ end }}</h3>
+    <h3>{{ if and $f._file (not .self) }}<a class="title-link" href="{{ printf "fundraisers/%s/" $f._file | relURL }}">{{ $title }}</a>{{ else }}{{ $title }}{{ end }}</h3>
     {{ if or $f.tags $f.featured }}<div class="badges">{{ if $f.featured }}<span class="badge featured-badge">★ {{ i18n "featured" }}</span>{{ end }}{{ range $f.tags }}<span class="badge tag">{{ i18n (printf "tag_%s" .) }}</span>{{ end }}</div>{{ end }}
-    {{ with $org }}{{ $page := "volunteers/" }}{{ if in .type "ngo" }}{{ $page = "ngos/" }}{{ end }}<p class="by">{{ i18n "by" }} <a href="{{ printf "%s%s/" $page .id | relURL }}">{{ .name }}</a></p>{{ end }}
+    {{ with $org }}{{ $page := "volunteers/" }}{{ if in .type "ngo" }}{{ $page = "ngos/" }}{{ end }}{{ $orgName := partial "field-lang.html" (dict "entry" . "field" "name") }}<p class="by">{{ i18n "by" }} <a href="{{ printf "%s%s/" $page .id | relURL }}">{{ $orgName }}</a></p>{{ end }}
   </header>
-  {{ if $f.featured }}{{ with $f.featured_note }}<p class="featured-note">{{ . | markdownify }}</p>{{ end }}{{ end }}
+  {{ if $f.featured }}{{ with partial "field-lang.html" (dict "entry" $f "field" "featured_note") }}<p class="featured-note">{{ . | markdownify }}</p>{{ end }}{{ end }}
   <p class="share-row"><button type="button" class="badge share-card" data-copy="{{ with $f._file }}{{ printf "fundraisers/%s/" . | absURL }}{{ else }}{{ "fundraisers/" | absLangURL }}?only=1#f-{{ $f.org }}{{ end }}" data-copied="{{ i18n "copied" }}" title="{{ i18n "share_hint" }}">{{ partial "icon.html" "share" }}<span class="copy-text">{{ i18n "share_label" }}</span></button></p>
 
-  {{ with $f.beneficiary }}<p class="desc"><strong>{{ i18n "for" }}:</strong> {{ . }}</p>{{ end }}
+  {{ with partial "field-lang.html" (dict "entry" $f "field" "beneficiary") }}<p class="desc"><strong>{{ i18n "for" }}:</strong> {{ . }}</p>{{ end }}
 
-  {{ with $f.description }}<p class="desc">{{ . | markdownify }}</p>{{ end }}
+  {{ with partial "field-lang.html" (dict "entry" $f "field" "description") }}<p class="desc">{{ . | markdownify }}</p>{{ end }}
 
   <div class="meta">
     {{ with $f.goal }}<span class="goal">{{ i18n "goal" }}: {{ .amount | lang.FormatNumber 0 }} {{ .currency }}</span>{{ end }}
@@ -64,5 +65,5 @@
     <p class="donate-warning">{{ i18n "donate_no_military" }}</p>
   </div>
   {{ end }}
-  <p class="suggest-correction"><a href="{{ "submit/" | relLangURL }}?type=correction&entry={{ urlquery $f.title }}&id=f-{{ $f.org }}">{{ i18n "suggest_correction" }}</a></p>
+  <p class="suggest-correction"><a href="{{ "submit/" | relLangURL }}?type=correction&entry={{ urlquery $title }}&id=f-{{ $f.org }}">{{ i18n "suggest_correction" }}</a></p>
 </article>

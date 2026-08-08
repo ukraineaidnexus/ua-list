@@ -1,11 +1,13 @@
 {{ $a := .a }}
+{{ $displayName := partial "field-lang.html" (dict "entry" $a "field" "name") }}
+{{ $category := partial "field-lang.html" (dict "entry" $a "field" "category") }}
 <article class="card org" id="follow-{{ $a.id }}" data-tags="{{ with $a.category }}{{ $s := cond (reflect.IsSlice .) . (slice .) }}{{ range $i, $c := $s }}{{ if $i }} {{ end }}{{ anchorize $c }}{{ end }}{{ end }}">
   <header>
-    <h3>{{ $a.name }}</h3>
-    {{ with $a.category }}<div class="badges">{{ range $c := cond (reflect.IsSlice .) . (slice .) }}<span class="badge reg">{{ $c }}</span>{{ end }}</div>{{ end }}
+    <h3>{{ $displayName }}</h3>
+    {{ with $category }}<div class="badges">{{ range $c := cond (reflect.IsSlice .) . (slice .) }}<span class="badge reg">{{ $c }}</span>{{ end }}</div>{{ end }}
   </header>
   {{ if not .self }}<p class="share-row"><a class="badge full-profile" href="{{ printf "follow/%s/" $a.id | relURL }}">{{ i18n "full_profile" }} &rarr;</a></p>{{ end }}
-  <p class="desc">{{ $a.why }}</p>
+  <p class="desc">{{ partial "field-lang.html" (dict "entry" $a "field" "why") }}</p>
   <ul class="links">
     {{ with $a.handles }}{{ $ids := slice }}{{ with .x_id }}{{ $ids = . }}{{ if not (reflect.IsSlice $ids) }}{{ $ids = slice $ids }}{{ end }}{{ end }}
     {{ with .x }}<li><a href="https://x.com/{{ . }}">{{ partial "icon.html" "x" }}@{{ . }}</a>{{ if gt (len $ids) 0 }} <a class="xid" href="https://x.com/i/user/{{ index $ids 0 }}" title="{{ i18n "x_permanent" }}">({{ i18n "x_permanent_short" }})</a>{{ end }}</li>{{ end }}

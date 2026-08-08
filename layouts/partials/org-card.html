@@ -3,9 +3,10 @@
 {{ $liveCount := 0 }}
 {{ $liveFile := "" }}
 {{ range $live }}{{ if eq .org $o.id }}{{ $liveCount = add $liveCount 1 }}{{ if not $liveFile }}{{ $liveFile = ._file }}{{ end }}{{ end }}{{ end }}
-<article class="card org {{ if $o.featured }}featured {{ end }}{{ if eq $o.status "inactive" }}inactive{{ end }}" id="org-{{ $o.id }}" data-name="{{ $o.name }}" data-verified="{{ $o.last_verified }}" data-tags="{{ with $o.tags }}{{ delimit . " " }}{{ end }}" data-handles="{{ with $o.handles }}{{ range $k, $v := . }}{{ $v }} {{ end }}{{ end }}{{ with $o.paypalme }}{{ . }} {{ end }}{{ range $o.paypal }}{{ . }} {{ end }}">
+{{ $displayName := partial "field-lang.html" (dict "entry" $o "field" "name") }}
+<article class="card org {{ if $o.featured }}featured {{ end }}{{ if eq $o.status "inactive" }}inactive{{ end }}" id="org-{{ $o.id }}" data-name="{{ $displayName }}" data-verified="{{ $o.last_verified }}" data-tags="{{ with $o.tags }}{{ delimit . " " }}{{ end }}" data-handles="{{ with $o.handles }}{{ range $k, $v := . }}{{ $v }} {{ end }}{{ end }}{{ with $o.paypalme }}{{ . }} {{ end }}{{ range $o.paypal }}{{ . }} {{ end }}">
   <header>
-    <h3>{{ $o.name }}{{ with $o.name_ua }} <span class="uk">/ {{ . }}</span>{{ end }}</h3>
+    <h3>{{ $displayName }}{{ with $o.name_ua }}{{ if ne $displayName . }} <span class="uk">/ {{ . }}</span>{{ end }}{{ end }}</h3>
     <div class="badges">
       {{ if $o.featured }}<span class="badge featured-badge">★ {{ i18n "featured" }}</span>{{ end }}
       {{ if gt $liveCount 0 }}<a class="badge live-badge" href="{{ if and (eq $liveCount 1) $liveFile }}{{ printf "fundraisers/%s/" $liveFile | relURL }}{{ else }}{{ "fundraisers/" | relLangURL }}#f-{{ $o.id }}{{ end }}">{{ i18n "live_fundraiser" $liveCount }}{{ if gt $liveCount 1 }} ×{{ $liveCount }}{{ end }}</a>{{ end }}
@@ -15,19 +16,23 @@
     </div>
   </header>
   <p class="share-row">{{ $sharePage := "volunteers/" }}{{ if in $o.type "ngo" }}{{ $sharePage = "ngos/" }}{{ end }}<button type="button" class="badge share-card" data-copy="{{ printf "%s%s/" $sharePage $o.id | absURL }}" data-copied="{{ i18n "copied" }}" title="{{ i18n "share_hint" }}">{{ partial "icon.html" "share" }}<span class="copy-text">{{ i18n "share_label" }}</span></button>{{ if not .self }} <a class="badge full-profile" href="{{ printf "%s%s/" $sharePage $o.id | relURL }}">{{ i18n "full_profile" }} &rarr;</a>{{ end }}</p>
-  {{ if $o.featured }}{{ with $o.featured_note }}<p class="featured-note">{{ . | markdownify }}</p>{{ end }}{{ end }}
-  {{ with $o.location }}<p class="location">{{ partial "icon.html" "location" }}{{ . }}</p>{{ end }}
-  <p class="desc">{{ $o.description | markdownify }}</p>
-  {{ with $o.warning }}<p class="warning">⚠️ {{ . | markdownify }}</p>{{ end }}
-  {{ with $o.notes }}<p class="notes">{{ . | markdownify }}</p>{{ end }}
-  {{ with $o.verified_by }}<p class="vouched">{{ partial "icon.html" "shield" }}{{ i18n "vouched_by" }} {{ . | markdownify }}</p>{{ end }}
+  {{ if $o.featured }}{{ with partial "field-lang.html" (dict "entry" $o "field" "featured_note") }}<p class="featured-note">{{ . | markdownify }}</p>{{ end }}{{ end }}
+  {{ with partial "field-lang.html" (dict "entry" $o "field" "location") }}<p class="location">{{ partial "icon.html" "location" }}{{ . }}</p>{{ end }}
+  <p class="desc">{{ partial "field-lang.html" (dict "entry" $o "field" "description") | markdownify }}</p>
+  {{ with partial "field-lang.html" (dict "entry" $o "field" "warning") }}<p class="warning">⚠️ {{ . | markdownify }}</p>{{ end }}
+  {{ with partial "field-lang.html" (dict "entry" $o "field" "notes") }}<p class="notes">{{ . | markdownify }}</p>{{ end }}
+  {{ with partial "field-lang.html" (dict "entry" $o "field" "verified_by") }}<p class="vouched">{{ partial "icon.html" "shield" }}{{ i18n "vouched_by" }} {{ . | markdownify }}</p>{{ end }}
 <ul class="links">
     {{ with $o.handles }}{{ partial "primary-handles.html" . }}{{ end }}
     {{ with $o.links }}
       {{ with .website }}<li><a href="{{ . }}">{{ partial "icon.html" "globe" }}{{ i18n "link_website" }}</a></li>{{ end }}
       {{ with .linktree }}<li><a href="{{ . }}">{{ partial "icon.html" "tree" }}Linktree</a></li>{{ end }}
       {{ with .transparency }}<li><a href="{{ . }}" class="strong">{{ partial "icon.html" "doc" }}{{ i18n "link_transparency" }}</a></li>{{ end }}
-      {{ with .registration }}<li><a href="{{ . }}">{{ partial "icon.html" "shield" }}{{ if eq $o.type "foreign-ngo" }}{{ i18n "link_charity_register" }}{{ else }}{{ i18n "link_registry" }}{{ end }}</a></li>{{ end }}
+      {{ with .registration }}
+        {{ $regUrl := . }}{{ $regNote := "" }}
+        {{ if reflect.IsMap . }}{{ $regUrl = .url }}{{ $regNote = .note }}{{ end }}
+        <li><a href="{{ $regUrl }}">{{ partial "icon.html" "shield" }}{{ if eq $o.type "foreign-ngo" }}{{ i18n "link_charity_register" }}{{ else }}{{ i18n "link_registry" }}{{ end }}</a>{{ with $regNote }}<span class="reg-note">{{ . | markdownify }}</span>{{ end }}</li>
+      {{ end }}
       {{ range .other }}<li><a href="{{ .url }}">{{ partial "icon.html" "link" }}{{ .label }}</a></li>{{ end }}
     {{ end }}
     {{ with $o.email }}<li><a href="mailto:{{ . }}">{{ partial "icon.html" "email" }}{{ . }}</a></li>{{ end }}
@@ -46,10 +51,10 @@
       {{ range $o.paypal }}<li><button type="button" class="copy-paypal" data-copy="{{ . }}" data-copied="{{ i18n "copied" }}" title="{{ i18n "copy_email" }}">{{ partial "icon.html" "paypal" }}<span class="copy-text">{{ . }}</span><span class="copy-hint">{{ i18n "tap_to_copy" }}</span></button></li>{{ end }}
     </ul>
     <p class="donate-warning">{{ i18n "donate_no_military" }}</p>
-    {{ with $o.payment_note }}<p class="payment">{{ . | markdownify }}</p>{{ end }}
+    {{ with partial "field-lang.html" (dict "entry" $o "field" "payment_note") }}<p class="payment">{{ . | markdownify }}</p>{{ end }}
   </div>
   {{ end }}
   {{ if and (eq $liveCount 0) $o.handles.x (ne $o.status "inactive") }}<p class="check-x">{{ i18n "check_x_fundraisers" }}</p>{{ end }}
   {{ with $o.last_verified }}<p class="verified-stamp">{{ i18n "last_checked" }}: {{ . }}</p>{{ end }}
-  <p class="suggest-correction"><a href="{{ "submit/" | relLangURL }}?type=correction&entry={{ urlquery $o.name }}&id=org-{{ $o.id }}">{{ i18n "suggest_correction" }}</a>{{ if ne $o.status "inactive" }} · <a href="{{ "submit/" | relLangURL }}?type=fundraiser&entry={{ urlquery $o.name }}&id={{ $o.id }}">{{ i18n "submit_fundraiser_cta" }}</a>{{ end }}</p>
+  <p class="suggest-correction"><a href="{{ "submit/" | relLangURL }}?type=correction&entry={{ urlquery $displayName }}&id=org-{{ $o.id }}">{{ i18n "suggest_correction" }}</a>{{ if ne $o.status "inactive" }} · <a href="{{ "submit/" | relLangURL }}?type=fundraiser&entry={{ urlquery $displayName }}&id={{ $o.id }}">{{ i18n "submit_fundraiser_cta" }}</a>{{ end }}</p>
 </article>

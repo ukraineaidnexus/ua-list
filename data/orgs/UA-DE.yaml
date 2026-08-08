@@ -1,0 +1,23 @@
+id: UA-DE
+name: "UA-DE e.V."
+type: foreign-ngo
+status: active
+tags: [humanitarian, medical, animals]
+description_en: "UA-DE e.V. is a German-Ukrainian humanitarian organisation delivering direct aid to war-affected communities in Ukraine. Working together with trusted local partners, we provide humanitarian relief, medical equipment, emergency supplies, vehicles, power solutions, and support for vulnerable people and animals. Our focus is on fast, transparent and needs-based assistance reaching communities close to the front line."
+description_de: "UA-DE e.V. ist eine deutsch-ukrainische Hilfsorganisation, die Menschen in den vom Krieg betroffenen Regionen der Ukraine direkt unterstützt. Gemeinsam mit lokalen Partnern leisten wir humanitäre Hilfe, liefern medizinische Ausstattung, Fahrzeuge, Notfallhilfen sowie Energie- und Wiederaufbauprojekte und unterstützen besonders gefährdete Menschen und Tiere."
+description_ua: "UA-DE e.V. — німецько-українська гуманітарна організація, що надає пряму допомогу постраждалим від війни громадам України. Разом із місцевими партнерами ми доставляємо гуманітарну допомогу, медичне обладнання, транспорт, аварійне забезпечення, енергетичні рішення та підтримуємо найбільш вразливих людей і тварин."
+location_en: "Düsseldorf, Germany"
+location_de: "Düsseldorf, Deutschland"
+location_ua: "Дюссельдорф, Німеччина"
+handles:
+  x: UADE2024
+  facebook: uade.e.V
+  instagram: uade_duesseldorf
+links:
+  website: https://ua-de.info
+  donate: https://ua-de.info/unsere-projekte/donate/
+  transparency: https://ua-de.info/transparenz/
+  registration:
+    url: https://www.handelsregister.de/rp_web/welcome.xhtml
+    note: "Search for \"UA-DE e.V.\" or use registration number VR 12567 to verify."
+last_verified: 2026-08-08
