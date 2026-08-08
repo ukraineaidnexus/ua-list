@@ -16,10 +16,17 @@
 {{ if or $reg $transp }}
   {{ $tier = 3 }}
   {{ $completed := 0 }}{{ $reported := 0 }}
-  {{ range $file, $f := hugo.Data.fundraisers }}
-    {{ if and (eq $f.org $o.id) (eq $f.status "completed") }}
-      {{ $completed = add $completed 1 }}
-      {{ if $f.report }}{{ $reported = add $reported 1 }}{{ end }}
+  {{ $grace := (now.AddDate 0 0 -56).Format "2006-01-02" }}
+  {{ range $file, $raw := hugo.Data.fundraisers }}
+    {{ if eq $raw.org $o.id }}
+      {{ $f := partial "fundraiser-resolve.html" (dict "f" $raw "file" $file) }}
+      {{ if eq $f._status "completed" }}
+        {{ if $f._report }}
+          {{ $completed = add $completed 1 }}{{ $reported = add $reported 1 }}
+        {{ else if lt $f._closed $grace }}
+          {{ $completed = add $completed 1 }}
+        {{ end }}
+      {{ end }}
     {{ end }}
   {{ end }}
   {{ if and (gt $completed 0) (eq $completed $reported) }}{{ $tier = 4 }}{{ end }}

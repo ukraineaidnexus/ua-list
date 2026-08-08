@@ -2,9 +2,10 @@
 {{ $live := slice }}
 {{ range $file, $f := hugo.Data.fundraisers }}
   {{ if not $f.draft }}
+    {{ $r := partial "fundraiser-resolve.html" (dict "f" $f "file" $file) }}
     {{ $expired := false }}
-    {{ with $f.expires }}{{ $expired = $now.After (time .) }}{{ end }}
-    {{ if and (eq $f.status "active") (not $expired) }}{{ $live = $live | append (merge $f (dict "_file" $file)) }}{{ end }}
+    {{ with $r.expires }}{{ $expired = $now.After (time .) }}{{ end }}
+    {{ if and (eq $r._status "active") (not $expired) }}{{ $live = $live | append $r }}{{ end }}
   {{ end }}
 {{ end }}
 {{ return $live }}

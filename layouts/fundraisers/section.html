@@ -10,7 +10,7 @@
 {{ $now := now }}
 {{ $all := slice }}
 {{ range $file, $f := hugo.Data.fundraisers }}
-  {{ if not $f.draft }}{{ $all = $all | append (merge $f (dict "_file" $file)) }}{{ end }}
+  {{ if not $f.draft }}{{ $all = $all | append (partial "fundraiser-resolve.html" (dict "f" $f "file" $file)) }}{{ end }}
 {{ end }}
 {{ $live := slice }}
 {{ $past := slice }}
@@ -18,7 +18,7 @@
 {{ range $all }}
   {{ $expired := false }}
   {{ with .expires }}{{ $expired = $now.After (time .) }}{{ end }}
-  {{ if and (eq .status "active") (not $expired) }}{{ $live = $live | append . }}{{ else if ge (printf "%v" .announced) $cutoff }}{{ $past = $past | append . }}{{ end }}
+  {{ if and (eq ._status "active") (not $expired) }}{{ $live = $live | append . }}{{ else if ge (printf "%v" .announced) $cutoff }}{{ $past = $past | append . }}{{ end }}
 {{ end }}
 
 <section id="live" class="fundraisers">

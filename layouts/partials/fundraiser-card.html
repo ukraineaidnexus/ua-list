@@ -1,8 +1,8 @@
-{{ $f := .f }}
+{{ $f := partial "fundraiser-resolve.html" (dict "f" .f) }}
 {{ $org := index hugo.Data.orgs $f.org }}
 {{ $title := partial "field-lang.html" (dict "entry" $f "field" "title") }}
 
-<article class="card fundraiser status-{{ $f.status }}{{ if $f.featured }} featured{{ end }}" id="f-{{ $f.org }}" data-name="{{ $title }}" data-posted="{{ $f.announced }}" data-updated="{{ $f.last_updated | default $f.announced }}" data-tags="{{ with $f.tags }}{{ delimit . " " }}{{ end }}"{{ if $f.goal }} data-left="{{ sub 100 (div (mul ($f.raised | default 0) 100) $f.goal.amount) }}"{{ end }}>
+<article class="card fundraiser status-{{ $f._status }}{{ if $f.featured }} featured{{ end }}" id="f-{{ $f.org }}" data-name="{{ $title }}" data-posted="{{ $f.announced }}" data-updated="{{ $f.last_updated | default $f.announced }}" data-tags="{{ with $f.tags }}{{ delimit . " " }}{{ end }}"{{ if $f.goal }} data-left="{{ sub 100 (div (mul ($f.raised | default 0) 100) $f.goal.amount) }}"{{ end }}>
   <header>
     <h3>{{ if and $f._file (not .self) }}<a class="title-link" href="{{ printf "fundraisers/%s/" $f._file | relURL }}">{{ $title }}</a>{{ else }}{{ $title }}{{ end }}</h3>
     {{ if or $f.tags $f.featured }}<div class="badges">{{ if $f.featured }}<span class="badge featured-badge">★ {{ i18n "featured" }}</span>{{ end }}{{ range $f.tags }}<span class="badge tag">{{ i18n (printf "tag_%s" .) }}</span>{{ end }}</div>{{ end }}
@@ -12,6 +12,15 @@
   <p class="share-row"><button type="button" class="badge share-card" data-copy="{{ with $f._file }}{{ printf "fundraisers/%s/" . | absURL }}{{ else }}{{ "fundraisers/" | absLangURL }}?only=1#f-{{ $f.org }}{{ end }}" data-copied="{{ i18n "copied" }}" title="{{ i18n "share_hint" }}">{{ partial "icon.html" "share" }}<span class="copy-text">{{ i18n "share_label" }}</span></button></p>
 
   {{ with partial "field-lang.html" (dict "entry" $f "field" "beneficiary") }}<p class="desc"><strong>{{ i18n "for" }}:</strong> {{ . }}</p>{{ end }}
+
+  {{ with $f.part_of }}
+  <p class="part-of">{{ i18n "part_of" }}:
+    {{ if $f._parent }}<a href="{{ printf "fundraisers/%s/" $f._parent_file | relURL }}">{{ partial "field-lang.html" (dict "entry" $f._parent "field" "title") }}</a>
+    {{ else }}{{ $pt := partial "field-lang.html" (dict "entry" . "field" "title") }}{{ with .url }}<a href="{{ . }}">{{ $pt }}</a>{{ else }}{{ $pt }}{{ end }}{{ end }}
+    {{ with .lead }}<span class="part-of-lead">{{ i18n "by" }} {{ . }}</span>{{ end }}
+    {{ with .goal }}<span class="part-of-goal">{{ i18n "overall_target" }}: {{ .amount | lang.FormatNumber 0 }} {{ .currency }}</span>{{ end }}
+  </p>
+  {{ end }}
 
   {{ with partial "field-lang.html" (dict "entry" $f "field" "description") }}<p class="desc">{{ . | markdownify }}</p>{{ end }}
 
@@ -23,7 +32,8 @@
       {{ with $f.goal }}<span class="raised">{{ i18n "raised" }}: {{ $f.raised | lang.FormatNumber 0 }} ({{ div (mul $f.raised 100) .amount }}%)</span>
       {{ else }}<span class="raised">{{ i18n "raised" }}: {{ $f.raised | lang.FormatNumber 0 }}</span>{{ end }}
     {{ end }}
-    {{ if ne $f.status "active" }}<span class="badge stale">{{ i18n $f.status }}</span>{{ end }}
+    {{ if ne $f._status "active" }}<span class="badge stale">{{ i18n $f._status }}</span>{{ end }}
+    {{ if and (eq $f._status "completed") (not $f._report) (ge $f._closed ((now.AddDate 0 0 -56).Format "2006-01-02")) }}<span class="badge pending">{{ i18n "report_pending" }}</span>{{ end }}
   </div>
 
 {{ with $f.goal }}{{ with $f.raised }}
@@ -51,7 +61,7 @@
       {{ with .bluesky }}<li><a href="{{ . }}">{{ partial "icon.html" "butterfly" }}{{ i18n "post_on_bsky" }}</a></li>{{ end }}
       {{ with .web }}<li><a href="{{ . }}">{{ partial "icon.html" "globe" }}{{ i18n "details" }}</a></li>{{ end }}
     {{ end }}
-    {{ with $f.report }}<li><a href="{{ . }}" class="strong">{{ partial "icon.html" "doc" }}{{ i18n "completion_report" }}</a></li>{{ end }}
+    {{ with $f._report }}<li><a href="{{ . }}" class="strong">{{ partial "icon.html" "doc" }}{{ i18n "completion_report" }}</a></li>{{ end }}
   </ul>
   {{ if or $donateUrl $monoUrl $privatUrl $f.links.donate_other $f.paypalme $f.paypal }}
   <div class="donate">

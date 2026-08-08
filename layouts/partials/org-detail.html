@@ -9,10 +9,10 @@
 {{ $pastMine := slice }}
 {{ range $file, $f := hugo.Data.fundraisers }}
   {{ if and (not $f.draft) (eq $f.org $o.id) }}
-    {{ $f = merge $f (dict "_file" $file) }}
+    {{ $f = partial "fundraiser-resolve.html" (dict "f" $f "file" $file) }}
     {{ $expired := false }}
     {{ with $f.expires }}{{ $expired = $now.After (time .) }}{{ end }}
-    {{ if and (eq $f.status "active") (not $expired) }}{{ $liveMine = $liveMine | append $f }}{{ else }}{{ $pastMine = $pastMine | append $f }}{{ end }}
+    {{ if and (eq $f._status "active") (not $expired) }}{{ $liveMine = $liveMine | append $f }}{{ else }}{{ $pastMine = $pastMine | append $f }}{{ end }}
   {{ end }}
 {{ end }}
 

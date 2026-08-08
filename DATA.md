@@ -196,16 +196,25 @@ title: "..."                   # required. title_ua/_fr/etc supported.
 beneficiary: "Who it's for"    # optional. beneficiary_ua/_fr/etc supported.
 description: >                 # optional. description_ua/_fr/etc supported.
   ...
-image: /media/file.jpg         # optional. Poster/graphic, detail page only,
-                                # never on listing cards. Store in static/media/,
-                                # strip EXIF first.
-image_alt: "..."               # optional, alt text. Falls back to title.
 goal: { amount: 13900, currency: USD }   # USD | EUR | GBP | UAH; omit for open-ended
 raised: 0                      # optional, integers only
 announced: 2026-06-11          # required
 last_updated: 2026-07-08        # optional, bump when raised/status is updated
+completed: 2026-07-08           # optional, date the collection closed. Only meaningful
+                                # with status: completed. Starts the 8-week report
+                                # grace clock (see below). Falls back to last_updated,
+                                # then announced, if omitted.
 expires: 2026-08-11            # omit for open-ended
 status: active                 # required: active | completed | expired
+part_of:                        # optional. Marks this as a helper jar feeding a larger
+                                # collection run by someone else. See "Helper jars" below.
+  fundraiser: 2026-06-org-name  # optional, data file key of the master, if it is listed
+                                # on this site. Enables status + report inheritance.
+  title: "Master collection"    # required when `fundraiser` is not set. title_ua/_fr/etc
+                                # supported.
+  url: https://x.com/...        # optional, link to the master collection
+  lead: "Name"                  # optional, who runs the master collection
+  goal: { amount: 500000, currency: UAH }   # optional, the master's overall target
 tags: [military]                # optional, list, same fixed i18n-translated
                                 # vocabulary as orgs
 featured: true                  # optional, same pinning behaviour as orgs
@@ -234,6 +243,38 @@ paypalme: handle
 paypal: ["email@..."]
 report: null                   # completion report link, set alongside status: completed
 ```
+
+### Helper jars (`part_of`) and the master collection
+
+Ukrainian volunteers routinely open a small "friendly jar" feeding a larger
+collection run by someone else. `part_of` records that relationship.
+
+Two cases:
+
+- **Master is listed on this site**: set `part_of.fundraiser` to its data file key
+  (filename without `.yaml`). The helper jar then inherits from it:
+  - **Status**: if the master's status is not `active`, an `active` helper jar is
+    shown with the master's status. Close the master, the jars close with it. Only
+    one level is resolved; a jar pointing at a jar does not chain.
+  - **Report**: if the helper jar has no `report` of its own, the master's `report`
+    is used, and counts for the helper jar's org on the reputation meter. A
+    volunteer gets credit for a transparently reported collection even when someone
+    else published the report.
+- **Master is not listed here** (most common): give `title`, and `url`/`lead`/`goal`
+  as available. Nothing is inherited, so set `status` and `report` on the entry
+  yourself. For `report`, use the lead's public report post.
+
+The jar's own `goal` stays its personal target. `part_of.goal` is the master's
+overall target and is shown as a separate line, not counted in the progress bar.
+
+### The 8-week report grace period
+
+Frontline reporting takes time. A `status: completed` fundraiser with no `report`
+is **ignored entirely** by the reputation meter for 56 days from its close date
+(`completed`, else `last_updated`, else `announced`). It neither earns Established
+nor blocks it, and the card shows a neutral "report pending" badge. After 56 days
+it counts as an unreported completed fundraiser and blocks Established until a
+`report` is added. Inherited reports (see above) satisfy the requirement.
 
 ## Schema: data/creators/&lt;id&gt;.yaml
 

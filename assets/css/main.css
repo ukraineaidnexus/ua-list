@@ -840,6 +840,13 @@ html[data-theme="light"] .boost-heading { color: #7a6000; }
 
 .fundraiser-image { display: block; max-width: 560px; width: 100%; border-radius: var(--radius); margin: 0 0 1rem; border: 1px solid var(--line); }
 
+/* ---- Parent ("master") collection link + report grace period ---- */
+.part-of { margin: 0 0 .5rem; font-size: .85rem; color: var(--muted); line-height: 1.5; }
+.part-of a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
+.part-of-lead, .part-of-goal { display: inline-block; margin-left: .4rem; }
+.part-of-goal::before { content: "\00b7"; margin-right: .4rem; }
+.badge.pending { border-color: var(--line); color: var(--muted); }
+
 /* ---- Scammer evidence screenshots (session 6) ---- */
 .evidence-shot { margin: 0 0 1.25rem; }
 .evidence-shot img { display: block; max-width: 560px; width: 100%; border-radius: var(--radius); border: 1px solid var(--line); }
