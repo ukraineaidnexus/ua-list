@@ -30,7 +30,7 @@
 
 {{ with $f.part_of }}{{ with .fundraiser }}
   {{ $parentFile = . }}
-  {{ with index hugo.Data.fundraisers . }}
+  {{ with index (partialCached "fundraisers-flat.html" . "fundraisers-flat") . }}
     {{ $parent = merge . (dict "_file" $parentFile) }}
     {{ if and (eq $status "active") (ne .status "active") }}{{ $status = .status }}{{ end }}
     {{ if not $report }}{{ with .report }}{{ $report = . }}{{ end }}{{ end }}

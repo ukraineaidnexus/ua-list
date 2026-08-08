@@ -1,0 +1,34 @@
+{{ define "main" }}
+<section class="intro">{{ .Content }}</section>
+<p class="submit-cta"><a href="{{ "submit/" | relLangURL }}?type=org">{{ i18n "submit_cta" }} &rarr;</a></p>
+{{ partial "verify-banner.html" . }}
+{{ partial "search-filter.html" . }}
+{{ partial "sort-controls.html" (dict "mode" "orgs") }}
+{{ $causeTags := slice (dict "key" "military" "label" (i18n "tag_military")) (dict "key" "humanitarian" "label" (i18n "tag_humanitarian")) (dict "key" "medical" "label" (i18n "tag_medical")) (dict "key" "animals" "label" (i18n "tag_animals")) }}
+{{ partial "tag-filter.html" (dict "tags" $causeTags) }}
+
+{{ $orgs := slice }}
+{{ range $file, $o := hugo.Data.orgs }}{{ if not $o.draft }}{{ $orgs = $orgs | append (merge $o (dict "_file" $file)) }}{{ end }}{{ end }}
+{{ $live := partial "live-fundraisers.html" . }}
+
+{{/* Foreign-registered NGOs. Detail pages for these still live at
+     /ngos/<id>/ - the content adapter generates one canonical URL per entry
+     and moving them would break existing shared links. */}}
+{{ $foreignNgos := slice }}
+{{ range $orgs }}{{ if partial "org-in-bucket.html" (dict "o" . "b" "foreign-ngo") }}{{ $foreignNgos = $foreignNgos | append . }}{{ end }}{{ end }}
+{{ $foreignNgos = sort $foreignNgos "name" }}
+
+<section id="foreign-ngos" class="directory">
+  <h2><span class="rule"></span>{{ i18n "foreign_ngos" }}</h2>
+  <p class="section-note">{{ i18n "foreign_ngos_note" }}</p>
+  {{ if $foreignNgos }}
+  <div class="cards">
+    {{ range where $foreignNgos "featured" true }}{{ partial "org-card.html" (dict "o" . "live" $live) }}{{ end }}
+    {{ range where $foreignNgos "featured" "!=" true }}{{ partial "org-card.html" (dict "o" . "live" $live) }}{{ end }}
+  </div>
+  {{ else }}
+  <p class="empty">{{ i18n "none_listed" }}</p>
+  {{ end }}
+  <p class="section-note cross-link"><a href="{{ "ngos/" | relLangURL }}">{{ i18n "nav_ngos" }} &rarr;</a></p>
+</section>
+{{ end }}

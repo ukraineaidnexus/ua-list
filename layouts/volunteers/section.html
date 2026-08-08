@@ -16,13 +16,16 @@
   <h2><span class="rule"></span>{{ i18n "ua_volunteers" }}</h2>
   <p class="section-note">{{ i18n "ua_volunteers_note" }}</p>
   <div class="cards">
-    {{ $uaVols := sort (where $orgs "type" "ua-volunteer") "name" }}
+    {{ $uaVols := slice }}
+    {{ range $orgs }}{{ if partial "org-in-bucket.html" (dict "o" . "b" "ua-volunteer") }}{{ $uaVols = $uaVols | append . }}{{ end }}{{ end }}
+    {{ $uaVols = sort $uaVols "name" }}
     {{ range where $uaVols "featured" true }}{{ partial "org-card.html" (dict "o" . "live" $live) }}{{ end }}
     {{ range where $uaVols "featured" "!=" true }}{{ partial "org-card.html" (dict "o" . "live" $live) }}{{ end }}
   </div>
 </section>
 
-{{ $foreignVols := where $orgs "type" "foreign-volunteer" }}
+{{ $foreignVols := slice }}
+{{ range $orgs }}{{ if partial "org-in-bucket.html" (dict "o" . "b" "foreign-volunteer") }}{{ $foreignVols = $foreignVols | append . }}{{ end }}{{ end }}
 {{ if $foreignVols }}
 <section id="foreign-volunteers" class="directory">
   <h2><span class="rule"></span>{{ i18n "foreign_volunteers" }}</h2>

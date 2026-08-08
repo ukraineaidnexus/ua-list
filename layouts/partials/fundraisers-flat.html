@@ -1,0 +1,47 @@
+{{/* Flatten data/fundraisers/ into a single map, key = data file basename.
+
+     data/fundraisers/ is organised into year subfolders (2024/, 2025/, ...),
+     which Hugo turns into a NESTED map: hugo.Data.fundraisers.2026.<slug>.
+     Every template that reads fundraisers must go through this partial instead
+     of touching hugo.Data.fundraisers directly, or it will silently iterate
+     over year folders instead of entries.
+
+     Handles all three shapes at once, so files can sit loose in the root, in
+     year folders, or in year/month folders without anything breaking:
+       data/fundraisers/<slug>.yaml
+       data/fundraisers/<year>/<slug>.yaml
+       data/fundraisers/<year>/<month>/<slug>.yaml
+
+     A leaf entry is identified by having an `org` key (required on every
+     fundraiser, see DATA.md). A folder is a map whose values are maps.
+
+     The returned key is the BARE FILENAME, not the path. That is deliberate:
+     _file is the URL slug for fundraiser detail pages
+     (/fundraisers/<_file>/), so moving files into folders must not change it.
+
+     Usage (always cached, this walks every entry):
+       {{ $all := partialCached "fundraisers-flat.html" . "fundraisers-flat" }}
+*/}}
+{{ $out := dict }}
+{{ range $k1, $v1 := hugo.Data.fundraisers }}
+  {{ if reflect.IsMap $v1 }}
+    {{ if $v1.org }}
+      {{ $out = merge $out (dict $k1 $v1) }}
+    {{ else }}
+      {{ range $k2, $v2 := $v1 }}
+        {{ if reflect.IsMap $v2 }}
+          {{ if $v2.org }}
+            {{ $out = merge $out (dict $k2 $v2) }}
+          {{ else }}
+            {{ range $k3, $v3 := $v2 }}
+              {{ if and (reflect.IsMap $v3) $v3.org }}
+                {{ $out = merge $out (dict $k3 $v3) }}
+              {{ end }}
+            {{ end }}
+          {{ end }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+{{ return $out }}

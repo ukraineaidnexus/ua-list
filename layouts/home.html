@@ -16,6 +16,10 @@
       <h3>{{ i18n "nav_ngos" }}</h3>
       <p class="desc">{{ i18n "browse_ngos" }}</p>
     </a>
+    <a class="card nav-card" href="{{ "foreign-ngos/" | relLangURL }}">
+      <h3>{{ i18n "nav_foreign_ngos" }}</h3>
+      <p class="desc">{{ i18n "browse_foreign_ngos" }}</p>
+    </a>
     <a class="card nav-card" href="{{ "volunteers/" | relLangURL }}">
       <h3>{{ i18n "nav_volunteers" }}</h3>
       <p class="desc">{{ i18n "browse_volunteers" }}</p>
@@ -27,6 +31,13 @@
   </div>
 </section>
 
-{{ partial "verify-guide.html" . }}
+{{/* The full verification guide used to render inline here. It now lives at
+     /verify/ and the home page ends with a link to it. The heading text is
+     duplicated in i18n as `verify_title` because the guide partials carry
+     their own hard-coded <h2> - if you reword one, reword the other. */}}
+<section class="verify-cta">
+  <h2><span class="rule"></span><a href="{{ "verify/" | relLangURL }}">{{ i18n "verify_title" }}</a></h2>
+  <p><a class="verify-cta-link" href="{{ "verify/" | relLangURL }}">{{ i18n "verify_cta" }} &rarr;</a></p>
+</section>
 
 {{ end }}

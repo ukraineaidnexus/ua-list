@@ -1,0 +1,8 @@
+{{ define "main" }}
+{{ with .Content }}<section class="intro">{{ . }}</section>{{ end }}
+{{/* The guide itself is one hand-written partial per language under
+     layouts/partials/verify/<lang>.html. It carries its own <h2> and
+     id="verify", so old /#verify deep links still land on something sensible
+     if anyone kept one. */}}
+{{ partial "verify-guide.html" . }}
+{{ end }}

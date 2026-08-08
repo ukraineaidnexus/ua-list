@@ -2,7 +2,7 @@
      EnableAllLanguages: detail pages are now per-language, using the same
      field-lang.html priority as cards. See DATA.md. */}}
 {{ .EnableAllLanguages }}
-{{ range $file, $f := site.Data.fundraisers }}
+{{ range $file, $f := partial "fundraisers-flat.html" . }}
   {{ if $f.draft }}{{ continue }}{{ end }}
   {{ $title := partial "field-lang.html" (dict "entry" $f "field" "title") }}
   {{ $history := partial "field-lang.html" (dict "entry" $f "field" "history") }}

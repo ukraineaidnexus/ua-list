@@ -9,7 +9,7 @@
 
 {{ $now := now }}
 {{ $all := slice }}
-{{ range $file, $f := hugo.Data.fundraisers }}
+{{ range $file, $f := partialCached "fundraisers-flat.html" . "fundraisers-flat" }}
   {{ if not $f.draft }}{{ $all = $all | append (partial "fundraiser-resolve.html" (dict "f" $f "file" $file)) }}{{ end }}
 {{ end }}
 {{ $live := slice }}

@@ -1,0 +1,26 @@
+{{/* Does org $o belong in listing bucket $b?
+
+     `type:` is the org's PRIMARY bucket. It is a single string and stays that
+     way: it decides which section the detail page is generated into, so it
+     can't be a list.
+
+     `also:` is an optional LIST of extra buckets an entry should additionally
+     appear in. Its only purpose is cross-listing, e.g. an NGO registered both
+     in Ukraine and abroad:
+
+       type: ua-ngo
+       also: [foreign-ngo]
+
+     ...which puts it on /ngos/ and /foreign-ngos/ both, while its detail page
+     stays at the single canonical URL its `type` implies.
+
+     Valid buckets: ua-ngo, foreign-ngo, ua-volunteer, foreign-volunteer.
+
+     Usage:
+       {{ if partial "org-in-bucket.html" (dict "o" $o "b" "ua-ngo") }}
+*/}}
+{{ $o := .o }}
+{{ $b := .b }}
+{{ $hit := eq $o.type $b }}
+{{ with $o.also }}{{ if in . $b }}{{ $hit = true }}{{ end }}{{ end }}
+{{ return $hit }}

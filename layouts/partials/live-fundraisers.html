@@ -1,6 +1,6 @@
 {{ $now := now }}
 {{ $live := slice }}
-{{ range $file, $f := hugo.Data.fundraisers }}
+{{ range $file, $f := partialCached "fundraisers-flat.html" . "fundraisers-flat" }}
   {{ if not $f.draft }}
     {{ $r := partial "fundraiser-resolve.html" (dict "f" $f "file" $file) }}
     {{ $expired := false }}

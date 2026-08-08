@@ -7,7 +7,7 @@
 {{/* all fundraisers for this org, split live vs past (same logic as fundraisers listing) */}}
 {{ $liveMine := slice }}
 {{ $pastMine := slice }}
-{{ range $file, $f := hugo.Data.fundraisers }}
+{{ range $file, $f := partialCached "fundraisers-flat.html" . "fundraisers-flat" }}
   {{ if and (not $f.draft) (eq $f.org $o.id) }}
     {{ $f = partial "fundraiser-resolve.html" (dict "f" $f "file" $file) }}
     {{ $expired := false }}
@@ -16,7 +16,10 @@
   {{ end }}
 {{ end }}
 
-{{ $listPage := "volunteers/" }}{{ if in $o.type "ngo" }}{{ $listPage = "ngos/" }}{{ end }}
+{{/* back-to-list target. Detail pages for BOTH ngo types live under /ngos/<id>/,
+     but the listing pages are now split, so the back link has to distinguish them. */}}
+{{ $listPage := "volunteers/" }}
+{{ if eq $o.type "ua-ngo" }}{{ $listPage = "ngos/" }}{{ else if eq $o.type "foreign-ngo" }}{{ $listPage = "foreign-ngos/" }}{{ end }}
 
 <div class="detail">
   {{ with $o.logo }}<img class="detail-logo" src="{{ . | relURL }}" alt="{{ $o.name }} logo" loading="lazy">{{ end }}
@@ -66,11 +69,34 @@
   {{ end }}
 
   {{ if $pastMine }}
+  {{/* Past fundraisers grouped newest-first: one collapsible <details> per year,
+       month subheadings inside. `announced` may be a YAML date (time.Time) or a
+       string, so slice the first 10 chars of its printed form to get YYYY-MM-DD
+       either way. Most recent year is open by default, older years collapsed. */}}
+  {{/* tag each entry with _year (2026) and _ym (2026-06) so `where` can group them */}}
+  {{ $past := slice }}
+  {{ range sort $pastMine "announced" "desc" }}
+    {{ $d := printf "%v" .announced }}
+    {{ $past = $past | append (merge . (dict "_year" (substr $d 0 4) "_ym" (substr $d 0 7))) }}
+  {{ end }}
+  {{ $years := slice }}
+  {{ range $past }}{{ if not (in $years ._year) }}{{ $years = $years | append ._year }}{{ end }}{{ end }}
   <section class="detail-section">
-    <h2><span class="rule"></span>{{ i18n "past_summary" }}</h2>
-    <div class="cards">
-      {{ range sort $pastMine "announced" "desc" }}{{ partial "fundraiser-card.html" (dict "f" .) }}{{ end }}
-    </div>
+    <h2><span class="rule"></span>{{ i18n "past_summary" }} <span class="count">({{ len $past }})</span></h2>
+    {{ range $yi, $y := $years }}
+      {{ $inYear := where $past "_year" $y }}
+      <details class="past-year"{{ if eq $yi 0 }} open{{ end }}>
+        <summary>{{ $y }} <span class="count">({{ len $inYear }})</span></summary>
+        {{ $months := slice }}
+        {{ range $inYear }}{{ if not (in $months ._ym) }}{{ $months = $months | append ._ym }}{{ end }}{{ end }}
+        {{ range $m := $months }}
+          <h3 class="past-month">{{ time.Format "January 2006" (printf "%s-01" $m) }}</h3>
+          <div class="cards">
+            {{ range where $inYear "_ym" $m }}{{ partial "fundraiser-card.html" (dict "f" .) }}{{ end }}
+          </div>
+        {{ end }}
+      </details>
+    {{ end }}
   </section>
   {{ end }}
 

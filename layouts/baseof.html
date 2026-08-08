@@ -54,9 +54,10 @@
       <h1>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }}{{ end }}</h1>
       <p class="tagline">{{ site.Params.tagline }}</p>
       <nav class="jump">
-        <a href="{{ "/" | relLangURL }}#verify">{{ i18n "nav_verify" }}</a>
+        <a href="{{ "verify/" | relLangURL }}">{{ i18n "nav_verify" }}</a>
         <a href="{{ "fundraisers/" | relLangURL }}">{{ i18n "nav_fundraisers" }}</a>
         <a href="{{ "ngos/" | relLangURL }}">{{ i18n "nav_ngos" }}</a>
+        <a href="{{ "foreign-ngos/" | relLangURL }}">{{ i18n "nav_foreign_ngos" }}</a>
         <a href="{{ "volunteers/" | relLangURL }}">{{ i18n "nav_volunteers" }}</a>
         <a href="{{ "creators/" | relLangURL }}">{{ i18n "nav_creators" }}</a>
         <a href="{{ "follow/" | relLangURL }}">{{ partial "icon.html" "x" }}{{ i18n "nav_follow" }}</a>
@@ -70,7 +71,7 @@
   </main>
 
   <footer>
-    <p>{{ printf (i18n "footer_disclaimer") (printf "%s#verify" ("/" | relLangURL)) | safeHTML }}
+    <p>{{ printf (i18n "footer_disclaimer") ("verify/" | relLangURL) | safeHTML }}
     {{ i18n "footer_contact" }}
     {{ if site.Params.contact_x_id }}<a href="https://x.com/messages/compose?recipient_id={{ site.Params.contact_x_id }}">{{ partial "icon.html" "x" }} @{{ site.Params.contact_x }}</a>{{ else }}<a href="https://x.com/{{ site.Params.contact_x }}">{{ partial "icon.html" "x" }} @{{ site.Params.contact_x }}</a>{{ end }}{{ with site.Params.contact_telegram }} · <a href="https://t.me/{{ . }}">{{ partial "icon.html" "telegram" }} Telegram</a>{{ end }}{{ with site.Params.contact_signal }} · <a href="{{ . }}">{{ partial "icon.html" "signal" }} Signal</a>{{ end }}.</p>
     <p class="disclaimer"><a href="{{ "submit/" | relLangURL }}">{{ i18n "footer_contribute" }}</a> · {{ i18n "footer_no_donations" }}</p>

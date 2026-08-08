@@ -203,6 +203,28 @@ h2 .rule {
 details.past { margin-top: 1.2rem; }
 details.past summary { cursor: pointer; color: var(--muted); font-weight: 600; }
 details.past .cards { margin-top: 1rem; }
+
+/* Past fundraisers grouped by year (org/volunteer detail pages) */
+details.past-year { border-top: 1px solid var(--line); padding: .75rem 0; }
+details.past-year:first-of-type { border-top: 0; }
+details.past-year > summary {
+  cursor: pointer;
+  color: var(--text);
+  font-weight: 700;
+  font-size: 1.05rem;
+  letter-spacing: .02em;
+}
+details.past-year > summary .count { color: var(--muted); font-weight: 500; font-size: .9rem; }
+details.past-year[open] > summary { margin-bottom: .5rem; }
+.past-month {
+  margin: 1.2rem 0 .6rem;
+  font-size: .85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  color: var(--muted);
+}
+.detail-section h2 .count { color: var(--muted); font-weight: 500; font-size: .9rem; }
 .fundraiser.status-completed, .fundraiser.status-expired { opacity: .75; }
 
 /* ---------- Footer ---------- */
@@ -874,3 +896,10 @@ html[data-theme="light"] .boost-heading { color: #7a6000; }
 /* Fundraiser title links: keep normal text colour, subtle underline */
 .fundraiser h3 a.title-link { color: inherit; text-decoration: underline; text-decoration-color: var(--line); text-underline-offset: 3px; }
 .fundraiser h3 a.title-link:hover { text-decoration-color: var(--muted); }
+
+/* ---------- Verify call-to-action (home page) ---------- */
+.verify-cta h2 a { color: inherit; text-decoration: none; }
+.verify-cta h2 a:hover { color: var(--yellow); }
+.verify-cta-link { font-weight: 600; }
+.cross-link { margin-top: 1.25rem; }
+.cross-link a { font-weight: 600; }

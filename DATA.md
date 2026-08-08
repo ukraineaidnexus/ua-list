@@ -14,7 +14,7 @@ Report a scammer through the
 
 ## Structure
 data/orgs/<id>.yaml Ukrainian/foreign NGOs and volunteers
-data/fundraisers/<file>.yaml Live and past fundraisers, linked to an org
+data/fundraisers/<year>/<file>.yaml Live and past fundraisers, linked to an org
 data/creators/<id>.yaml Ukrainian creators with a storefront or vouch
 data/follow/<id>.yaml Accounts worth following (OSINT, journalists, official)
 data/scammers/<id>.yaml Documented scammers (maintainer-only, not CC0)
@@ -98,6 +98,16 @@ name_ua: "Українська назва"    # optional. Used as the primary na
                                 # as a "/ Ukrainian name" annotation on every other
                                 # language too. See "Per-field language overrides" above.
 type: ua-ngo                   # required: ua-ngo | ua-volunteer | foreign-ngo | foreign-volunteer
+                                # Single value, never a list. Decides which listing
+                                # page the entry lives on AND which section its
+                                # detail page is generated into.
+also: [foreign-ngo]             # optional, list. EXTRA listing pages this entry
+                                # should also appear on, for orgs registered in more
+                                # than one place (e.g. type: ua-ngo + also:
+                                # [foreign-ngo] shows on /ngos/ and /foreign-ngos/).
+                                # Same vocabulary as `type`. Does NOT create a second
+                                # detail page: the entry keeps one canonical URL,
+                                # decided by `type`. Cards only.
 status: active                 # required: active | inactive
 description: "..."             # required, English (or use description_en).
                                 # description_ua/_fr/etc supported.
@@ -187,7 +197,29 @@ paypal: ["email@example.com"]  # click-to-copy chip, no payment link
 last_verified: 2026-07-08
 ```
 
-## Schema: data/fundraisers/YYYY-MM-orgid-shortname.yaml
+## Schema: data/fundraisers/YYYY/YYYY-MM-orgid-shortname.yaml
+
+Fundraiser files live in a folder named for the year in the filename:
+`data/fundraisers/2026/2026-06-lorelei-drone-detectors.yaml`. The year folder is
+purely for keeping the directory browsable; nothing reads it.
+
+**The filename must keep its full `YYYY-MM-` prefix even inside the year folder.**
+The bare filename is the detail-page URL slug (`/fundraisers/<filename>/`), so
+renaming a file breaks every link anyone has ever shared to it.
+
+Hugo turns subfolders into a nested map, so templates must never read
+`hugo.Data.fundraisers` directly. Go through
+`partials/fundraisers-flat.html`, which flattens it back to a single map keyed
+by bare filename:
+
+```
+{{ $all := partialCached "fundraisers-flat.html" . "fundraisers-flat" }}
+```
+
+That partial also copes with loose files in `data/fundraisers/` and with a
+deeper `data/fundraisers/<year>/<month>/` layout, so the folder scheme can
+change later without touching any template.
+
 
 ```yaml
 draft: true                    # delete this line to publish

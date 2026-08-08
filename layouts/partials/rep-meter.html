@@ -17,7 +17,7 @@
   {{ $tier = 3 }}
   {{ $completed := 0 }}{{ $reported := 0 }}
   {{ $grace := (now.AddDate 0 0 -56).Format "2006-01-02" }}
-  {{ range $file, $raw := hugo.Data.fundraisers }}
+  {{ range $file, $raw := partialCached "fundraisers-flat.html" . "fundraisers-flat" }}
     {{ if eq $raw.org $o.id }}
       {{ $f := partial "fundraiser-resolve.html" (dict "f" $raw "file" $file) }}
       {{ if eq $f._status "completed" }}
