@@ -1,313 +1,733 @@
 ---
-title: "Standards for volunteers and organisations"   # TODO: translate title into Ukrainian
+title: «Стандарти для волонтерів та організацій»
 noindex: true
 build:
   list: never
 ---
-<div class="doc-status"><p><strong>TRANSLATION PENDING.</strong> This page has not yet been translated. The English text is shown below.</p></div>
-
-<!-- TRANSLATION TODO (Ukrainian): replace everything below this comment with the Ukrainian translation. Keep the HTML structure and the clause numbers exactly as they are. -->
-
 <div class="doc-status">
-<p><strong>Status: draft v0.4, open for comment. Not adopted, not signed, not final.</strong></p>
-<p>This page is shared by direct link while the text is being worked on. Nothing here binds anybody yet. If you have been sent this, the point is to argue with it: tell me what is unworkable, what is missing, and what reads wrong.</p>
+<p>Це перша спроба, і, можливо, весь цей проект не має шансів на успіх. Тож, що не спрацює, що я пропустив і що звучить неправильно?</p>
 </div>
 
-## What this is
+# Стандарти поведінки для волонтерів та організацій, що підтримують Україну
 
-A voluntary standard for anyone raising or handling money to support Ukraine:
-registered NGOs, unregistered volunteer groups, and individuals.
+**Проект v0.10 — для обговорення**
 
-It is a benchmark, not a licence. Nobody issues it, nobody audits against it,
-and nobody can be barred from working by failing it. Its only power is that
-signing it is a public commitment, and donors can hold signatories to their own
-stated word.
+## Мета
 
-## What this is not
+Людям та організаціям, які підтримують Україну, довіряють гроші, обладнання, інформацію, доступ і, іноді, безпеку людей.
 
-- **Not a certification.** No organisation grants compliance and none should
-  claim to. A signatory list is a list of commitments, not a list of verified
-  clean operators.
-- **Not a weapon.** Falling short of a clause is a reason to ask a question. It
-  is not evidence of fraud, and using it that way harms honest people and
-  devalues the standard.
-- **Not a substitute for law.** Registered organisations have statutory
-  obligations that override anything here.
+Добрих намірів недостатньо.
 
-## Who can sign
+Донори повинні знати, на що використовуються їхні внески. Одержувачі повинні отримувати те, що їм насправді потрібно, і мати змогу на це покладатися. Волонтери повинні розуміти ризики, на які вони йдуть. Особисті та фінансові інтереси повинні бути прозорими там, де це має значення. На обґрунтовані запитання слід надавати належні відповіді.
 
-Any individual or organisation raising or handling funds for Ukraine, at any
-scale. Signing means committing to the standard and to correcting shortfalls
-when they are pointed out. It does not mean claiming to have met it perfectly
-from day one.
+Цей Кодекс встановлює загальні етичні та професійні стандарти для такої діяльності.
+
+Він поширюється на окремих осіб, неформальні групи, благодійні організації, НУО та інші організації, які збирають або розпоряджаються коштами, постачають товари чи послуги, виготовляють обладнання, транспортують допомогу, організовують роботу волонтерів або іншим чином звертаються до громадськості з проханням надати гроші, товари чи час на підтримку України.
+
+Він охоплює гуманітарну, цивільну та військову підтримку. Характер та мета діяльності мають бути описані чесно.
 
 ---
 
+## Принципи
 
-## 1. Money is separated
+Підписанти зобов’язуються дотримуватися шести принципів:
 
-1.1 Funds raised for aid are held separately from personal money. Not the same
-account, not the same jar, not the same card.
+**Мета** — потреби тих, кому надається підтримка, мають пріоритет над особистим іміджем, зручністю чи публічністю.
 
-1.2 The published payment destination matches the published name of the person
-or organisation raising the money. Where it cannot (a family member's account,
-a treasurer's account), this is stated openly and explained before the
-collection opens, not after someone asks.
+**Чесність** — збір коштів, відносини, інтереси, можливості та результати подаються правдиво.
 
-1.3 Payment details are never sent first in a private message. Donations are
-never solicited by unsolicited DM, under any circumstance.
+**Підзвітність** — ресурси, довірені іншими, залишаються ідентифікованими, використовуються належним чином та підлягають звітуванню.
 
-1.4 Payment destinations do not change mid-collection without a public
-explanation.
+**Компетентність** — робота виконується з відповідною кваліфікацією, ретельністю та з урахуванням її наслідків.
 
-1.5 **Where an organisation exists, donations go to the organisation.** Funds
-are not routed through a personal account first. Where a personal account has to
-be used, the amounts received and the amounts transferred into the
-organisation's funds are both published, and they reconcile.
+**Безпека** — обладнання та діяльність організовуються таким чином, щоб люди, які їх постачають, транспортують, використовують та отримують, не наражалися на ризик, якого можна уникнути.
 
-1.6 Money raised for aid is not donated onward to a third party's fundraiser
-under the fundraiser's own name. Passing donors' money to another collection may
-be the right call, but it is done openly and attributed to the donors, never
-presented as the fundraiser's personal contribution.
+**Гідність** — до людей ставляться з повагою, їхні дані захищаються, а їхні обставини не використовуються для збору коштів, розголосу чи особистої вигоди.
 
-## 2. Collections are specific
-
-2.1 Every collection states what is being bought, the target amount, and who
-will receive it.
-
-2.2 Where the recipient is a military unit, the unit is named, and the
-relationship to it is current. Nobody raises money in the name of a unit they
-have left.
-
-2.3 The running total is published and updated. Donors can see how far along a
-collection is without asking.
-
-2.4 A collection is not announced as closed before the target is met, unless
-the shortfall and what happened to the money raised are both stated.
-
-2.5 **No name confusion.** Nobody launches a page, account or brand with a name
-close enough to an existing organisation's that donors could confuse the two,
-and nobody uses another organisation's photographs, video or reputation to raise
-funds into their own account without that organisation's written agreement.
-
-2.6 **Credit goes to the donors.** Aid bought with donated money was bought by
-the donors. Appeals and reports say so. Nothing is described in terms that
-suggest the organiser paid for it personally, and no third party is thanked at
-length while the people who actually funded it go unmentioned.
-
-## 3. Every closed collection is reported
-
-This is the core of the standard. Everything else is secondary to it.
-
-3.1 A report follows every closed collection. A report means: what was bought,
-what it cost, and evidence it reached the stated recipient.
-
-3.2 Evidence means documents that can be checked: invoices, bank transfer
-confirmations, handover acts, vehicle registration documents. Photographs and
-video are welcome and are not sufficient on their own.
-
-3.3 A report is published within 60 days of a collection closing, or a public
-explanation is given for why it will take longer. Procurement is slow, delivery
-is dangerous, and units are sometimes unreachable. Saying so is fine. Silence
-is not.
-
-3.4 **"The collection is closed" is not a report.** Neither is a thank-you post,
-a photo of the team, a video of a commander, or a medal.
-
-3.5 Surplus is declared. If more was raised than needed, the amount and its
-destination are stated.
-
-3.6 A new collection is not opened while the previous one remains unreported,
-except where genuine operational urgency requires it, and then the outstanding
-report is acknowledged in the new appeal.
-
-3.7 **A live donation feed is not a report.** A public page listing incoming
-donations shows money arriving. It says nothing about money spent. Where such a
-page is offered as transparency, it is accompanied by per-collection
-reconciliation: raised, spent, on what, delivered to whom, with documents.
-Rolling windows that drop older entries do not satisfy this at all.
-
-3.8 Sensitive detail may be withheld for operational security. Where it is,
-that is stated, and the financial detail (cost, supplier category, date) is
-published even when the recipient and location are not.
-
-## 4. Personal support is declared
-
-4.1 Anyone who receives personal financial support (Patreon, Buy Me a Coffee,
-Ko-fi, a personal jar, a salary from an organisation) alongside running aid
-collections declares it.
-
-4.2 Personal support is held in a separate account from aid funds and is
-labelled clearly wherever it is published, so no donor can mistake one for the
-other.
-
-4.3 Full-time volunteers, particularly foreigners living in Ukraine, publish a
-general account of how they are funded and roughly what personal support
-covers. Exact figures are not required. Complete silence about the source of
-one's living is not acceptable in someone asking the public for money.
-
-4.4 Where personal support runs through a platform that publishes supporter
-counts or earnings by default (Patreon, Buy Me a Coffee, Ko-fi and similar),
-those figures are left visible rather than hidden.
-
-4.5 There is nothing shameful about being supported to do this work. The
-obligation is disclosure, not poverty.
-
-4.6 **Paid roles presented as volunteering are disclosed.** Anyone paid, in
-money or in kind, for work a reasonable person would assume was volunteered
-says so, and says who pays them. This covers salaried and contracted staff,
-paid community managers and moderators, paid hosts of X Spaces, Discord or
-Telegram sessions, paid content creators, and anyone taking a commission or a
-share of what is raised.
-
-4.7 The disclosure is made where the work happens, not buried in a profile: at
-the start of a hosted session, on the account doing the work, and alongside the
-appeal being promoted.
-
-4.8 Being paid is not the problem. Sustained work needs funding and unpaid
-burnout helps nobody. The problem is an audience believing it is hearing from a
-disinterested volunteer when it is hearing from someone on a payroll, because
-that belief is exactly what makes the endorsement persuasive.
-
-## 5. Questions are answered
-
-5.1 Reasonable questions from donors and from other volunteers are answered
-publicly, in the place they were asked.
-
-5.2 Nobody is blocked, reported, or removed for asking where money went.
-
-5.3 Supporters are not mobilised against people asking questions. Where they do
-so unprompted, the fundraiser says so publicly and asks them to stop.
-
-5.4 Accusing a questioner of hostile-state affiliation, without evidence, is
-itself a breach of this standard.
-
-5.5 Errors are corrected publicly, at the same volume as the original claim.
-
-## 6. Association carries responsibility
-
-6.1 Before a joint collection, a partnership, a re-share of an appeal, or a
-public vouch, reasonable due diligence is done. At minimum: does this person or
-organisation report on closed collections?
-
-6.2 A public vouch is a statement about someone's accountability, not about
-whether you like them or have met them. It is given deliberately.
-
-6.3 A vouch that turns out to be wrong is withdrawn publicly, promptly, and in
-plain terms. Quietly deleting it is not withdrawal.
-
-6.4 Joint collections are not run with anyone who will not report on closed
-collections.
-
-6.5 An organisation's own accounting covers its own deliveries. It does not
-extend to money an associated individual raised separately into a personal
-account, and it is never presented as though it does.
-
-6.6 An unretracted public statement by an organisation about a person's conduct
-is answered with evidence, not with the passage of time. "That was years ago"
-is not a response to a complaint that was never addressed.
-
-6.7 Medals, state awards, press coverage and public endorsements are not
-presented as evidence of financial accountability, by the recipient or by anyone
-vouching for them. An award records a nomination approved at a point in time. It
-is not an audit and it does not follow what happened afterwards.
-
-## 7. Being defrauded is reported, not concealed
-
-7.1 Any organisation or volunteer can be deceived. That is a risk of the work,
-not a mark of failure.
-
-7.2 Where a partner, employee, associate or recipient is found to have diverted
-funds, this is disclosed publicly: what happened, the amounts involved, and
-what has been done about it.
-
-7.3 It is reported to the appropriate authorities. In Ukraine, that means the
-State Bureau of Investigation, the Military Law Enforcement Service, or the
-National Police, depending on the parties involved.
-
-7.4 Concealing a fraud to protect a reputation is a breach of this standard. It
-transfers the loss onto the next organisation and the next set of donors.
-
-7.5 Where a vouch or partnership contributed to the fraud, that is stated too.
-
-## 8. People are protected
-
-8.1 Photographs, names, locations and medical details of soldiers, patients and
-civilians are published only with their informed consent.
-
-8.2 Consent given for one appeal does not extend to every future appeal.
-
-8.3 Nothing published compromises operational security: no positions, no
-movements, no unit strengths, no timing of deliveries in progress.
-
-8.4 Images and stories are not reused from other people's work, ever, in any
-context.
-
-8.5 **Donors are not published.** Donor names, handles, photographs and
-unredacted payment screenshots are not posted. Transfer screenshots are
-redacted before publication.
-
-8.6 This holds even where a donor has said they do not mind. Their
-circumstances can change, a public record of who funds Ukrainian units can
-create problems for them later, and the risk is not theirs alone to accept on
-behalf of everybody who follows the same practice. It is a settled norm in the
-international volunteer community and is not always known to volunteers inside
-Ukraine.
-
-8.7 Thanking donors publicly, by first name or by handle, at the donor's own
-explicit request and without payment detail, is a separate thing and is fine.
-
-## 9. Concerns are raised proportionately
-
-This section places obligations on the person raising a concern. It is here
-because scrutiny delivered badly does real damage of its own.
-
-9.1 Where the likely explanation is a gap in practice rather than dishonesty,
-the first approach is direct and private. Public escalation follows a
-non-answer, not precedes it.
-
-9.2 Public escalation is appropriate immediately where money is still actively
-being collected, where others are being asked to donate right now, or where a
-private approach has already been ignored.
-
-9.3 Concerns are about specific, checkable facts: this collection, this amount,
-this date, this missing report. Not about someone's character, tone, politics or
-personality.
-
-9.4 Recurring public lectures aimed at nobody in particular are not
-accountability. They read as gatekeeping, they push donors to disengage, and the
-funding lost lands on units, not on the people arguing.
-
-9.5 A concern that turns out to be wrong is withdrawn publicly, promptly, and at
-the same volume it was raised.
-
-9.6 Nobody is obliged to run a campaign. Handing evidence to the relevant unit
-or authority and then stopping is a legitimate response, and often a better one
-than sustaining a public dispute.
-
-9.7 Nobody is obliged to answer a concern raised abusively. Abuse voids the
-expectation in section 5, and both parties should be judged on their conduct
-once it starts.
+**Відкритість та виправлення** — на обґрунтовані запити надаються відповіді, занепокоєння висловлюються відповідально, а помилки виправляються.
 
 ---
 
-## Falling short
+## Статус Кодексу
 
-Nobody meets every clause of this from the day they start. Signing is a
-commitment to the direction, and to a specific behaviour when a shortfall is
-pointed out:
+Це добровільний Кодекс поведінки. Його підписання є публічним зобов’язанням дотримуватися його вимог.
 
-**Acknowledge it, state what you will do, and do it.**
+**Не існує реєстру, сертифікаційного органу чи процесу перевірки.** Ніхто не перевіряє, чи дотримується підписант вимог Кодексу. Підписант оприлюднює своє зобов’язання від власного імені через власні канали та надає посилання на цей Кодекс.
 
-The distinguishing behaviour of an honest operation is not perfection. It is
-what it does the first time somebody asks an uncomfortable question.
+Це зроблено навмисно. Цей Кодекс є стандартом, якого люди дотримуються самі і якого можуть вимагати від них інші. Це не знак, що надає довіру.
+
+Підписання не є сертифікацією, акредитацією, перевіркою, аудитом або гарантією того, що підписант ніколи не порушував його. Кожен, хто вирішує, чи робити пожертву, стати волонтером або партнером, повинен оцінювати підписанта за його діями та поведінкою, а не за тим, що він підписав цей Кодекс.
+
+Розділ 13 регулює, як можна та як не можна описувати статус підписанта. Розділ 14 регулює версії.
+
+Цей Кодекс доповнює, а не замінює чинне законодавство, нормативні акти, умови ліцензій, договірні вимоги та професійні зобов’язання.
+
+Його вимоги є пропорційними як до масштабу, так і до ризику. Від особи, яка збирає 300 євро, не очікується, що вона підтримуватиме адміністративні системи великої НГО, але основні зобов’язання щодо чесності, підзвітності, компетентності та дбайливості залишаються тими самими.
+
+Стандарти поведінки не змінюються залежно від масштабу. Однак записи, заходи контролю та процеси, що обґрунтовано необхідні для їхнього підтвердження, можуть змінюватися.
+
+У випадках, коли цей Кодекс вимагає надання інформації, згоди, каналів звітування або інформації щодо безпеки на користь отримувача допомоги чи волонтера, це має бути повідомлено мовою та у формі, які вони можуть обґрунтовано зрозуміти.
+
+Цей Кодекс застосовується до допомоги країні, що зазнає збройного нападу, та охоплює допомогу, призначену для використання у збройних силах. Він не розглядає цю мету як щось, що слід приховувати, пом’якшувати чи мінімізувати. Він вимагає, щоб це було чесно описано та законно оформлено, і регулює те, як підписанти ставляться до людей, з якими вони працюють, а не хід бойових дій.
 
 ---
 
-## Signatories
+## Визначення
 
-*(to be added)*
+**Ресурси допомоги** — це гроші, товари, матеріали, обладнання, послуги або робоча сила, що надаються з метою зазначеної допомоги чи підтримки, а не для особистої вигоди організатора.
+
+**Заклик** — це окремий запит до громадськості про надання грошей, товарів, праці чи інших ресурсів для конкретної мети або результату.
+
+Заклик **завершується** у найраніший із таких моментів: коли підписант припиняє збір ресурсів для нього; коли заявлена ціль досягнута; або коли заявлена мета досягнута чи відмінена. Якщо підписант не визначив цільову суму або момент завершення, заклик завершується, коли припиняється активне залучення ресурсів для нього.
+
+**Постійний фонд** — це безстроковий або періодичний збір коштів, який отримує ресурси для поточної мети без визначеного моменту завершення. Сюди входять постійні рахунки для пожертв, скриньки для пожертв, абонементи та постійні фонди.
+
+**Контрольовані товари** — це товари, програмне забезпечення або технології, що підлягають контролю за експортом, торгівлею, санкціями, військовим використанням або подвійним призначенням у будь-якій відповідній юрисдикції.
+
+**Матеріал** — це інформація, поведінка або обставини, які можуть обґрунтовано вплинути на рішення донора зробити внесок, рішення отримувача прийняти підтримку, рішення волонтера взяти участь або здійснити поїздку, а також на безпеку чи законність проведення діяльності.
+
+**Організація** — це благодійна організація, НУО, компанія, асоціація, партнерство, неформальна група або інший орган, через який дві або більше осіб діють під спільною ідентичністю, керівництвом або метою, незалежно від того, чи зареєстровані вони як юридична особа.
+
+**Публічна особиста підтримка** — це грошові кошти або матеріальні вигоди, які залучаються від громадськості повністю або частково для покриття власних витрат на прожиття особи або надання їй особистої фінансової підтримки.
+
+**Одержувач** — особа, організація або підрозділ, яким призначено отримати допомогу. **Кінцевий користувач** — особа, організація або підрозділ, яким призначено кінцеве використання допомоги.
+
+**Критично важливе для безпеки** — обладнання або діяльність, передбачувана несправність або неправильне використання яких може спричинити смерть або серйозні травми.
+
+**Гарантія** — це публічне підтвердження того, що інша особа чи організація є надійною, відповідальною або такою, що заслуговує на підтримку з боку інших.
 
 ---
 
-**Version 0.4. Draft for comment.**
+# 1. Підтримка має відповідати реальній потребі
+
+### 1.1
+Перед збором коштів або залученням допомоги підписанти повинні вжити розумних заходів, щоб переконатися, що передбачуваний одержувач має актуальну потребу в тому, що пропонується.
+
+### 1.2
+Потреби одержувачів та оперативні вимоги повинні мати пріоритет над уподобаннями донорів, рекламною цінністю або бажанням організатора надати конкретний предмет.
+
+### 1.3
+У випадках, коли обставини могли істотно змінитися, необхідність допомоги слід підтвердити ще раз перед здійсненням значних закупівель або поставок.
+
+Необхідно докласти розумних зусиль, щоб уникнути непотрібного дублювання та марнотратства.
+
+### 1.4
+Одержувачі повинні мати право відмовитися від невідповідної допомоги, вимагати обґрунтованих змін або повідомляти про проблеми, не побоюючись втратити підтримку в майбутньому.
+
+### 1.5
+Надання допомоги не повинно бути пов’язане з умовою участі одержувача в рекламних заходах, наданням особистих рекомендацій, наданням непотрібного доступу або присвоєнням почесних звань чи подібних пільг організатору чи донору.
+
+Це не перешкоджає встановленню обґрунтованих вимог щодо перевірки, звітності, аудиту, визнання інституційного фінансування або підтвердження того, що допомога була використана за призначенням.
+
+Такі вимоги не повинні без необхідності ставити під загрозу безпеку, гідність або оперативну безпеку одержувача.
+
+Підписанти не повинні приймати умови донорів, які вимагають іншого.
+
+### 1.6
+Підписанти повинні надати одержувачам розумні засоби для повідомлення про неякісну або невідповідну допомогу та висловлення занепокоєння щодо поведінки осіб, які діють від імені підписанта.
+
+Формальність такого механізму може відповідати масштабу та ризику операції.
+
+---
+
+# 2. Збір коштів здійснюється чесно, а ресурси контролюються
+
+### 2.1
+У кожному заклику до пожертв має бути зазначено, наскільки це дозволяє безпека:
+
+- що фінансується;
+- суму, яку планується зібрати;
+- передбачуваного одержувача або мету; та
+- будь-яку істотну невизначеність, що впливає на заклик.
+
+Заяви щодо вартості, терміновості, потреби та передбачуваного використання мають бути правдивими.
+
+### 2.2
+Ресурси, призначені для допомоги, повинні залишатися чітко відокремленими від особистих коштів і не можуть використовуватися для особистих витрат.
+
+Це застосовується незалежно від того, чи надходять кошти через банківський рахунок, платіжну систему, готівку, криптовалюту чи іншим способом.
+
+У разі можливості слід використовувати спеціальний рахунок для надходження коштів. Якщо кошти проходять через рахунок або гаманець, що містить інші кошти, облікові записи повинні дозволяти їх ідентифікацію та звірку.
+
+### 2.3
+Опубліковані реквізити для переказу коштів повинні відповідати особі або організації, яка проводить збір коштів, або ж про зв’язок між ними має бути повідомлено до того, як буде запрошено пожертви.
+
+Про істотні зміни в реквізитах для переказу коштів необхідно повідомляти через ті самі канали, що використовуються для збору коштів.
+
+### 2.4
+Підписанти не повинні надсилати незапрошені приватні пропозиції щодо збору коштів або платіжні реквізити особам, з якими у них немає попередніх стосунків або попереднього дозволу на контакт з метою збору коштів.
+
+Це не забороняє відповідного безпосереднього звернення до постійного донора або іншого існуючого контакту.
+
+### 2.5
+Ідентифікаційні дані, пов’язані зі збором коштів, не повинні вводити в оману.
+
+Підписанти не повинні створювати або керувати рахунком, організацією чи кампанією, які можна обґрунтовано сплутати з іншою особою чи організацією.
+
+Ім’я, брендинг або матеріали іншої особи чи організації не повинні використовуватися для збору коштів без відповідного дозволу та вказівки джерела.
+
+### 2.6
+Товари, придбані за рахунок пожертвуваних коштів, повинні описуватися як такі, що фінансуються донорами.
+
+Організатори можуть належним чином зазначувати свою роль у пошуку, виробництві, транспортуванні або доставці допомоги, але не повинні створювати враження, що вони особисто фінансували те, за що заплатили донори.
+
+### 2.7
+У разі якщо підписант отримує нагороду, почесну відзнаку, призначення або публічне визнання, пов’язані з роботою, що фінансується донорами, він не повинен приймати або повторювати розповідь про свій внесок, яка суттєво перебільшує його.
+
+Нагороди, почесні відзнаки та висвітлення в пресі не повинні подаватися як доказ того, що збір коштів був облікований.
+
+### 2.8
+Про суттєву зміну мети заклику до пожертв або постійного фонду необхідно повідомити до перенаправлення ресурсів.
+
+У разі можливості донорам окремого заклику до пожертв має бути надана можливість висловити заперечення або вимагати повернення свого внеску, якщо нова мета істотно відрізняється від початкової.
+
+Надлишкові ресурси мають бути задекларовані та використані відповідно до заявленої мети, якщо тільки зміна не розкрита на тих самих засадах.
+
+### 2.9
+Грошові надходження та виплати слід реєструвати в момент їх здійснення.
+
+Криптовалютні та інші цифрові перекази повинні бути зафіксовані в обсязі, достатньому для проведення звірки.
+
+Істотні комісії за платежі, конвертації валют та курсові прибутки чи збитки повинні відображатися у звітності, якщо вони впливають на ресурси, доступні для заявленої мети.
+
+### 2.10
+Особа, що підписала документ та відповідає за матеріальні кошти, активи або документацію, пов’язані з гуманітарною допомогою, повинна вжити розумних запобіжних заходів, щоб забезпечити їх ідентифікацію, збереження та облік у разі своєї смерті або втрати здатності продовжувати роботу.
+
+---
+
+# 3. Збір коштів підлягає звітуванню та звірці
+
+### 3.1
+Після кожного завершеного заклику до пожертв має бути складено звіт, у якому, залежно від обставин, має бути зазначено:
+
+- скільки коштів було зібрано;
+- що було придбано або профінансовано;
+- скільки це коштувало;
+- що сталося з будь-яким надлишком; та
+- чи отримав користь передбачений одержувач або чи було досягнуто передбачену мету.
+
+### 3.2
+Звіти повинні супроводжуватися доказами, достатніми для реальної перевірки.
+
+Залежно від обставин, це можуть бути рахунки-фактури, квитанції, записи про платежі, транспортні документи, протоколи передачі, листування, фотографії або відео.
+
+**Самі по собі фотографії, відгуки та відео про доставку не є фінансовою звіркою.**
+
+Фінансові та транзакційні записи, що підтверджують звіти, повинні зберігатися щонайменше шість років або довше, якщо цього вимагає чинне законодавство, ліцензія, договір або умови фінансування.
+
+### 3.3
+Протягом 60 днів після завершення збору коштів підписант повинен опублікувати або підсумковий звіт, або проміжний звіт.
+
+У проміжному звіті має бути зазначено, залежно від обставин:
+
+- суму зібраних коштів;
+- витрати на даний момент;
+- суму, що залишається до сплати;
+- причини, через які звіт про збір коштів ще не може бути повністю узгоджений; та
+- очікувані наступні кроки.
+
+Після завершення діяльності має бути опубліковано остаточний звіт.
+
+### 3.4
+У разі залучення коштів через постійний фонд перший звітний період починається з моменту першого надходження коштів до фонду.
+
+Підписант повинен опублікувати фінансовий звіт, що охоплює кожен період тривалістю не більше трьох місяців, із зазначенням, залежно від обставин:
+
+- початкового залишку;
+- отриманих коштів;
+- витрат;
+- витрат, розбитих за категоріями, достатньо конкретними, щоб розсудливий донор міг зрозуміти, як були використані кошти; та
+- кінцевого залишку.
+
+Принаймні раз на дванадцять місяців діяльність постійного фонду також має бути висвітлена у повному звіті, що відповідає вимогам щодо підтвердження, викладеним у пункті 3.2.
+
+**Менші фонди.** Якщо протягом попередніх дванадцяти місяців постійний фонд отримав менше ніж 5 000 фунтів стерлінгів або розумний еквівалент у іншій валюті, квартальні звіти не вимагаються, і достатньо одного річного звіту.
+
+Як тільки цей поріг перевищено, з наступного звітного періоду застосовується квартальна звітність.
+
+### 3.5
+Використання постійного фонду як місця надходження платежу не перетворює окремий заклик до пожертв на постійний збір коштів.
+
+Якщо кошти збираються для конкретної, чітко визначеної покупки, проєкту, одержувача або мети збору коштів, така діяльність вважається закликом до пожертв у розумінні пунктів 3.1–3.3, незалежно від рахунку, скриньки, гаманця чи іншого місця надходження платежу, через яке надходять кошти.
+
+### 3.6
+У новому заклику до пожертв має бути вказано на будь-які істотні прострочені звіти за попередні заклики та надано доступ до останнього проміжного звіту.
+
+Якщо у постійного фонду є прострочений квартальний або річний звіт, про це також має бути зазначено перед запуском нового заклику до пожертв із використанням цього фонду та перед будь-яким поновленням публічного залучення коштів для самого фонду.
+
+Онлайн-стрічка пожертв або перелік вхідних платежів не замінюють звітування про витрати.
+
+### 3.7
+Конфіденційна інформація про одержувачів, місцезнаходження або операції може не розголошуватися.
+
+У разі, якщо це обґрунтовано можливо, слід вказати причину, а неконфіденційна фінансова інформація та інформація про закупівлі все одно має бути надана.
+
+---
+
+# 4. Робота виконується компетентно, а допомога відповідає призначенню
+
+### 4.1
+Підписанти не повинні заявляти про кваліфікацію, експертизу чи досвід, яких вони не мають.
+
+Роботи, від яких залежить безпека, не повинні виконуватися особами, чия компетенція цього не дозволяє, без належного нагляду або підтримки фахівців.
+
+### 4.2
+Товари повинні бути безпечними та придатними для передбаченого використання.
+
+Рівень необхідної перевірки повинен відповідати передбачуваним наслідкам несправності.
+
+### 4.3
+Медичне, захисне та технічне обладнання, від якого залежить безпека, має бути отримано з джерел, ідентичність та походження яких можна обґрунтовано встановити, а також перевірено на справжність, наявність відповідних сертифікатів та термін придатності, де це доречно.
+
+### 4.4
+Виготовлене, модифіковане або зібране обладнання має бути належним чином випробувано перед поставкою.
+
+Про істотні обмеження під час випробувань необхідно повідомити одержувача. Експериментальне обладнання та прототипи мають бути чітко ідентифіковані.
+
+### 4.5
+Вживане обладнання має бути належним чином перевірено перед постачанням.
+
+У випадках, коли безпечне використання вимагає фахової компетентності або підготовки, необхідно вжити розумних заходів, щоб переконатися, що одержувач володіє ними або має доступ до відповідного навчання.
+
+### 4.6
+Якщо згодом виявляється, що поставлене обладнання є істотно небезпечним, підробленим або дефектним, про це необхідно негайно повідомити відповідних одержувачів.
+
+У випадках, коли інші особи можуть володіти тим самим продуктом або партією, про які йдеться, про ризик необхідно повідомити ширше, якщо це може запобігти заподіянню шкоди.
+
+**Репутація ніколи не повинна мати пріоритет над безпекою.**
+
+---
+
+# 5. Надання підтримки у військовій сфері, у сфері контрольованих товарів та товарів подвійного призначення здійснюється законно та прозоро
+
+### 5.1
+Підтримка має описуватися відповідно до її фактичного призначення.
+
+Підписанти не повинні описувати військову підтримку як гуманітарну допомогу або приховувати військове, подвійне або, у відповідних випадках, летальне призначення з метою отримання пожертв, послуг, транспорту, обробки платежів або регуляторного режиму, які в іншому випадку були б недоступними.
+
+### 5.2
+Перед експортом, передачею або організацією передачі товарів, що підлягають контролю, підписанти повинні вжити розумних заходів для встановлення:
+
+- юрисдикцій та заходів контролю, що застосовуються;
+- класифікації товарів або технологій;
+- необхідності отримання ліцензії, дозволу або подання декларації;
+- наявності будь-яких санкцій або обмежень щодо кінцевого використання; та
+- особи та передбачуваного використання кінцевого користувача.
+
+У разі, якщо ситуація є нечіткою, необхідно отримати кваліфіковану консультацію або офіційні рекомендації від компетентних органів.
+
+**Якщо неможливо обґрунтовано встановити відповідну класифікацію, необхідність дозволу або законність передачі, передачу не можна здійснювати до усунення цієї невизначеності.**
+
+### 5.3
+Військові або контрольовані товари не можна свідомо постачати неперевіреному кінцевому користувачу.
+
+Перевірка має бути пропорційною до характеру, вартості та чутливості товарів, а також необхідно зберігати достатні записи, що підтверджують підстави, на яких було здійснено передачу.
+
+### 5.4
+У разі залучення посередника необхідно вжити розумних заходів для встановлення як ролі посередника, так і передбачуваного кінцевого користувача.
+
+### 5.5
+Документи, описи, дані про вартість, заяви щодо кінцевого використання та інша інформація, що надається органам влади, перевізникам, фінансовим установам або іншим сторонам, не повинні свідомо містити неправдиві або оманливі відомості.
+
+### 5.6
+У разі якщо підписант отримує достовірні докази того, що військові або контрольовані товари були істотно відхилені від зазначеного одержувача або призначення, цей факт має бути задокументований та розслідуваний.
+
+Подальші поставки мають бути призупинені, якщо це обґрунтовано необхідно для запобігання додатковому відхиленню від призначення, а також мають дотримуватися будь-які зобов’язання щодо звітування, що випливають із чинного законодавства, умов ліцензії або санкцій.
+
+Підписант не несе автоматичної відповідальності за кожну дію перевіреного одержувача після законної передачі, але достовірні докази відхилення від призначення не повинні ігноруватися.
+
+### 5.7
+Підписанти не повинні надавати або організовувати підтримку, про яку їм відомо або щодо якої вони мають обґрунтовані підстави вважати, що вона призначена для використання у спосіб, який є незаконним, зокрема для навмисного націлювання на цивільне населення або інших серйозних порушень права збройних конфліктів.
+
+Від підписантів не очікується оцінка оперативних рішень або рішень щодо націлювання, і вони не несуть відповідальності за законну поведінку перевіреного одержувача. Не можна ігнорувати достовірні докази незаконного передбачуваного використання.
+
+---
+
+# 6. Публічна особиста підтримка є прозорою
+
+Отримання фінансової підтримки за роботу, пов’язану з Україною, не є неетичним.
+
+Публічна особиста підтримка розглядається інакше, ніж звичайна заробітна плата чи приватний дохід, не пов’язаний із цією діяльністю, оскільки підписант просить громадськість вирішити, чи надавати цій особі додаткову фінансову підтримку.
+
+Це гроші, які донори надають конкретній особі, а не Україні. Потенційні донори мають право на достатню інформацію, щоб прийняти це рішення обґрунтовано.
+
+### 6.1
+Публічна особиста підтримка має чітко відрізнятися від коштів, зібраних на допомогу.
+
+### 6.2
+Підписант, який звертається за постійною публічною особистою підтримкою, повинен оприлюднити приблизну середню суму, яку він отримує від такої підтримки.
+
+Ця цифра має об’єднувати **усі канали публічної особистої підтримки** і, як правило, базуватися на даних за попередні три повні місяці.
+
+Суму можна округлити, щоб уникнути хибної точності, але округлення не повинно істотно занижувати отриману підтримку.
+
+Для новоствореної кампанії зі збору коштів, яка діє менше трьох місяців, можна використовувати середню суму, отриману на даний момент.
+
+Якщо підтримка надходить у кількох валютах, суми необхідно перерахувати на розумній та послідовно застосованій основі у валюту, в якій більша частина цієї підтримки залучається або отримується.
+
+Надходження слід враховувати в момент їх отримання або надання підписувачу. Не можна обирати чи застосовувати метод розрахунку, який істотно занижує розкриту суму.
+
+**Особа, яка звертається до громадськості з проханням про особисте фінансування, повинна повідомити громадськості приблизну суму, яку вона вже отримала від неї.**
+
+### 6.3
+Розкрита сума має переглядатися щонайменше щокварталу, а в разі значних змін, які можуть зробити опубліковану цифру істотно оманливою, — раніше.
+
+Ця цифра відображає отриману підтримку, а не суму, що залишилася після особистих витрат.
+
+Істотні періодичні вигоди в натуральній формі також мають бути розкриті, хоча їм не обов’язково присвоювати штучну грошову вартість.
+
+### 6.4
+У разі одноразового публічного заклику, спрямованого повністю або частково на особисту вигоду підписанта, загальна зібрана сума має бути оприлюднена після завершення збору коштів.
+
+### 6.5
+Підписант, який прямо заявляє про особисті фінансові труднощі або потреби, повинен розкривати будь-які доходи чи допомогу, упущення яких зробило б таку заяву істотно оманливою.
+
+В іншому випадку цей Кодекс не містить загальної вимоги щодо оприлюднення не пов’язаних із цим приватних доходів, заощаджень, сімейних фінансів або точної суми заробітної плати, отриманої від роботодавця.
+
+### 6.6
+У разі, якщо оприлюднення приблизної суми створило б конкретний і вірогідний ризик для безпеки, підписант може не оприлюднювати цю цифру.
+
+У разі приховування цифри підписант повинен публічно заявити, що це зроблено з міркувань безпеки, не повинен натякати на те, що не отримує жодної публічної особистої підтримки, а також повинен переглядати це рішення щонайменше раз на рік та щоразу, коли обставини істотно змінюються.
+
+Цей виняток стосується оприлюднення суми. Він не скасовує вимоги щодо відокремлення особистих ресурсів підтримки та допомоги, а також щодо ведення обліку кожного з них.
+
+### 6.7
+Ресурси особистої підтримки та допомоги повинні зберігатися та обліковуватися окремо.
+
+Інформація про розкриття повинна розміщуватися там, де потенційні особисті донори з розумною ймовірністю зможуть її побачити, а не просто десь, де вона технічно доступна.
+
+---
+
+# 7. Розкриття конфліктів інтересів та фінансових відносин
+
+### 7.1
+Оплачувані посади, комісійні, пільги в натуральній формі та інші суттєві фінансові відносини, що мають відношення до, на перший погляд, незалежної або волонтерської діяльності, повинні бути розкриті разом з інформацією про те, хто їх надає.
+
+### 7.2
+Суттєві конфлікти інтересів повинні бути розкриті та врегульовані.
+
+Сюди входить фінансовий або значний особистий інтерес у постачальника, підрядника, одержувача, партнера або інше рішення, від якого підписант або особа, тісно пов’язана з ним, може отримати вигоду.
+
+### 7.3
+Підписанти, відповідальні за вибір постачальників, партнерів або одержувачів, повинні діяти в інтересах заявленої мети, а не своїх власних фінансових чи особистих інтересів.
+
+### 7.4
+Не можна пропонувати, вимагати чи приймати хабарі, відкати та нерозкриті комісії.
+
+### 7.5
+Не можна вводити аудиторію в оману щодо незалежності схвалення, рекомендації чи думки, якщо існують істотні нерозкриті відносини.
+
+**Отримання винагороди не є проблемою. Проблемою є її приховування.**
+
+---
+
+# 8. Захист людей, інформації та гідності
+
+### 8.1
+До людей слід ставитися з повагою до їхньої гідності, їх не можна експлуатувати з метою збору коштів або реклами.
+
+Фотографії, особисті історії, імена та медична інформація мають використовуватися лише за умови отримання відповідної інформованої згоди та у спосіб, що забезпечує точність і повагу.
+
+Не можна вважати, що згода, надана для однієї мети, поширюється на не пов’язане з нею майбутнє використання.
+
+### 8.2
+Підписанти не повинні експлуатувати залежність, вразливість, статус або доступ особи до допомоги з метою отримання сексуальної, фінансової, особистої чи репутаційної вигоди.
+
+Підписант, який має штатних співробітників, волонтерів або інших осіб, що діють від його імені, повинен вживати пропорційних заходів для запобігання та протидії зловживанням, домаганням, сексуальній експлуатації та дискримінаційній поведінці.
+
+### 8.3
+Особисті дані повинні збиратися лише у випадках, коли це обґрунтовано необхідно, належним чином захищатися та зберігатися лише протягом строку, який є обґрунтовано необхідним або передбачений законодавством.
+
+Особисті дані донорів та нередагована інформація про платежі за замовчуванням є конфіденційними.
+
+Донорам можна публічно висловлювати подяку, якщо вони надали на це згоду і це не створює необґрунтованого ризику.
+
+### 8.4
+Опублікована інформація не повинна без необхідності ставити під загрозу оперативну безпеку, зокрема щодо поточних позицій, переміщень, чисельності підрозділів або маршрутів і термінів доставки.
+
+### 8.5
+Особи, яких запрошують або заохочують до поїздки в Україну, повинні отримати правдиву інформацію про роботу, передбачувані ризики та доступну підтримку, перш ніж прийняти рішення.
+
+У разі якщо підписант організовує або сприяє поїздці в зону підвищеного ризику або поблизу активних бойових дій, інформація про суттєві ризики має бути надана в письмовій формі мовою та у формі, які мандрівник може розумно зрозуміти, а підтвердження про ознайомлення мандрівника має бути збережене.
+
+У разі необхідності це має охоплювати:
+
+- роботу, яку належить виконувати;
+- ймовірну близькість до зон бойових дій;
+- страхування;
+- заходи на випадок надзвичайних ситуацій та евакуації;
+- суттєві правові вимоги; та
+- яку допомогу реально можна отримати у разі серйозних травм або смерті.
+
+Якщо жодних суттєвих заходів не передбачено, про це слід чітко повідомити.
+
+### 8.6
+Непідготовлені або недосвідчені цивільні особи не повинні наражатися на непотрібний ризик на передовій заради публічності, контенту, статусу чи досвіду для донорів.
+
+Кожен, хто організовує поїздку, повинен мати відповідну інформацію про надзвичайні ситуації та найближчих родичів.
+
+### 8.7
+Не можна тиснути на людей, змушуючи їх виконувати небезпечну роботу лише тому, що вони стали волонтерами, зробили пожертву або запропонували допомогу.
+
+Волонтерів не можна принижувати за те, що вони відпочивають, відмовляються від участі або повертаються додому.
+
+### 8.8
+Підписант, який призначає осіб на посади, пов’язані зі значною довірою, вразливими особами або значною відповідальністю без нагляду, повинен проводити відповідні перевірки рекомендацій та заходів безпеки.
+
+Підписант не повинен свідомо приховувати **підтверджені серйозні занепокоєння щодо безпеки** під час надання рекомендацій або іншої інформації про придатність особи до аналогічної роботи, якщо розкриття такої інформації є законним, справедливим та обґрунтовано необхідним для захисту інших.
+
+Непідтверджені звинувачення або невирішені чутки не повинні подаватися як встановлені факти.
+
+### 8.9
+На підставі обґрунтованих занепокоєнь щодо безпеки необхідно вживати відповідних заходів, а в разі потреби або якщо це обґрунтовано необхідно для захисту інших осіб, передавати справу до відповідного органу чи організації.
+
+---
+
+# 9. Підтримка та партнерство несуть відповідальність
+
+### 9.1
+Перш ніж просувати іншу кампанію, підписанти повинні вжити розумних заходів, щоб не просувати те, про що вони знають або мають обґрунтовані підстави підозрювати, що це є істотно оманливим, небезпечним або серйозно безвідповідальним.
+
+### 9.2
+Спільні кампанії, офіційні партнерства та тривалі відносини з метою збору коштів вимагають пропорційної належної ретельності.
+
+Це має включати розгляд того, чи може інша сторона надати звіт про попередні збори коштів та чи існують істотні невирішені занепокоєння.
+
+### 9.3
+Публічна підтримка повинна ґрунтуватися на обґрунтованих доказах.
+
+Дружба, популярність, нагороди, висвітлення у пресі чи особиста зустріч з кимось не можуть замінити доказів прозорої та підзвітної діяльності.
+
+Сам факт того, що інша особа чи організація підписала цей Кодекс, не є доказом прозорої та підзвітної діяльності.
+
+### 9.4
+Істотна підтримка або рекомендація, яка згодом виявилася істотно помилковою, має бути виправлена або відкликана публічно та негайно.
+
+Видалення оригінальної заяви без виправлення враження, яке вона створила, є недостатнім.
+
+### 9.5
+Підписанти не повинні натякати, що відповідальність, встановлена щодо однієї особи, організації чи фонду, поширюється на окремо контрольовані заходи зі збору коштів або діяльність, щодо яких така відповідальність не була встановлена.
+
+---
+
+# 10. Питання, скарги та занепокоєння розглядаються відповідально
+
+### 10.1
+Підписанти повинні забезпечити доступний та контрольований канал, через який донори, отримувачі, волонтери та інші особи можуть порушувати питання або висловлювати занепокоєння.
+
+Про цей канал слід повідомити одержувачів та волонтерів, якщо це обґрунтовано доречно, мовою та у формі, які вони можуть обґрунтовано зрозуміти.
+
+Підписант, який має штатних співробітників, волонтерів або інших осіб, що діють від його імені, повинен забезпечити їм пропорційні засоби для конфіденційного повідомлення про серйозні порушення без побоювання репресій.
+
+### 10.2
+На обґрунтовані запитання щодо збору коштів, витрат, закупівель та надання допомоги слід відповідати відкрито та протягом розумного строку.
+
+На суттєве питання щодо підзвітності зазвичай слід надати підтвердження отримання протягом семи днів.
+
+Якщо на той момент неможливо надати змістовну відповідь, у підтвердженні слід пояснити, коли очікується відповідь або чому на даний момент неможливо обґрунтовано вказати терміни.
+
+Якщо питання є публічним і на нього можна безпечно відповісти публічно, змістовна відповідь зазвичай має бути публічною.
+
+### 10.3
+Підписанти не повинні блокувати, повідомляти про когось, виключати, залякувати або іншим чином чинити репресії проти когось виключно за те, що ця особа поставила законне питання щодо підзвітності або добросовісно висловила занепокоєння.
+
+Наполегливість, незгода та незручні запитання самі по собі не є домаганням чи зловживанням.
+
+Не слід заохочувати прихильників переслідувати осіб, які висловлюють обґрунтовані занепокоєння.
+
+### Висловлення занепокоєння щодо інших осіб
+
+Пункти 10.4–10.8 застосовуються до підписантів, коли вони висловлюють занепокоєння щодо інших осіб.
+
+Вони також пропонуються ширшій спільноті як опис відповідальної поведінки.
+
+### 10.4
+Якщо немає безпосереднього істотного ризику, а очевидна проблема може обґрунтовано бути помилкою, упущенням або прогалиною у практиці, перед публічним звинуваченням зазвичай слід спробувати прямий підхід.
+
+### 10.5
+Негайне публічне попередження може бути доречним, якщо затримка створює істотну небезпеку, зокрема у випадках, коли:
+
+- активно збираються пожертви на основі інформації, що вводить в істотну оману;
+- гроші або майно перебувають під безпосередньою загрозою;
+- може постачатися або використовуватися небезпечне обладнання;
+- люди можуть наражатися на небезпеку, якої можна уникнути;
+- докази можуть зникнути; або
+- обґрунтовані спроби отримати відповідь вже були проігноровані.
+
+### 10.6
+У зауваженнях слід розрізняти встановлені факти, обґрунтовані висновки та звинувачення.
+
+По можливості вони повинні стосуватися конкретних, перевірених дій, а не ґрунтуватися на характері, особистості, політичних поглядах чи репутації.
+
+Серйозні звинувачення щодо поведінки, мотивів або приналежності особи повинні мати обґрунтовану доказову базу.
+
+### 10.7
+Істотне звинувачення, яке виявилося помилковим, має бути виправлене або відкликане негайно та з належною висвітленістю.
+
+### 10.8
+Цей Кодекс не зобов’язує підписанта проводити тривалу публічну кампанію або вдаватися до погроз, переслідувань чи зловживань.
+
+Надання доказів постраждалій особі, організації, регуляторному органу, правоохоронному органу або іншому відповідному органу, а потім припинення взаємодії може вважатися відповідальною поведінкою.
+
+Поведінку особи, яка повідомляє про проблему, та поведінку особи, яка на неї реагує, слід оцінювати незалежно одна від одної.
+
+---
+
+# 11. Розгляд випадків шахрайства та серйозних порушень
+
+### 11.1
+У разі наявності достовірних доказів шахрайства, крадіжки, умисного розтрачання, корупції, серйозних порушень заходів безпеки або інших істотних зловживань необхідно вживати відповідних заходів.
+
+Відповідні заходи можуть включати захист активів, що залишилися, збереження доказів, інформування постраждалих сторін та повідомлення про справу відповідному органу.
+
+### 11.2
+Істотні порушення, про які підписант знає або має обґрунтовані підстави вважати, що вони відбулися, не повинні приховуватися виключно з метою захисту репутації.
+
+Публічне розкриття інформації може бути відкладено або обмежено, якщо це необхідно для уникнення істотного негативного впливу на розслідування, заходи з відшкодування збитків, судовий процес, оперативну безпеку або безпеку будь-якої особи.
+
+---
+
+# 12. Помилки визнаються та виправляються
+
+### 12.1
+Ненавмисна помилка, адміністративна помилка або прогалина у практиці самі по собі не є доказом нечесності.
+
+### 12.2
+У разі виявлення істотного недоліку очікувана реакція така:
+
+**Визнати його. Пояснити, що буде зроблено. Виправити його.**
+
+### 12.3
+У випадках, коли це могло істотно вплинути на інших осіб, слід вжити розумних заходів для інформування їх про вжиті виправні заходи.
+
+### 12.4
+Повторне невиправлення тієї самої проблеми, навмисне приховування або помста за законний контроль є більш серйозними порушеннями, ніж поодинока помилка, визнана та виправлена з добросовісними намірами.
+
+---
+
+# 13. Підписання та зазначення статусу підписанта
+
+### 13.1
+Особа або організація підписує цей Кодекс, опублікувавши заяву про приєднання через канали, які вони використовують для своєї діяльності з підтримки України, вказавши прийняту версію та надавши посилання на текст Кодексу або опублікувавши його.
+
+Не існує жодної заявки, жодного затвердження та жодного централізованого списку.
+
+### 13.2
+Підписант може описувати себе як:
+
+> **Підписант «Стандартів поведінки для волонтерів та організацій, що підтримують Україну», версія [X].**
+
+Допускається використання скороченої форми за умови, що в ній вказано Кодекс та прийняту версію.
+
+### 13.3
+Підписанти не повинні, на підставі підписання, описувати або представляти себе як:
+
+- сертифікованих;
+- акредитованих;
+- затверджених;
+- перевірених;
+- проаудитованих;
+- пройдених перевірку;
+- зареєстрованих;
+- гарантовано надійних; або
+- з будь-яким еквівалентним описом.
+
+### 13.4
+Підписанти не повинні створювати або використовувати значок, логотип, марку, графічний елемент чи формулювання, які могли б обґрунтовано наводити на думку, що будь-яка організація їх перевірила, проконтролювала, затвердила або схвалила.
+
+### 13.5
+Якщо підписанта запитують, чи він підписав Кодекс, він повинен мати змогу вказати на власне опубліковане зобов’язання.
+
+### 13.6
+Особа або організація, яка більше не дотримується цих зобов’язань, повинна негайно видалити або внести зміни до своєї опублікованої заяви та припинити представляти себе як підписанта.
+
+### 13.7
+Неправдиве представлення статусу підписанта або продовження представлення себе як підписанта після припинення дотримання Кодексу саме по собі є істотним порушенням Кодексу.
+
+---
+
+# 14. Версії та поправки
+
+### 14.1
+Кожна опублікована версія цього Кодексу повинна містити:
+
+- номер версії;
+- дату публікації;
+- дату набрання чинності; та
+- публічний перелік змін.
+
+### 14.2
+Зміни класифікуються як:
+
+**Редакційні** — виправлення, уточнення або реструктуризація, що істотно не змінюють зобов’язань підписантів.
+
+**Істотні** — зміни, що вводять, вилучають або істотно змінюють суттєві зобов’язання.
+
+### 14.3
+Редакційні зміни не вимагають жодних дій від існуючих підписантів.
+
+### 14.4
+Після істотного перегляду підписант повинен ознайомитися з новою версією та оновити свою опубліковану заяву протягом 60 днів з дати набрання нею чинності.
+
+Підписант, який не приймає переглянуту версію, повинен або вказати, яку версію він приймає, або припинити представляти себе як підписанта.
+
+### 14.5
+Опублікована заява про зобов’язання має містити зазначення прийнятої версії, щоб кожен, хто її читає, міг бачити, що саме було фактично взято на себе.
+
+---
+
+# Використання цього Кодексу
+
+Ніхто не перевіряє, чи дотримуються підписанти його вимог. Це завдання належить тим людям, у яких вони просять грошей, товарів, часу та довіри.
+
+Цей Кодекс написано так, щоб його можна було використовувати як набір запитань. Кожен може ним користуватися, незалежно від того, чи підписував він щось.
+
+**Якщо ви плануєте зробити пожертву:**
+
+- Попросіть показати звіт за останній заклик до пожертв. Фотографії та відео з доставки не є фінансовою звіркою.
+- Якщо це постійна скринька для пожертв, передплата або постійний фонд, запитайте, де знаходяться квартальні звіти та річний звіт.
+- Перевірте, чи відповідає отримувач платежу особі чи організації, яка просить про допомогу.
+- Якщо заклик стосується підтримки військових або засобів подвійного призначення, переконайтеся, що це чітко зазначено.
+
+**Якщо хтось просить громадськість фінансувати його особисто:**
+
+- Запитайте, скільки приблизно він уже отримує від громадськості.
+- Запитайте, чи особисті кошти та кошти на допомогу зберігаються окремо.
+- Якщо вони заявляють про скрутне становище, ця заява має враховувати те, що вони вже отримують.
+
+**Якщо вас просять поїхати у відрядження або стати волонтером:**
+
+- Попросіть надати інформацію про ризики в письмовій формі, включаючи страхування, евакуацію та те, що станеться, якщо ви отримаєте серйозні травми або загинете.
+- Якщо чесна відповідь полягає в тому, що таких заходів не передбачено, ви маєте право дізнатися про це, перш ніж давати згоду.
+
+**Якщо хтось каже вам, що підписав цей Кодекс:**
+
+- Попросіть їх показати вам опубліковане зобов’язання та вказати, про яку саме версію йдеться.
+- Підпис є самодекларацією. Ніхто її не перевіряв. Це відправна точка для запитань, а не відповідь на них.
+
+**Підписант, який обурюється цими запитаннями, тим самим щось вам сигналізує.**
+
+---
+
+# Зобов’язання
+
+Підписуючи цей Кодекс, ми зобов’язуємося:
+
+- ставити мету роботи та потреби отримувачів вище за особисті інтереси чи публічність;
+- чесно описувати те, чим ми займаємося, як ми фінансуємося та які інтереси можуть на нас впливати;
+- звітувати про довірені нам ресурси;
+- діяти в межах нашої компетенції та докладати розумних зусиль щодо того, що ми надаємо;
+- поводитися з військовою та контрольованою допомогою законно та прозоро;
+- захищати безпеку, приватність та гідність людей, з якими ми працюємо;
+- відповідати на обґрунтовані запитання та відповідально висловлювати занепокоєння; та
+- визнавати та виправляти суттєві недоліки.
+
+Ми не претендуємо на досконалість.
+
+Ми беремо на себе відповідальність.
+
+**Довіра до діяльності з підтримки України має ґрунтуватися на фактах та поведінці, а не лише на репутації.**
+
+---
+
+**Версія 0.10 — проект.**
