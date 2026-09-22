@@ -10,7 +10,7 @@ build:
 
 # Standards of Conduct for Volunteers and Organisations Supporting Ukraine
 
-**Draft v0.10 — for consultation**
+**Draft v0.11 — for consultation**
 
 ## Purpose
 
@@ -264,7 +264,7 @@ The reason must be stated where reasonably possible, and non-sensitive financial
 
 ---
 
-# 4. Work is competent and aid is fit for purpose
+# 4. Work is within competence and aid is fit for purpose
 
 ### 4.1
 Signatories must not claim qualifications, expertise or experience they do not possess.
@@ -272,24 +272,50 @@ Signatories must not claim qualifications, expertise or experience they do not p
 Safety-critical work must not be undertaken beyond a person's competence without appropriate supervision or specialist support.
 
 ### 4.2
+Signatories must act within their competence, role and remit.
+
+A signatory must not assume a function that properly belongs to a trained professional, a military authority, a law enforcement body or a state agency.
+
+This includes, but is not limited to:
+
+- medical treatment, triage or clinical advice beyond the person's training;
+- psychological, trauma or crisis support beyond the person's training;
+- evacuation, recovery or rescue work in conditions requiring specialist competence;
+- security, reconnaissance, intelligence, target identification or any related activity;
+- covert investigation of, or surveillance of, individuals;
+- legal advice.
+
+Raising accountability concerns about fundraising is not covert investigation, and is dealt with in section 10.
+
+### 4.3
+Need, urgency, sincerity and the absence of anyone else doing the work do not create competence.
+
+That a task is genuinely necessary is not a reason for an unqualified person to attempt it. Where a need falls outside a signatory's competence, the appropriate response is to refer it to someone qualified or to a proper authority, and to say plainly that it is outside their remit.
+
+### 4.4
+A signatory whose activity expands materially beyond the work it is known and funded for must be able to demonstrate the competence, governance and authority appropriate to the new activity before undertaking it.
+
+Established reputation in one field is not competence in another, and an audience's confidence is not a qualification.
+
+### 4.5
 Goods must be safe and suitable for their intended use.
 
 The level of checking required must reflect the foreseeable consequences of failure.
 
-### 4.3
+### 4.6
 Safety-critical medical, protective and technical equipment must be obtained from sources whose identity and provenance can reasonably be established and checked for authenticity, relevant certification and usable life where applicable.
 
-### 4.4
+### 4.7
 Manufactured, modified or assembled equipment should be tested appropriately before delivery.
 
 Material limitations in testing must be disclosed to the recipient. Experimental equipment and prototypes must be clearly identified.
 
-### 4.5
+### 4.8
 Second-hand equipment should be inspected appropriately before supply.
 
 Where safe use requires specialist competence or training, reasonable steps must be taken to establish that the recipient has it or has access to suitable instruction.
 
-### 4.6
+### 4.9
 If supplied equipment is subsequently found to be materially unsafe, counterfeit or defective, affected recipients must be told promptly.
 
 Where others may possess the same affected product or batch, the risk must be communicated more widely where doing so may prevent harm.
@@ -446,6 +472,34 @@ Donors may be thanked publicly where they have consented and doing so creates no
 Published information must not unnecessarily compromise operational security, including current positions, movements, unit strength or delivery routes and timings.
 
 ### 8.5
+Signatories must not solicit, gather, compile or pass on identifying information about military units or personnel.
+
+This applies to unit designations and subordination, personnel names and callsigns, positions, strengths, capabilities, equipment holdings, and which unit is responsible for a given task or area.
+
+It applies whether the request is made publicly, by direct message, in a group, or in person, and whatever the stated purpose. Wanting to deliver aid, route a donation, offer support or expose wrongdoing does not make the resulting information safe. Aid is delivered without an inventory of who operates what and where.
+
+**Aggregation is itself the harm.** Individually unremarkable fragments, once compiled, become targeting material regardless of what the compiler intended to create.
+
+Inviting replies privately is not a safeguard. It conceals both the answers and who supplied them, and it reaches people who are not placed to judge what is safe to disclose.
+
+### 8.6
+Signatories must not respond to a request of the kind described in 8.5, including partially or with information believed to be already public.
+
+Such a request must be reported to an appropriate authority, and to the units affected where they can be identified.
+
+Where a request has been made publicly, or to a wide audience, the fact that it was made should also be said publicly, so that others do not respond to it.
+
+### 8.7
+Contact with a military unit must be established through legitimate channels, including the unit's own official channels, its press or liaison officer, the relevant ministry, or an established organisation with a pre-existing relationship.
+
+Where a signatory necessarily holds unit contact details for delivery purposes, those details must be held only as long as reasonably necessary, must not be shared, and must not be consolidated into any list, spreadsheet or database beyond what the work actually requires.
+
+### 8.8
+Standing, length of service, previous deliveries, awards, audience size and personal reputation are irrelevant to 8.5 to 8.7.
+
+A request from a well-known figure carries greater risk than the same request from a stranger, because more people will answer it.
+
+### 8.9
 People invited or encouraged to travel to Ukraine must receive an honest account of the work, foreseeable risks and available support before committing.
 
 Where a signatory organises or facilitates travel into a high-risk area or near active hostilities, the material risk information must be provided in writing, in a language and form the traveller can reasonably understand, and the traveller's acknowledgement retained.
@@ -461,24 +515,24 @@ Where relevant, this must cover:
 
 Where no meaningful provision exists, that must be said plainly.
 
-### 8.6
+### 8.10
 Untrained or inexperienced civilians must not be exposed to unnecessary frontline risk for publicity, content, status or a donor experience.
 
 Anyone arranging travel must maintain appropriate emergency and next-of-kin information.
 
-### 8.7
+### 8.11
 People must not be pressured into dangerous work because they have volunteered, donated or offered to help.
 
 Volunteers must not be shamed for resting, withdrawing or returning home.
 
-### 8.8
+### 8.12
 A signatory appointing people to positions involving significant trust, vulnerable people or substantial unsupervised responsibility should undertake proportionate reference and safeguarding checks.
 
 A signatory must not knowingly conceal **substantiated serious safeguarding concerns** when providing a reference or other information about a person's suitability for comparable work, where disclosure is lawful, fair and reasonably necessary to protect others.
 
 Unsupported allegations or unresolved rumours must not be presented as established fact.
 
-### 8.9
+### 8.13
 Credible safeguarding concerns must be acted upon and, where required or reasonably necessary to protect others, referred to an appropriate authority or organisation.
 
 ---
@@ -730,5 +784,5 @@ We accept accountability.
 
 ---
 
-**Version 0.10 — draft.**
+**Version 0.11 — draft.**
 

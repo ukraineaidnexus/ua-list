@@ -10,7 +10,7 @@ build:
 
 # Стандарти поведінки для волонтерів та організацій, що підтримують Україну
 
-**Проект v0.10 — для обговорення**
+**Проект v0.11 — для обговорення**
 
 ## Мета
 
@@ -296,6 +296,38 @@ build:
 
 **Репутація ніколи не повинна мати пріоритет над безпекою.**
 
+
+<div class="doc-status"><p><strong>ПЕРЕКЛАД ОЧІКУЄТЬСЯ / TRANSLATION PENDING.</strong> The clauses below were added in v0.11 and have not yet been translated. English text follows.</p></div>
+
+### 4.2
+Signatories must act within their competence, role and remit.
+
+A signatory must not assume a function that properly belongs to a trained professional, a military authority, a law enforcement body or a state agency.
+
+This includes, but is not limited to:
+
+- medical treatment, triage or clinical advice beyond the person's training;
+- psychological, trauma or crisis support beyond the person's training;
+- evacuation, recovery or rescue work in conditions requiring specialist competence;
+- security, reconnaissance, intelligence, target identification or any related activity;
+- covert investigation of, or surveillance of, individuals;
+- legal advice.
+
+Raising accountability concerns about fundraising is not covert investigation, and is dealt with in section 10.
+
+### 4.3
+Need, urgency, sincerity and the absence of anyone else doing the work do not create competence.
+
+That a task is genuinely necessary is not a reason for an unqualified person to attempt it. Where a need falls outside a signatory's competence, the appropriate response is to refer it to someone qualified or to a proper authority, and to say plainly that it is outside their remit.
+
+### 4.4
+A signatory whose activity expands materially beyond the work it is known and funded for must be able to demonstrate the competence, governance and authority appropriate to the new activity before undertaking it.
+
+Established reputation in one field is not competence in another, and an audience's confidence is not a qualification.
+
+
+<!-- TRANSLATION TODO (Ukrainian): translate the clauses above, then delete this comment and the TRANSLATION PENDING notice. Renumber the following clauses in this file to match the English. -->
+
 ---
 
 # 5. Надання підтримки у військовій сфері, у сфері контрольованих товарів та товарів подвійного призначення здійснюється законно та прозоро
@@ -480,6 +512,40 @@ build:
 
 ### 8.9
 На підставі обґрунтованих занепокоєнь щодо безпеки необхідно вживати відповідних заходів, а в разі потреби або якщо це обґрунтовано необхідно для захисту інших осіб, передавати справу до відповідного органу чи організації.
+
+
+<div class="doc-status"><p><strong>ПЕРЕКЛАД ОЧІКУЄТЬСЯ / TRANSLATION PENDING.</strong> The clauses below were added in v0.11 and have not yet been translated. English text follows.</p></div>
+
+### 8.5
+Signatories must not solicit, gather, compile or pass on identifying information about military units or personnel.
+
+This applies to unit designations and subordination, personnel names and callsigns, positions, strengths, capabilities, equipment holdings, and which unit is responsible for a given task or area.
+
+It applies whether the request is made publicly, by direct message, in a group, or in person, and whatever the stated purpose. Wanting to deliver aid, route a donation, offer support or expose wrongdoing does not make the resulting information safe. Aid is delivered without an inventory of who operates what and where.
+
+**Aggregation is itself the harm.** Individually unremarkable fragments, once compiled, become targeting material regardless of what the compiler intended to create.
+
+Inviting replies privately is not a safeguard. It conceals both the answers and who supplied them, and it reaches people who are not placed to judge what is safe to disclose.
+
+### 8.6
+Signatories must not respond to a request of the kind described in 8.5, including partially or with information believed to be already public.
+
+Such a request must be reported to an appropriate authority, and to the units affected where they can be identified.
+
+Where a request has been made publicly, or to a wide audience, the fact that it was made should also be said publicly, so that others do not respond to it.
+
+### 8.7
+Contact with a military unit must be established through legitimate channels, including the unit's own official channels, its press or liaison officer, the relevant ministry, or an established organisation with a pre-existing relationship.
+
+Where a signatory necessarily holds unit contact details for delivery purposes, those details must be held only as long as reasonably necessary, must not be shared, and must not be consolidated into any list, spreadsheet or database beyond what the work actually requires.
+
+### 8.8
+Standing, length of service, previous deliveries, awards, audience size and personal reputation are irrelevant to 8.5 to 8.7.
+
+A request from a well-known figure carries greater risk than the same request from a stranger, because more people will answer it.
+
+
+<!-- TRANSLATION TODO (Ukrainian): translate the clauses above, then delete this comment and the TRANSLATION PENDING notice. Renumber the following clauses in this file to match the English. -->
 
 ---
 
